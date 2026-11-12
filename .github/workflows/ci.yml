@@ -22,7 +22,6 @@ jobs:
     env:
       # Learn « Binary caching configuration » : NuGet recommandé pour GitHub Packages ; x-gha est retiré de vcpkg.
       VCPKG_FEED: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
-      VCPKG_BINARY_SOURCES: clear;nuget,https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json,readwrite
       VCPKG_DISABLE_METRICS: "1"
       CARGO_TERM_COLOR: always
     steps:
@@ -37,15 +36,20 @@ jobs:
       - run: bun sdk/tools/fetch-tools.ts
       - run: just lint
       - run: just web
-      # Source NuGet du cache vcpkg (Learn « Set up a vcpkg binary cache using GitHub Packages ») ; nuget.exe fourni par vcpkg,
-      # configuration NuGet de l'utilisateur partagée avec le vcpkg de Visual Studio.
+      # Cache vcpkg (Learn « Set up a vcpkg binary cache using GitHub Packages ») dans un nuget.config dédié, fournisseur
+      # nugetconfig (Learn « Binary caching configuration ») : ajoutée au nuget.config de l'utilisateur, la source cassait la
+      # restauration .NET en gestion centrale des paquets (NU1507 : 2 sources sans mappage), run 43282716395.
       - name: vcpkg binary cache (GitHub Packages)
         shell: bash
         run: |
+          cfg="$RUNNER_TEMP/vcpkg-nuget.config"
+          printf '%s\n' '<?xml version="1.0" encoding="utf-8"?>' '<configuration><packageSources><clear /></packageSources></configuration>' > "$cfg"
           nuget=$("$VCPKG_INSTALLATION_ROOT/vcpkg.exe" fetch nuget | tail -n 1)
-          "$nuget" sources add -Source "$VCPKG_FEED" -StorePasswordInClearText -Name GitHubPackages \
+          "$nuget" sources add -ConfigFile "$cfg" -Source "$VCPKG_FEED" -StorePasswordInClearText -Name GitHubPackages \
             -UserName "${{ github.repository_owner }}" -Password "${{ secrets.GITHUB_TOKEN }}"
-          "$nuget" setapikey "${{ secrets.GITHUB_TOKEN }}" -Source "$VCPKG_FEED"
+          "$nuget" setapikey "${{ secrets.GITHUB_TOKEN }}" -Source "$VCPKG_FEED" -ConfigFile "$cfg"
+          "$nuget" config -Set defaultPushSource="$VCPKG_FEED" -ConfigFile "$cfg"
+          echo "VCPKG_BINARY_SOURCES=clear;nugetconfig,$cfg,readwrite" >> "$GITHUB_ENV"
       - run: just probe
       - run: just app
       # Certificat de test MSIX généré à chaque exécution (Learn « Create a certificate for package signing »), jamais versionné :
