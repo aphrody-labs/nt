@@ -2,6 +2,8 @@
 //   DXC 1.9.2609 (release GitHub microsoft/DirectXShaderCompiler) -> tools/dxc/<windows|linux>/
 //   Agility SDK 1.620.2 (NuGet Microsoft.Direct3D.D3D12)          -> tools/dxc/microsoft.direct3d.d3d12/
 //   niubash 1.5.0 (Windows : shell des recettes just, SHA256SUMS)  -> tools/niubash/ (ajouté à GITHUB_PATH en CI)
+//   CMake 4.5.0 (Windows : `import std` stable, cmake.org SHA-256)  -> tools/cmake/   (pris par sdk/tools/vsdev.ts)
+//   Ninja 1.13.2 (Windows : générateur requis par `import std`)     -> tools/ninja/   (idem)
 // Usage : bun tools/fetch-tools.ts
 // Extraction : bsdtar de Windows (System32\tar.exe, lit les zip) ; unzip/tar sous Unix.
 import { appendFile, mkdir, rm } from "node:fs/promises";
@@ -60,5 +62,38 @@ if (win) {
   }
   if (process.env.GITHUB_PATH) await appendFile(process.env.GITHUB_PATH, `${bin}\n`);
   shell = `, niubash ${NIUBASH} -> ${bin}`;
+
+  // CMake 4.5.0 (cmake.org/files/v4.5/cmake-4.5.0-SHA-256.txt) et Ninja 1.13.2 (digest de la release GitHub) : la sonde
+  // C++23 `import std` exige CMake >= 4.5 et Ninja (cmake-cxxmodules(7)) ; winget et le runner n'ont que CMake 4.4.
+  const sha256 = async (file: string, want: string) => {
+    const got = new Bun.CryptoHasher("sha256").update(await Bun.file(file).bytes()).digest("hex");
+    if (got !== want) throw new Error(`${file} : SHA256 ${got} != ${want}`);
+  };
+  const CMAKE = "4.5.0";
+  const cmake = {
+    x64: { dir: `cmake-${CMAKE}-windows-x86_64`, sha: "301b1728317ccd84e984b02e366a8293735bc5ac618757d3d8f58b578f062411" },
+    arm64: { dir: `cmake-${CMAKE}-windows-arm64`, sha: "7dba95db83ec1e8fa3f221c06454ebc692c8f06d93bf5fdf840113fa28018690" },
+  }[arch];
+  const cmakeDir = join(root, "sdk", "tools", "cmake");
+  if (!(await Bun.file(join(cmakeDir, cmake.dir, "bin", "cmake.exe")).exists())) {
+    await mkdir(cmakeDir, { recursive: true });
+    const zip = join(cmakeDir, `${cmake.dir}.zip`);
+    await Bun.write(zip, await fetch(`https://cmake.org/files/v4.5/${cmake.dir}.zip`));
+    await sha256(zip, cmake.sha);
+    await extract(zip, cmakeDir);
+  }
+  const NINJA = "1.13.2";
+  const ninja = {
+    x64: { asset: "ninja-win.zip", sha: "07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65" },
+    arm64: { asset: "ninja-winarm64.zip", sha: "e52f0bdef9dfb1003229dbd6508a508c4073fd017247002adc66e5e806cb0391" },
+  }[arch];
+  const ninjaDir = join(root, "sdk", "tools", "ninja");
+  if (!(await Bun.file(join(ninjaDir, "ninja.exe")).exists())) {
+    await mkdir(ninjaDir, { recursive: true });
+    await $`gh release download v${NINJA} -R ninja-build/ninja -p ${ninja.asset} -D ${ninjaDir} --clobber`;
+    await sha256(join(ninjaDir, ninja.asset), ninja.sha);
+    await extract(join(ninjaDir, ninja.asset), ninjaDir);
+  }
+  shell += `, CMake ${CMAKE}, Ninja ${NINJA}`;
 }
 console.log(`outils prêts : DXC ${DXC_TAG} (${dxc.os}), Agility SDK ${AGILITY}${shell}`);

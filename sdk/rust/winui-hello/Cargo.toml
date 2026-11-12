@@ -1,0 +1,9 @@
+# Conventions des échantillons windows-rs (crates/samples/reactor/*) : version 0.0.0, édition 2024, non publié.
+[package]
+name = "reactor-winui-hello"
+version = "0.0.0"
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+windows-reactor = { workspace = true }

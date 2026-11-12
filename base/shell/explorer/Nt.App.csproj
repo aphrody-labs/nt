@@ -1,22 +1,58 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- Coque native nt : WinUI 3 (Windows App SDK 2.6.5, Fluent : NavigationView, Mica), non empaquetée et autonome.
-       Learn : « Unpackaged WinUI app » (WindowsPackageType None, WindowsAppSDKSelfContained), « custom Main »
-       (DISABLE_XAML_GENERATED_MAIN). Pas de XAML : interface construite en code. La scène du noyau est rendue par le
-       GPU (WebGPU) dans WebView2 ; le serveur local (src/host/server.ts) fournit les données ntdll, NTFS et icônes. -->
+  <!-- Coque native nt : WinUI 3 (Windows App SDK 2.6.5, Fluent : NavigationView, Mica), code seul (pas de XAML),
+       NativeAOT (Learn « Windows App SDK 1.6 release notes » : PublishAot pris en charge, classes WinRT `partial` ;
+       WebView2 AOT-compatible depuis le SDK 1.0.2839, ici 1.0.3719.77 via Microsoft.WindowsAppSDK.WinUI 2.6.5).
+       Deux sorties du même projet, Windows App SDK autonome dans les deux cas (aucun runtime à installer) :
+       - défaut : non empaqueté (WindowsPackageType None, « custom Main » DISABLE_XAML_GENERATED_MAIN) ;
+       - -p:NtPackage=msix : MSIX projet unique (Learn « Package your app using single-project MSIX », EnableMsixTooling,
+         GenerateAppxPackageOnBuild ; mêmes options que la CI de microsoft/WinUI-Gallery). Signé si NT_CERT (pfx) et
+         NT_CERT_PASSWORD sont définis ; dépendances Windows App SDK incluses dans le paquet (Learn « Windows App SDK
+         deployment guide for self-contained apps »), la cible _RemoveWindowsAppSDKFrameworkReferences du paquet
+         Microsoft.WindowsAppSDK.Base 2.6.5 retire la dépendance de framework. -->
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net11.0-windows10.0.26100.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.22621.0</TargetPlatformMinVersion>
     <UseWinUI>true</UseWinUI>
-    <WindowsPackageType>None</WindowsPackageType>
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <Platforms>x64;ARM64</Platforms>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <SelfContained>true</SelfContained>
-    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <PublishAot>true</PublishAot>
+    <!-- CsWinRT peut générer du code unsafe (Learn, notes 1.6 « Unsafe Code Error »). -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OptimizationPreference>Size</OptimizationPreference>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <InvariantGlobalization>true</InvariantGlobalization>
     <Nullable>enable</Nullable>
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(NtPackage)' != 'msix'">
+    <WindowsPackageType>None</WindowsPackageType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(NtPackage)' == 'msix'">
+    <WindowsPackageType>MSIX</WindowsPackageType>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxBundle>Never</AppxBundle>
+    <AppxSymbolPackageEnabled>false</AppxSymbolPackageEnabled>
+    <!-- NativeAOT : le .pdb IL et le .pdb natif ont le même nom (APPX1101) ; les .pdb sont de toute façon exclus du paquet
+         (AppxPackageIncludePrivateSymbols=false, Microsoft.Windows.SDK.BuildTools.MSIX 1.7.251221100). -->
+    <IncludeDebugSymbolsProjectOutputGroup>false</IncludeDebugSymbolsProjectOutputGroup>
+    <!-- Le paquet prend la sortie NativeAOT (groupe « publish items », GenerateAppxPackageOnBuild) ; le groupe CopyLocal
+         y ajouterait le runtime .NET autonome (coreclr.dll…) inutile : 101 Mo -> 51 Mo, mesuré le 2026-11-12. -->
+    <IncludeCopyLocalFilesOutputGroup>false</IncludeCopyLocalFilesOutputGroup>
+    <AppxPackageDir>$(ArtifactsPath)\msix\</AppxPackageDir>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    <AppxPackageSigningEnabled Condition="'$(NT_CERT)' != ''">true</AppxPackageSigningEnabled>
+    <PackageCertificateKeyFile Condition="'$(NT_CERT)' != ''">$(NT_CERT)</PackageCertificateKeyFile>
+    <PackageCertificatePassword Condition="'$(NT_CERT)' != ''">$(NT_CERT_PASSWORD)</PackageCertificatePassword>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(NtPackage)' == 'msix'">
+    <Content Include="Assets\*.png" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAppSDK" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" />

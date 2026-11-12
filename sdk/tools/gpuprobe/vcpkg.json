@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "nt-gpu-probe",
+  "version": "0.1.0",
+  "description": "Sonde des capacités Direct3D 12 de nt (C++23, import std).",
+  "supports": "windows & (x64 | arm64)",
+  "dependencies": ["directx-headers", "wil"]
+}

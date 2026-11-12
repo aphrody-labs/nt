@@ -1,6 +1,14 @@
 <Project>
+  <!-- Cibles .NET de nt (SDK 11, global.json) :
+       - applications : net11.0 (défaut ci-dessous), NativeAOT (PublishAot) ;
+       - bibliothèques consommées par d'autres hôtes .NET : net10.0 (LTS) + net11.0. Un projet de bibliothèque écrit
+         <TargetFramework /> puis <TargetFrameworks>$(NtLibraryTargetFrameworks)</TargetFrameworks> : un TargetFramework
+         hérité désactiverait le multi-ciblage. IsAotCompatible active les analyseurs AOT/trim sur chaque cible
+         (Learn « Prepare .NET libraries for trimming », « Native AOT deployment »). -->
   <PropertyGroup>
     <TargetFramework>net11.0</TargetFramework>
+    <NtLibraryTargetFrameworks>net10.0;net11.0</NtLibraryTargetFrameworks>
+    <IsAotCompatible Condition="'$(IsAotCompatible)' == ''">true</IsAotCompatible>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
