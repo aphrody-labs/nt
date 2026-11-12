@@ -5,6 +5,7 @@
 /node_modules/
 /target/
 /tools/dxc/
+/tools/niubash/
 /vendor/
 bin/
 node_modules/

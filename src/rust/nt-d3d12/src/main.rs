@@ -1,6 +1,8 @@
 //! nt-d3d12 — hôte natif Direct3D 12 du noyau nt (docs/plan/03-design-systeme.md §4.1).
 //! Swapchain 4K flip-discard ×3, tearing, waitable (latence 1), Agility SDK 1.620, timestamps GPU.
 //! Usage : `nt-d3d12 [--bench N] [--particles N] [--vsync]`
+//! Banc : JSON sur stdout ; `presentMs*` = intervalles entre deux Present (cadence réellement affichée en `--vsync`),
+//! `late` = intervalles > 1,5 × médiane (vblank manqué).
 #![allow(non_upper_case_globals)]
 
 #[cfg(not(windows))]
@@ -351,6 +353,8 @@ mod host {
         let start = Instant::now();
         let mut cpu: Vec<f64> = Vec::with_capacity(o.bench as usize);
         let mut gpu_ms: Vec<f64> = Vec::with_capacity(o.bench as usize);
+        let mut present_ms: Vec<f64> = Vec::with_capacity(o.bench as usize);
+        let mut last_present = Instant::now();
         let mut frames = 0u32;
         let mut sim = 0.0f64;
         let mut last_report = Instant::now();
@@ -373,14 +377,21 @@ mod host {
             frames += 1;
             window_frames += 1;
             if bench > 0 {
+                let now_present = Instant::now();
+                if frames > 1 {
+                    present_ms.push((now_present - last_present).as_secs_f64() * 1000.0);
+                }
+                last_present = now_present;
                 cpu.push(t0.elapsed().as_secs_f64() * 1000.0);
                 if g.is_finite() {
                     gpu_ms.push(g);
                 }
                 if frames >= bench {
                     let wall = start.elapsed().as_secs_f64();
+                    let present_p50 = pct(&mut present_ms, 0.5);
+                    let late = present_ms.iter().filter(|&&x| x > 1.5 * present_p50).count();
                     println!(
-                        "{{\"frames\":{frames},\"res\":\"{W}x{H}\",\"instances\":{n},\"adapter\":\"{}\",\"tearing\":{},\"wallFps\":{:.1},\"cpuMsP50\":{:.4},\"cpuMsP99\":{:.4},\"gpuMsP50\":{:.4},\"gpuMsP99\":{:.4},\"gpuMsMax\":{:.4}}}",
+                        "{{\"frames\":{frames},\"res\":\"{W}x{H}\",\"instances\":{n},\"adapter\":\"{}\",\"tearing\":{},\"wallFps\":{:.1},\"cpuMsP50\":{:.4},\"cpuMsP99\":{:.4},\"gpuMsP50\":{:.4},\"gpuMsP99\":{:.4},\"gpuMsMax\":{:.4},\"vsync\":{},\"presentMsP50\":{:.4},\"presentMsP99\":{:.4},\"presentMsMax\":{:.4},\"late\":{}}}",
                         gpu.adapter,
                         gpu.tearing,
                         f64::from(frames) / wall,
@@ -388,7 +399,12 @@ mod host {
                         pct(&mut cpu, 0.99),
                         pct(&mut gpu_ms, 0.5),
                         pct(&mut gpu_ms, 0.99),
-                        pct(&mut gpu_ms, 1.0)
+                        pct(&mut gpu_ms, 1.0),
+                        o.vsync,
+                        present_p50,
+                        pct(&mut present_ms, 0.99),
+                        pct(&mut present_ms, 1.0),
+                        late
                     );
                     quit();
                     return Ok(false);
