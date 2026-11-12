@@ -8,7 +8,10 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PublishAot>true</PublishAot>
+    <!-- PublishAot seulement pour la publication native (-r <rid>) : sinon le SDK écrit les commutateurs AOT dans le
+         .runtimeconfig.json du build IL (EnableConsumingManagedCodeFromNativeHosting=false, IsDynamicCodeSupported=false)
+         et hostfxr refuse le composant (HostFeatureDisabled, 0x800080a7). Constaté avec le SDK 11.0.100 le 2026-11-12. -->
+    <PublishAot Condition="'$(RuntimeIdentifier)' != ''">true</PublishAot>
     <IsAotCompatible>true</IsAotCompatible>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <InvariantGlobalization>true</InvariantGlobalization>

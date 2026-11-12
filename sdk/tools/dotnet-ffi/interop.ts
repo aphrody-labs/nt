@@ -12,7 +12,9 @@ export const paths = {
   native: join(root, "target", "dotnet", "publish", "Nt.Interop", `release_${rid}`, native),
   bindings: join(root, "target", "dotnet-ffi", "Nt.Interop.js"),
 };
-export const built = existsSync(paths.il) && existsSync(paths.native) && existsSync(paths.bindings);
+/** Chemin hébergé : assemblage IL + liaisons ; chemin natif : en plus le binaire NativeAOT. */
+export const builtHosted = existsSync(paths.il) && existsSync(paths.bindings);
+export const built = builtHosted && existsSync(paths.native);
 
 export type SystemInfo = {
   major: number;

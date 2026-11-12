@@ -2,9 +2,9 @@
 import { beforeAll, describe, expect, test } from "bun:test";
 import { sharedChecks } from "./checks.ts";
 import { hostDotnet, openHosted } from "./hostfxr.ts";
-import { type Api, type Bindings, built, load, paths } from "./interop.ts";
+import { type Api, type Bindings, builtHosted, load, paths } from "./interop.ts";
 
-describe.skipIf(!built)("Nt.Interop CoreCLR (hostfxr)", () => {
+describe.skipIf(!builtHosted)("Nt.Interop CoreCLR (hostfxr)", () => {
   let ctx: { b: Bindings; api: Api };
   beforeAll(async () => {
     const b = await load();

@@ -32,14 +32,12 @@ const newer = (a: string, b: string) => {
   return (x.pre ?? "") > (y.pre ?? "");
 };
 
-/** Racines .NET candidates : DOTNET_ROOT, dossier de `dotnet` dans le PATH, emplacements d'installation par défaut. */
+/** Racines .NET candidates, sans chemin en dur : DOTNET_ROOT, puis dossier réel de `dotnet` trouvé dans le PATH. */
 export function dotnetRoots(): string[] {
   const roots: string[] = [];
   if (process.env.DOTNET_ROOT) roots.push(process.env.DOTNET_ROOT);
   const exe = Bun.which("dotnet");
   if (exe) roots.push(dirname(realpathSync(exe)));
-  if (win) roots.push(join(process.env.ProgramFiles ?? "C:\\Program Files", "dotnet"));
-  else roots.push("/usr/share/dotnet", "/usr/lib/dotnet", "/usr/local/share/dotnet", "/opt/dotnet");
   return [...new Set(roots)];
 }
 
