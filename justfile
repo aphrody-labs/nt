@@ -47,3 +47,23 @@ probe:
 [windows]
 app:
     dotnet publish base/shell/explorer -c Release -r {{ rid }}
+
+# .NET -> bun sans node-api-dotnet (docs/bun/dotnet-native.md) : Nt.Interop en IL (hostfxr) et NativeAOT, puis liaisons
+# bun:ffi générées depuis les métadonnées ECMA-335 -> target/dotnet-ffi. Compile : CI uniquement.
+interop:
+    dotnet build sdk/dotnet/Nt.Interop -c Release
+    dotnet publish sdk/dotnet/Nt.Interop -c Release -r {{ rid }}
+    bun sdk/tools/dotnet-ffi/gen.ts target/dotnet/bin/Nt.Interop/release/Nt.Interop.dll --out target/dotnet-ffi --native target/dotnet/publish/Nt.Interop/release_{{ rid }}
+
+# Tests d'interop (après `just interop`) : NativeAOT puis CoreCLR hébergé, chacun dans son processus
+test-interop:
+    bun test ./sdk/tools/dotnet-ffi/native.test.ts
+    bun test ./sdk/tools/dotnet-ffi/hosted.test.ts
+
+# Coût d'appel bun -> .NET (OS, JS, NativeAOT, CoreCLR) -> target/bench/dotnet-ffi-<rid>.json
+bench-interop:
+    NT_RID={{ rid }} bun sdk/tools/dotnet-ffi/bench.ts
+
+# Graphe des fonctionnalités de bun amont (arbre source local) -> docs/bun/feature-graph.{json,md}
+bun-graph src:
+    bun sdk/tools/bun-graph.ts {{ src }} --out docs/bun

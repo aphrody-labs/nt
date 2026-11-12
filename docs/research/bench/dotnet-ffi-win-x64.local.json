@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12T18:25:59.208Z",
+  "rid": "win-x64",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-13700F",
+  "bun": "1.4.4+38afee6c8",
+  "iterations": 1000000,
+  "unit": "ns/appel (médiane de 7)",
+  "results": {
+    "js": {
+      "add": 0.3
+    },
+    "c": {
+      "openMs": 0.08,
+      "noop": 2.2,
+      "label": "kernel32!GetCurrentProcessId"
+    },
+    "aot": {
+      "openMs": 2.63,
+      "framework": ".NET 11.0.0",
+      "noop": 3.3,
+      "add": 3.5,
+      "tickCountI64": 11.2,
+      "systemInfoStruct": 8943.9,
+      "utf8InCstring": 21.5,
+      "utf16InBuffer": 51.3,
+      "utf16OutString": 303.6,
+      "callbackPerCall": 59.1
+    },
+    "coreclr": {
+      "openMs": 29.13,
+      "framework": ".NET 11.0.0",
+      "noop": 5.1,
+      "add": 5.1,
+      "tickCountI64": 12.7,
+      "systemInfoStruct": 8926.7,
+      "utf8InCstring": 23.1,
+      "utf16InBuffer": 51.1,
+      "utf16OutString": 300.2,
+      "callbackPerCall": 59.1
+    }
+  }
+}
