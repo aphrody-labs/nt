@@ -74,10 +74,16 @@ bench-interop:
 bun-graph src:
     bun sdk/tools/bun-graph.ts {{ src }} --out docs/bun
 
-# Index et graphe récursif du Windows App SDK (winmd NuGet livrés + IDL, fonctionnalités, specs, tests des dépôts)
-# -> target/index/winappsdk.sqlite, docs/winappsdk/feature-graph.{json,md}
-winappsdk-graph wasdk mux:
-    bun sdk/tools/winappsdk-graph.ts {{ wasdk }} {{ mux }}
+# Index récursif et prouvé de la pile Microsoft du poste (Win32/WDK/WinRT, Windows App SDK + WinUI 3, .NET 10/11, windows-rs,
+# UCRT/CRT/STL) -> target/index/msindex.sqlite, docs/msindex/{lock.json,README.md}. src : racine du monorepo src.
+[windows]
+msindex src:
+    bun sdk/tools/msindex/main.ts --src {{ src }}
+
+# Reproductibilité : entrées identiques au verrou docs/msindex/lock.json et même empreinte de graphe, sinon échec
+[windows]
+msindex-verify src:
+    bun sdk/tools/msindex/main.ts --src {{ src }} --verify
 
 # Coque en MSIX projet unique -> target/dotnet/msix/ ; signé si NT_CERT (pfx) et NT_CERT_PASSWORD sont définis
 [windows]

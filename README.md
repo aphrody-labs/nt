@@ -13,13 +13,14 @@ sdk/tools/host/     lecture du Windows réel via bun:ffi
                     pe-icon.ts      icônes réelles des PE, chemins des processus, volume NTFS et $MFT
                     desktop-svg.ts  bureau entier vectorisé en SVG (UI Automation)
                     server.ts       Bun.serve : WebSocket /kernel, /api/icon, /api/index, /desktop.svg
+sdk/tools/msindex/  index récursif de la pile Microsoft (ECMA-335, API Sets, chargeur, registre WinRT, RoGetActivationFactory), verrouillé
 sdk/tools/gpuprobe/ sonde des capacités Direct3D 12 (C++23 `import std`, CMake 4.5 + Ninja, vcpkg : WIL, DirectX-Headers)
 sdk/tools/          fetch-tools.ts : DXC 1.9.2609, Agility SDK 1.620.2, niubash 1.5.0, CMake 4.5.0, Ninja 1.13.2 ; vsdev.ts : environnement VS
 sdk/vcpkg/ports/    ports vcpkg aphrody-labs (overlay) : directx-headers 1.620.2, wil
 sdk/rust/           WinUI 3 depuis Rust (windows-reactor, fork windows-rs épinglé)
 .config/            configuration.winget : poste de développement (WinGet Configuration v3, DSC v3)
 docs/               plan/ (architecture), research/ (faits relevés sur le poste), bun/, interop/,
-                    winappsdk/ (index + graphe récursif du Windows App SDK : just winappsdk-graph)
+                    msindex/ (pile Microsoft indexée et prouvée sur le poste : just msindex <src>)
 ```
 
 Le cœur Rust de nt est le monorepo à plat basé sur windows-rs : fork `aphrody-labs/windows-rs`, branches `nt/monorepo` et `nt/wasm`.
