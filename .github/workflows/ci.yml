@@ -1,5 +1,5 @@
-# CI nt : toute compilation se fait ici (consigne du propriétaire : aucune compilation sur le poste).
-# Windows (VS 2026, .NET 11, D3D12 WARP) + Linux (wasm, ffi, shell NativeAOT, compilation croisée).
+# CI nt : toute compilation se fait ici (aucune compilation sur le poste du propriétaire).
+# Windows : coque WinUI 3, sonde D3D12, scène GPU. Linux : lint et scène GPU.
 # Versions des actions relevées le 2026-11-12 (gh api repos/<action>/releases/latest).
 name: ci
 on:
@@ -11,17 +11,13 @@ concurrency:
   cancel-in-progress: true
 permissions: { contents: read }
 env:
-  RUSTC_WRAPPER: sccache
-  SCCACHE_GHA_ENABLED: "true"
-  CARGO_TERM_COLOR: always
   GH_TOKEN: ${{ github.token }}
 jobs:
   windows:
     runs-on: windows-2025-vs2026
-    timeout-minutes: 60
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
-      - uses: mozilla-actions/sccache-action@v0.0.11
       - uses: actions/setup-dotnet@v6
         with: { global-json-file: global.json }
       - uses: oven-sh/setup-bun@v2
@@ -30,49 +26,23 @@ jobs:
       # DXC, Agility SDK et niubash (shell des recettes just) ; niubash est ajouté au PATH des étapes suivantes.
       - run: bun sdk/tools/fetch-tools.ts
       - run: just lint
-      - run: just test
-      - run: just build
+      - run: just web
+      - run: just probe
       - run: just app
-      - run: just cross
-      - run: bun sdk/tools/budgets.ts --json target/budgets-windows.json
-      # Fumée D3D12 sur l'adaptateur logiciel du runner (WARP) : pas de GPU, donc pas de mesure de performance.
-      - name: d3d12 smoke (WARP)
-        continue-on-error: true
-        timeout-minutes: 5
-        run: ./target/x86_64-pc-windows-msvc/release/nt-d3d12.exe --bench 60 --particles 1000
       - uses: actions/upload-artifact@v7
         with:
           name: nt-windows-x64
           path: |
-            target/x86_64-pc-windows-msvc/release/nt-d3d12.exe
-            target/x86_64-pc-windows-msvc/release/D3D12/
-            target/dotnet/publish/Nt.Shell/release_win-x64/
-            target/dotnet/publish/Nt.App/release_win-x64/
             target/web/
-            target/budgets-windows.json
+            target/dotnet/publish/Nt.App/release_win-x64/
           if-no-files-found: error
   linux:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
-      - uses: mozilla-actions/sccache-action@v0.0.11
-      - uses: actions/setup-dotnet@v6
-        with: { global-json-file: global.json }
       - uses: oven-sh/setup-bun@v2
       - uses: taiki-e/install-action@v2
         with: { tool: just }
-      - run: bun sdk/tools/fetch-tools.ts
       - run: just lint
-      - run: just test
-      - run: just wasm ffi web shell
-      - run: just cross
-      - run: bun sdk/tools/budgets.ts --json target/budgets-linux.json
-      - uses: actions/upload-artifact@v7
-        with:
-          name: nt-linux-x64
-          path: |
-            target/dotnet/publish/Nt.Shell/release_linux-x64/
-            target/web/
-            target/budgets-linux.json
-          if-no-files-found: error
+      - run: just web

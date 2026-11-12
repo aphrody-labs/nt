@@ -2,9 +2,8 @@
 // des PE, bureau vectorisé en SVG.
 //   /                noyau NT en 3D (WebGPU, aucun texte DOM)   WebSocket /kernel : échantillons ntdll (ntsys.ts)
 //   /api/icon?path=  icône réelle d'un PE (.ico)                /api/index/{stats,tree,search} : SQLite (winindex.ts)
-//   /desktop.svg     bureau entier (UI Automation)              /demo, /nt.wasm, /stats : démo wasm et mesures
+//   /desktop.svg     bureau entier (UI Automation)              /stats : mesures d'affichage (?report=1)
 // Usage : bun src/host/server.ts   [PORT=8787] [NT_HZ=15]
-import demo from "../../../shell/web/index.html";
 import app from "../../../shell/web/nt.html";
 import { desktopSvg } from "./desktop-svg.ts";
 import { createSampler, type Slow } from "./ntsys.ts";
@@ -12,7 +11,6 @@ import { iconOf, ntfsVolume, processPath } from "./pe-icon.ts";
 import { DB_PATH, openIndex } from "./winindex.ts";
 
 const root = new URL("../../../", import.meta.url);
-const wasmPath = new URL("target/wasm32-unknown-unknown/wasm/nt_web.wasm", root);
 const statsPath = new URL("target/web-live-stats.json", root);
 const port = Number(process.env.PORT ?? 8787);
 const hz = Math.min(60, Math.max(1, Number(process.env.NT_HZ ?? 15)));
@@ -38,7 +36,6 @@ const server = Bun.serve({
   development: process.env.NODE_ENV !== "production",
   routes: {
     "/": app,
-    "/demo": demo,
     "/kernel": (req, srv) => (srv.upgrade(req) ? undefined : new Response("WebSocket attendu", { status: 426 })),
     "/api/icon": async (req) => {
       const path = new URL(req.url).searchParams.get("path") ?? "";
@@ -107,7 +104,6 @@ const server = Bun.serve({
       },
       GET: () => new Response(Bun.file(statsPath)),
     },
-    "/nt.wasm": () => new Response(Bun.file(wasmPath), { headers: { "content-type": "application/wasm", "cache-control": "no-store" } }),
   },
   websocket: {
     open(ws) {
@@ -160,5 +156,5 @@ if (sampler) {
   setInterval(refreshSlow, 2000);
 }
 console.log(
-  `nt http://localhost:${port}/ (noyau 3D, rendu GPU, ${hz} Hz) · /desktop.svg · /api/index/stats${index ? "" : " (index absent)"} · /demo`,
+  `nt http://localhost:${port}/ (noyau 3D, rendu GPU, ${hz} Hz) · /desktop.svg · /api/index/stats${index ? "" : " (index absent)"}`,
 );

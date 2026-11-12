@@ -1,6 +1,6 @@
 # Rust dans Windows — enquête (2026-11-12)
 
-Méthode : preuves sur le poste (Windows 11 Insider Dev, build 28120.3302, branche `br_release_flt`), doc Microsoft Learn, dépôts GitHub crawlés (`docs/ms/data/repos.json`). Aucune information issue de la mémoire du modèle.
+Méthode : preuves sur le poste (Windows 11 Insider Dev, build 28120.3302, branche `br_release_flt`), doc Microsoft Learn, API GitHub live (`gh api`). Aucune information issue de la mémoire du modèle.
 
 ## 1. Position officielle
 

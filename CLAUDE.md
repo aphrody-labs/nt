@@ -1,10 +1,10 @@
 # nt
 
-- Source de vérité : docs/plan/ (plan, stack, cahier des charges, design, decisions.md). Mesures : docs/research/bench/.
-- Aucune affirmation sans source datée (vendor + commit, Learn, API live, mesure). On est fin 2026.
-- Entrée unique : `just` (tools, test, lint, build, serve, bench-native, cross). Rust : nightly-2026-11-11 (rust-toolchain.toml), sccache.
-- Releases minimales : `--config .cargo/release.toml` (wasm/no_std, build-std core) ; `--config .cargo/release-native.toml` (exe, build-std std).
-- windows-rs = fork aphrody-labs en dépendance git épinglée par commit (pas de chemin local). DXC et Agility SDK par OS hôte dans tools/dxc (`just tools`).
-- JS/TS : bun uniquement (bun check, bun fmt, Bun.serve, bun build). .NET 11 NativeAOT (RID -> triplet Rust). C++23 en-têtes standard via CMake presets (import std expérimental dans CMake 4.4 : exclu).
-- Portable et stable uniquement : aucun chemin absolu, lien ou jonction ; recettes `[windows]`/`[unix]` dans le justfile ; shell Windows = niubash.
-- Budgets (cahier des charges §2-3) : frame p99 ≤ 8,33 ms à 4K, wasm ≤ 64 Kio, exe natif ≤ 1 Mio, shell AOT ≤ 8 Mio, 0 alloc/frame.
+- Source de vérité : docs/plan/architecture-microsoft.md (faits relevés et décisions du 2026-11-12). Faits du poste : docs/research/.
+- Aucune affirmation sans source datée (fork + commit, Learn, API live, mesure). On est fin 2026.
+- Ce que nt montre est **réel** : le noyau Windows de ce poste lu par ntdll, son NTFS, ses PE (icônes, chemins), son bureau (UI Automation). Pas de démo synthétique.
+- Rendu GPU pur (WebGPU, Direct3D 12) : aucun texte DOM dans la scène ; 4K, frame p99 ≤ 8,33 ms (120 Hz), mesuré sur l'écran réel avec `?report=1`.
+- Pile : coque WinUI 3 (Windows App SDK 2.6.5), webui + Fluent UI (forks aphrody-labs), node-api-dotnet pour .NET ↔ bun, cœur Rust = monorepo windows-rs (fork aphrody-labs, branches nt/*).
+- Entrée unique : `just` (tools, lint, web, serve, index, desktop-svg, probe, app). JS/TS : bun uniquement. .NET 11. C++23 via CMake presets.
+- Aucune compilation sur le poste : CI GitHub (`.github/workflows/ci.yml`) ou prd.
+- Portable : aucun chemin absolu, lien ou jonction ; recettes `[windows]`/`[unix]` ; shell Windows = niubash.

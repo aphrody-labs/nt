@@ -1,8 +1,0 @@
-{
-  "date": "2026-11-12",
-  "host": "Chrome 158 (Windows 11 build 28120.3302), adapter nvidia/lovelace (RTX 4070, driver 621.14)",
-  "url": "http://localhost:8787/?res=3840x2160&n=10000&bench=1200",
-  "kernel_wasm_bytes": 14568,
-  "result": {"frames":1200,"res":"3840x2160","instances":10039,"wallFps":1551.59,"wallMsPerFrame":0.6445,"cpuMsP50":0.20,"cpuMsP99":0.40,"gpuMsP50":0.1966,"gpuMsP99":2.4248,"gpuMsMax":8.6508,"budget120HzMs":8.3333},
-  "notes": "Rendu hors écran 4K (bgra8unorm), timestamps WebGPU (quantifiés par le navigateur). rAF à 1 Hz quand la fenêtre Chrome est occultée : la cadence affichée dépend de la visibilité, pas du moteur."
-}

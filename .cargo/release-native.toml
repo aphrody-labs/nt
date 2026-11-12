@@ -1,7 +1,0 @@
-# Release native minimale (modèle microsoft/edit) : cargo build --release --config .cargo/release-native.toml
-[profile.release]
-panic = "immediate-abort"
-
-[unstable]
-panic-immediate-abort = true
-build-std = ["std", "panic_abort"]

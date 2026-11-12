@@ -1,6 +1,0 @@
-# Épinglé : commit 3ef0c22cdb86 (2026-11-11) — docs/plan/01-stack.md
-[toolchain]
-channel = "nightly-2026-11-11"
-components = ["rust-src", "rustfmt", "clippy"]
-targets = ["wasm32-unknown-unknown", "x86_64-pc-windows-msvc", "aarch64-pc-windows-msvc", "x86_64-unknown-linux-musl"]
-profile = "minimal"
