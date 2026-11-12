@@ -1,9 +1,10 @@
 # CI nt : toute compilation se fait ici (aucune compilation sur le poste du propriétaire).
 # Windows : coque WinUI 3, sonde D3D12, scène GPU. Linux : lint et scène GPU.
+# interop : .NET 11 -> bun sans node-api-dotnet (NativeAOT + CoreCLR/hostfxr), liaisons générées, tests et mesures.
 # Versions des actions relevées le 2026-11-12 (gh api repos/<action>/releases/latest).
 name: ci
 on:
-  push: { branches: [main] }
+  push: { branches: [main, "nt/**"] }
   pull_request:
   workflow_dispatch:
 concurrency:
@@ -46,3 +47,33 @@ jobs:
         with: { tool: just }
       - run: just lint
       - run: just web
+  interop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025-vs2026, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with: { global-json-file: global.json }
+      - uses: oven-sh/setup-bun@v2
+      - uses: taiki-e/install-action@v2
+        with: { tool: just }
+      # niubash : shell des recettes just sous Windows.
+      - if: runner.os == 'Windows'
+        run: bun sdk/tools/fetch-tools.ts
+      # NativeAOT sous Linux : clang et zlib (Learn « Native AOT deployment », prérequis).
+      - if: runner.os == 'Linux'
+        run: sudo apt-get install -y --no-install-recommends clang zlib1g-dev
+      - run: just interop
+      - run: just test-interop
+      - run: just bench-interop
+      - uses: actions/upload-artifact@v7
+        with:
+          name: interop-${{ runner.os }}
+          path: |
+            target/dotnet-ffi/
+            target/bench/
+          if-no-files-found: error

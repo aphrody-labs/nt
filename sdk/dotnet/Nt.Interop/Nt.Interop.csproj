@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Nt.Interop : faits réels de l'hôte exposés en ABI C, consommés par bun:ffi sans node-api-dotnet.
+       Deux sorties du même code (docs/bun/dotnet-native.md) :
+       - dotnet publish -r <rid> : bibliothèque NativeAOT (exports [UnmanagedCallersOnly(EntryPoint)]) ; Learn « Building native libraries » ;
+       - dotnet build : assemblage IL + .runtimeconfig.json (EnableDynamicLoading) pour l'hôte CoreCLR via hostfxr.
+       L'assemblage IL est aussi l'entrée du générateur sdk/tools/dotnet-ffi/gen.ts (métadonnées ECMA-335).
+       Compilé en CI uniquement. -->
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishAot>true</PublishAot>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- CA1031 : aucune exception ne doit traverser une frontière UnmanagedCallersOnly (échec immédiat du processus) ;
+         CA1051/CA1815 : structures d'interop blittables à champs publics, sans égalité. -->
+    <NoWarn>$(NoWarn);CA1031;CA1051;CA1815</NoWarn>
+  </PropertyGroup>
+</Project>

@@ -2,4 +2,7 @@
   <Folder Name="/base/">
     <Project Path="base/shell/explorer/Nt.App.csproj" />
   </Folder>
+  <Folder Name="/sdk/">
+    <Project Path="sdk/dotnet/Nt.Interop/Nt.Interop.csproj" />
+  </Folder>
 </Solution>
