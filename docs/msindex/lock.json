@@ -3,7 +3,7 @@
  "date": "2026-11-12",
  "tool": {
   "path": "sdk/tools/msindex",
-  "commit": "0230acb2c3f9d6f66e6396b5dffacabeac143b34",
+  "commit": "4feb800ec44f8187d5a913d87171708ff16cfc18",
   "bun": "1.4.4"
  },
  "machine": {
@@ -39,7 +39,7 @@
   },
   "windows-rs": {
    "remote": "https://github.com/aphrody-labs/windows-rs",
-   "commit": "055939ca8dbd86518f564b6a286fac3daa065765",
+   "commit": "2196dbbc276d989369c40d3ff6fad16d7e7e35b0",
    "date": "2026-11-12",
    "dirty": false
   }
@@ -587,13 +587,13 @@
   },
   {
    "root": "src",
-   "path": "third_party/windows-rs-nt/crates/libs/default/Windows.Win32.winmd",
+   "path": "third_party/windows-rs/crates/libs/default/Windows.Win32.winmd",
    "size": 14456320,
    "sha256": "a74c9df5469cbfb8dea826129a281cd6311029e132acae3ed2a137622f12b0a1"
   },
   {
    "root": "src",
-   "path": "third_party/windows-rs-nt/crates/libs/default/Windows.winmd",
+   "path": "third_party/windows-rs/crates/libs/default/Windows.winmd",
    "size": 4668416,
    "sha256": "acca774164ef51fc894503644e1ae1305d106ba1705c6a41cf11b3639efdab92"
   },
@@ -665,12 +665,12 @@
   }
  ],
  "digests": {
-  "graph": "b5d1c0a702bf230483005e0d4709162870fec4e05132a000a0211ac859ce912a",
-  "proofs": "e270b706cae93f1fd1ee1ea1a2ec25af9a90f88cf9ae717674d0d121947db050"
+  "graph": "1b9767a8e6b276d7c3766b9379880d9e815ab34b8112e7b7e5f66ec5db7976a1",
+  "proofs": "8ce53b64fdda6ca36d74a0ab68705c1d85f1595776993e868f3c706c582bde95"
  },
  "counts": {
-  "nodes": 533264,
-  "edges": 132283,
+  "nodes": 533266,
+  "edges": 132294,
   "proofs": 53358,
   "kinds": {
    "constant": 155908,
@@ -696,7 +696,7 @@
    "attribute": 825,
    "assembly": 343,
    "idl-enum": 328,
-   "crate": 324,
+   "crate": 326,
    "idl-interface": 171,
    "idl": 170,
    "component": 95,

@@ -3,14 +3,14 @@
 Généré le 2026-11-12 par `sdk/tools/msindex` (`just msindex <src>`), vérifiable par `just msindex-verify <src>`.
 Machine : Windows 26H1 build 28120 (28000.7.amd64fre.br_release_flt.260716-1702). Index : `target/index/msindex.sqlite` (tables node, edge, proof, fts).
 
-Empreinte du graphe : `b5d1c0a702bf230483005e0d4709162870fec4e05132a000a0211ac859ce912a` ; des preuves : `e270b706cae93f1fd1ee1ea1a2ec25af9a90f88cf9ae717674d0d121947db050`.
+Empreinte du graphe : `1b9767a8e6b276d7c3766b9379880d9e815ab34b8112e7b7e5f66ec5db7976a1` ; des preuves : `8ce53b64fdda6ca36d74a0ab68705c1d85f1595776993e868f3c706c582bde95`.
 
 ## Sources
 
-- Win32 + WDK + WinRT : Windows.Win32.winmd et Windows.winmd de windows-rs (055939ca8d), Windows.Wdk.winmd (NuGet microsoft.windows.wdk.win32metadata 0.13.25-experimental, SHA-512 vérifié).
+- Win32 + WDK + WinRT : Windows.Win32.winmd et Windows.winmd de windows-rs (2196dbbc27), Windows.Wdk.winmd (NuGet microsoft.windows.wdk.win32metadata 0.13.25-experimental, SHA-512 vérifié).
 - Windows App SDK 2.6.5 : 11 paquets NuGet ; sources WindowsAppSDK et microsoft-ui-xaml (1723 types IDL, 17 fonctionnalités).
 - .NET : .NET 10.0.15, .NET 11.0.0 (packs de référence et runtime partagé).
-- windows-rs : 324 crates du monorepo nt.
+- windows-rs : 326 crates du monorepo nt.
 - C/C++ : UCRT 10.0.26100.0 (1529 déclarations, 1257 exportées par ucrtbase.dll), 11 DLL CRT/STL, `import std` MSVC 14.52.37025 (894 noms).
 - API Sets : schéma v6 du système, 989 contrats.
 
@@ -53,7 +53,7 @@ Empreinte du graphe : `b5d1c0a702bf230483005e0d4709162870fec4e05132a000a0211ac85
 - attribute : 825
 - assembly : 343
 - idl-enum : 328
-- crate : 324
+- crate : 326
 - idl-interface : 171
 - idl : 170
 - component : 95

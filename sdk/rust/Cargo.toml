@@ -1,5 +1,5 @@
 # Échantillons Rust de nt sur la pile WinUI de windows-rs (windows-reactor : WinUI 3 déclaratif, Windows App SDK 2.x).
-# Le cœur Rust de nt vit dans le monorepo windows-rs (fork aphrody-labs, branches nt/*) ; ici seulement des échantillons.
+# Le cœur Rust de nt vit dans le monorepo windows-rs (fork aphrody-labs, master) ; ici seulement des échantillons.
 [workspace]
 resolver = "3"
 members = ["winui-hello"]

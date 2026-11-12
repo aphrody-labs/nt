@@ -36,21 +36,21 @@ Sources : cinq relevés en lecture seule (forks aphrody-labs dans `third_party/`
 
 ## Décisions
 
-1. Le cœur de nt est un monorepo à plat dont la base est le fork aphrody-labs/windows-rs (branche `nt/monorepo`).
+1. Le cœur de nt est un monorepo à plat dont la base est le fork aphrody-labs/windows-rs (branche master ; tout le travail nt est sur la branche par défaut des forks).
    - Les crates de nt rejoignent `crates/libs/nt-*`.
    - Les projets Rust OS de Microsoft sont importés en sous-arbres compressés (squash), avec leur provenance dans un manifeste.
    - On unifie dans le workspace ce qui se résout ensemble ; le reste est exclu, avec ses blocages listés.
-2. windows-rs passe sur wasm32 (branche `nt/wasm`) : une fonction Win32 ou NT devient une importation wasm (module = DLL, nom = symbole), fournie par l'hôte « NT dans le navigateur ».
-3. L'outillage JS de webui passe entièrement sur bun (branche `nt/bun`) : workspaces et catalogues bun, Bun.build, bun test.
-4. Fluent UI web components est converti au format de gabarits webui (branche `nt/webui-templates` du fork fluentui).
+2. windows-rs passe sur wasm32 (master du fork, docs/wasm.md) : une fonction Win32 ou NT devient une importation wasm (module = DLL, nom = symbole), fournie par l'hôte « NT dans le navigateur ».
+3. L'outillage JS de webui passe entièrement sur bun (main du fork) : workspaces et catalogues bun, Bun.build, bun test.
+4. Fluent UI web components est converti au format de gabarits webui (master du fork fluentui), et Fluent UI React v9 passe sur bun (scripts/bun).
 5. Coques :
    - WinUI 3 (Windows App SDK 2.6.5) pour la coque native ;
    - webui + Fluent pour la coque web ;
    - la scène noyau est en rendu GPU pur (Direct3D 12 natif, WebGPU dans le navigateur) ;
-   - la passerelle .NET ↔ bun passe par node-api-dotnet (addon NativeAOT).
+   - la passerelle .NET ↔ bun est directe : bun:ffi sur NativeAOT ou CoreCLR hébergé via hostfxr, sans node-api-dotnet (docs/bun/dotnet-native.md).
 6. Aucune compilation sur le poste : la compilation se fait sur GitHub Actions (forks aphrody-labs) ou sur prd.
 
-## Chaîne d'outils native — décisions du 2026-11-12 (branche `nt/toolchain`)
+## Chaîne d'outils native — décisions du 2026-11-12
 
 Sources consultées le jour même : Kitware/CMake `v4.5.0` (Help/release/4.5.rst, cmake-cxxmodules(7)), Learn (vcpkg binary caching,
 single-project MSIX, Windows App SDK 1.6/2.x, Native AOT, WinGet Configuration v3, MSVC 14.52 / VS 18.12), microsoft/vcpkg@177e8175,

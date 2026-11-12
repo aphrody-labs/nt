@@ -23,7 +23,7 @@ docs/               plan/ (architecture), research/ (faits relevés sur le poste
                     msindex/ (pile Microsoft indexée et prouvée sur le poste : just msindex <src>)
 ```
 
-Le cœur Rust de nt est le monorepo à plat basé sur windows-rs : fork `aphrody-labs/windows-rs`, branches `nt/monorepo` et `nt/wasm`.
+Le cœur Rust de nt est le monorepo à plat basé sur windows-rs : fork `aphrody-labs/windows-rs` (master).
 
 ```
 just serve        # http://localhost:8787/  (?report=1 : mesure d'affichage réelle)

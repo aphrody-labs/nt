@@ -77,7 +77,7 @@ const ucrtVer = dirs(join(kits, "Include"))
 const repos = {
   WindowsAppSDK: join(src, "third_party", "WindowsAppSDK"),
   "microsoft-ui-xaml": join(src, "third_party", "microsoft-ui-xaml"),
-  "windows-rs": join(src, "third_party", "windows-rs-nt"),
+  "windows-rs": join(src, "third_party", "windows-rs"),
 };
 const props = await Bun.file(join(nt, "Directory.Packages.props")).text();
 const wasdkVersion = /Include="Microsoft\.WindowsAppSDK" Version="([^"]+)"/.exec(props)![1]!;
