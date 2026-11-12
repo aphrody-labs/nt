@@ -1,0 +1,15 @@
+# Flags par cible — docs/plan/01-stack.md (baseline x86-64-v3, durcissement façon microsoft/mxc, microsoft/sudo)
+[target.x86_64-pc-windows-msvc]
+rustflags = [
+  "-Ctarget-cpu=x86-64-v3",
+  "-Ccontrol-flow-guard",
+  "-Ctarget-feature=+crt-static",
+  "-Clink-args=/DYNAMICBASE /CETCOMPAT",
+  "-Clink-args=/DEFAULTLIB:ucrt.lib /NODEFAULTLIB:vcruntime.lib /NODEFAULTLIB:msvcrt.lib /NODEFAULTLIB:libucrt.lib",
+]
+
+[target.aarch64-pc-windows-msvc]
+rustflags = ["-Ctarget-feature=+crt-static", "-Ccontrol-flow-guard", "-Clink-args=/DYNAMICBASE"]
+
+[target.wasm32-unknown-unknown]
+rustflags = ["-Ctarget-feature=+simd128"]

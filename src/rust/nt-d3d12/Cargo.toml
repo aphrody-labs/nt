@@ -1,0 +1,20 @@
+[package]
+name = "nt-d3d12"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "nt-d3d12"
+path = "src/main.rs"
+
+[dependencies]
+nt-kernel.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true, features = ["d3d12", "dxgi", "d3dcommon", "synchapi", "winuser", "winbase", "profileapi", "handleapi"] }
+windows-window.workspace = true
+
+[lints]
+workspace = true

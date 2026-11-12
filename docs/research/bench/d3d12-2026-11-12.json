@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-12",
+  "binary": "target/x86_64-pc-windows-msvc/release/nt-d3d12.exe (126464 octets, build-std + panic immediate-abort + LTO fat, sans vcruntime140.dll)",
+  "runtime": "d3d12.dll 10.0.28000.3302 ; D3D12Core.dll 1.620.2.0.20261106.5 (Agility, dossier D3D12\) ; nvwgf2umx.dll 32.0.16.2114",
+  "result": {"frames":1200,"res":"3840x2160","instances":10039,"adapter":"NVIDIA GeForce RTX 4070","tearing":true,"wallFps":797.4,"cpuMsP50":0.2179,"cpuMsP99":0.5248,"gpuMsP50":0.2519,"gpuMsP99":0.3205,"gpuMsMax":0.3789},
+  "debug_run": {"frames":600,"wallFps":875.4,"gpuMsP50":0.2519,"gpuMsP99":0.3185}
+}

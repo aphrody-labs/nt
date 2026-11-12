@@ -1,0 +1,114 @@
+# fluent2.microsoft.design
+
+2 sitemaps lus, 131 URLs.
+
+## Sections
+
+| Section | URLs |
+|---|---:|
+| `/` | 131 |
+
+## Dernières pages modifiées
+
+| lastmod | URL |
+|---|---|
+| - | https://fluent2.microsoft.design/ |
+| - | https://fluent2.microsoft.design/accessibility/ |
+| - | https://fluent2.microsoft.design/ai-harm/ |
+| - | https://fluent2.microsoft.design/color-tokens/ |
+| - | https://fluent2.microsoft.design/color-tokens2/ |
+| - | https://fluent2.microsoft.design/color/ |
+| - | https://fluent2.microsoft.design/component-roadmap/ |
+| - | https://fluent2.microsoft.design/components/android/ |
+| - | https://fluent2.microsoft.design/components/android/core/avatar/usage/ |
+| - | https://fluent2.microsoft.design/components/android/core/avatargroup/usage/ |
+| - | https://fluent2.microsoft.design/components/android/core/button/usage/ |
+| - | https://fluent2.microsoft.design/components/android/core/progressindicator/usage/ |
+| - | https://fluent2.microsoft.design/components/android/core/shimmer/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/ |
+| - | https://fluent2.microsoft.design/components/ios/core/activityindicator/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/avatar/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/avatargroup/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/button/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/cardnudge/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/hud/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/navigationbar/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/progressbar/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/segmentedcontrol/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/shimmer/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/textfield/usage/ |
+| - | https://fluent2.microsoft.design/components/ios/core/tooltip/usage/ |
+| - | https://fluent2.microsoft.design/components/react-native/ |
+| - | https://fluent2.microsoft.design/components/web/react/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatinput/attachment/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatinput/suggestions/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatinput/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/citationsandreferences/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/copilotmessage/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/sensitivity/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/timestamp/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/chatoutput/usermessage/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/copilotfre/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/entitycards/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/ghosttext/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/promptstarters/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/ai/systemmessage/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/accordion/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/avatar/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/avatargroup/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/badge/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/breadcrumb/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/button/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/card/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/carousel/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/checkbox/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/combobox/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/dialog/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/divider/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/drawer/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/dropdown/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/field/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/fluentprovider/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/icon/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/image/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/infolabel/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/input/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/label/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/link/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/list/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/menu/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/messagebar/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/nav/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/persona/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/popover/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/progressbar/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/radiogroup/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/rating/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/searchbox/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/select/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/skeleton/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/slider/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/spin/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/spinner/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/switch/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/tablist/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/tag/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/tagpicker/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/text/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/textarea/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/toast/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/toolbar/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/tooltip/usage/ |
+| - | https://fluent2.microsoft.design/components/web/react/core/tree/usage/ |
+| - | https://fluent2.microsoft.design/components/windows/ |
+| - | https://fluent2.microsoft.design/content-design/ |
+| - | https://fluent2.microsoft.design/content-engineering/ |
+| - | https://fluent2.microsoft.design/content-engineering/build-a-prompt-set-and-assertions-for-an-eval/ |
+| - | https://fluent2.microsoft.design/content-engineering/decide-what-to-evaluate-first/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-good-output-quality/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-output-requirements-by-experience-type/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-prompts-for-complex-tasks/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-system-level-behavior/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-task-behavior-patterns/ |
+| - | https://fluent2.microsoft.design/content-engineering/define-tone-and-context-behavior/ |

@@ -1,0 +1,114 @@
+# code.visualstudio.com
+
+1 sitemaps lus, 502 URLs.
+
+## Sections
+
+| Section | URLs |
+|---|---:|
+| `/` | 502 |
+
+## Dernières pages modifiées
+
+| lastmod | URL |
+|---|---|
+| - | https://code.visualstudio.com/ |
+| - | https://code.visualstudio.com/features/agents |
+| - | https://code.visualstudio.com/docs |
+| - | https://code.visualstudio.com/updates |
+| - | https://code.visualstudio.com/license |
+| - | https://code.visualstudio.com/brand |
+| - | https://code.visualstudio.com/blogs |
+| - | https://code.visualstudio.com/migrate-from-brackets |
+| - | https://code.visualstudio.com/docs/supporting/faq |
+| - | https://code.visualstudio.com/docs/supporting/troubleshoot-terminal-launch |
+| - | https://code.visualstudio.com/search |
+| - | https://code.visualstudio.com/download |
+| - | https://code.visualstudio.com/insiders |
+| - | https://code.visualstudio.com/docs/supporting/requirements |
+| - | https://code.visualstudio.com/docs/introvideos/basics |
+| - | https://code.visualstudio.com/docs/introvideos/configure |
+| - | https://code.visualstudio.com/docs/introvideos/codeediting |
+| - | https://code.visualstudio.com/docs/introvideos/versioncontrol |
+| - | https://code.visualstudio.com/docs/introvideos/productivity |
+| - | https://code.visualstudio.com/docs/introvideos/extend |
+| - | https://code.visualstudio.com/docs/introvideos/debugging |
+| - | https://code.visualstudio.com/docs/getstarted/overview |
+| - | https://code.visualstudio.com/docs/getstarted/what-is-vscode |
+| - | https://code.visualstudio.com/docs/getstarted/introvideos |
+| - | https://code.visualstudio.com/docs/setup/mac |
+| - | https://code.visualstudio.com/docs/setup/linux |
+| - | https://code.visualstudio.com/docs/setup/windows |
+| - | https://code.visualstudio.com/docs/setup/raspberry-pi |
+| - | https://code.visualstudio.com/docs/setup/network |
+| - | https://code.visualstudio.com/docs/setup/additional-components |
+| - | https://code.visualstudio.com/docs/enterprise/overview |
+| - | https://code.visualstudio.com/docs/enterprise/policies |
+| - | https://code.visualstudio.com/docs/enterprise/manage-ai-settings |
+| - | https://code.visualstudio.com/docs/enterprise/telemetry |
+| - | https://code.visualstudio.com/docs/enterprise/updates |
+| - | https://code.visualstudio.com/docs/enterprise/extensions |
+| - | https://code.visualstudio.com/docs/setup/uninstall |
+| - | https://code.visualstudio.com/docs/agents/quickstart |
+| - | https://code.visualstudio.com/docs/agents/agents-tutorial |
+| - | https://code.visualstudio.com/docs/agents/cloud-continuity-tutorial |
+| - | https://code.visualstudio.com/docs/configure/extensions/extensions |
+| - | https://code.visualstudio.com/docs/editing/getting-started/overview |
+| - | https://code.visualstudio.com/docs/editing/getting-started/tips-and-tricks |
+| - | https://code.visualstudio.com/docs/editing/getting-started/userinterface |
+| - | https://code.visualstudio.com/docs/configure/settings |
+| - | https://code.visualstudio.com/docs/getstarted/personalize-vscode |
+| - | https://code.visualstudio.com/docs/configure/themes |
+| - | https://code.visualstudio.com/docs/configure/keybindings |
+| - | https://code.visualstudio.com/docs/configure/locales |
+| - | https://code.visualstudio.com/docs/configure/telemetry |
+| - | https://code.visualstudio.com/docs/editing/codebasics |
+| - | https://code.visualstudio.com/docs/editing/editingevolved |
+| - | https://code.visualstudio.com/docs/configure/extensions/extension-marketplace |
+| - | https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security |
+| - | https://code.visualstudio.com/docs/editing/intellisense |
+| - | https://code.visualstudio.com/docs/editing/refactoring |
+| - | https://code.visualstudio.com/docs/remote/vscode-web |
+| - | https://code.visualstudio.com/docs/debugtest/debugging |
+| - | https://code.visualstudio.com/docs/debugtest/debugging-configuration |
+| - | https://code.visualstudio.com/docs/debugtest/testing |
+| - | https://code.visualstudio.com/docs/configure/command-line |
+| - | https://code.visualstudio.com/docs/editor/glob-patterns |
+| - | https://code.visualstudio.com/docs/debugtest/tasks |
+| - | https://code.visualstudio.com/docs/configure/settings-sync |
+| - | https://code.visualstudio.com/docs/configure/profiles |
+| - | https://code.visualstudio.com/docs/debugtest/port-forwarding |
+| - | https://code.visualstudio.com/docs/debugtest/integrated-browser |
+| - | https://code.visualstudio.com/docs/configure/custom-layout |
+| - | https://code.visualstudio.com/docs/sourcecontrol/overview |
+| - | https://code.visualstudio.com/docs/sourcecontrol/quickstart |
+| - | https://code.visualstudio.com/docs/sourcecontrol/repos-remotes |
+| - | https://code.visualstudio.com/docs/sourcecontrol/staging-commits |
+| - | https://code.visualstudio.com/docs/sourcecontrol/history |
+| - | https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees |
+| - | https://code.visualstudio.com/docs/sourcecontrol/merge-conflicts |
+| - | https://code.visualstudio.com/docs/sourcecontrol/github |
+| - | https://code.visualstudio.com/docs/sourcecontrol/troubleshooting |
+| - | https://code.visualstudio.com/docs/sourcecontrol/faq |
+| - | https://code.visualstudio.com/docs/terminal/basics |
+| - | https://code.visualstudio.com/docs/terminal/getting-started |
+| - | https://code.visualstudio.com/docs/terminal/profiles |
+| - | https://code.visualstudio.com/docs/terminal/shell-integration |
+| - | https://code.visualstudio.com/docs/terminal/appearance |
+| - | https://code.visualstudio.com/docs/terminal/advanced |
+| - | https://code.visualstudio.com/docs/setup/copilot |
+| - | https://code.visualstudio.com/docs/editing/ai-powered-suggestions |
+| - | https://code.visualstudio.com/docs/agents/agent-troubleshooting/chat-debug-view |
+| - | https://code.visualstudio.com/docs/agents/agent-troubleshooting/cache-explorer |
+| - | https://code.visualstudio.com/docs/agents/run/approvals |
+| - | https://code.visualstudio.com/docs/agents/run/agent-sandboxing |
+| - | https://code.visualstudio.com/docs/agents/run/tools |
+| - | https://code.visualstudio.com/docs/agents/run/manage-mcp-servers |
+| - | https://code.visualstudio.com/docs/agents/run/browser-tools |
+| - | https://code.visualstudio.com/docs/agents/run/review-code-edits |
+| - | https://code.visualstudio.com/docs/chat/copilot-chat-context |
+| - | https://code.visualstudio.com/docs/chat/chat-overview |
+| - | https://code.visualstudio.com/docs/agents/run/planning |
+| - | https://code.visualstudio.com/docs/agents/run/memory |
+| - | https://code.visualstudio.com/docs/chat/inline-chat |
+| - | https://code.visualstudio.com/docs/agents/guides/test-driven-development-guide |

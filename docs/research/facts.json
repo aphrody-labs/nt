@@ -1,0 +1,886 @@
+{
+ "fetchedAt": "2026-11-12T13:00:26.134Z",
+ "rustNightly": "rustc 1.102.0-nightly (3ef0c22cd 2026-11-11)",
+ "dotnet": [
+  {
+   "channel": "11.0",
+   "latestRelease": "11.0.0",
+   "date": "2026-11-10",
+   "sdk": "11.0.100",
+   "phase": "active",
+   "type": "sts",
+   "eol": "2028-11-14"
+  },
+  {
+   "channel": "10.0",
+   "latestRelease": "10.0.15",
+   "date": "2026-11-10",
+   "sdk": "10.0.404",
+   "phase": "active",
+   "type": "lts",
+   "eol": "2028-11-14"
+  },
+  {
+   "channel": "9.0",
+   "latestRelease": "9.0.23",
+   "date": "2026-11-10",
+   "sdk": "9.0.321",
+   "phase": "eol",
+   "type": "sts",
+   "eol": "2026-11-10"
+  },
+  {
+   "channel": "8.0",
+   "latestRelease": "8.0.34",
+   "date": "2026-11-10",
+   "sdk": "8.0.428",
+   "phase": "eol",
+   "type": "lts",
+   "eol": "2026-11-10"
+  }
+ ],
+ "nuget": {
+  "Microsoft.Direct3D.D3D12": {
+   "latestStable": "1.620.2",
+   "latest": "1.722.1-preview",
+   "count": 64
+  },
+  "Microsoft.Direct3D.DXC": {
+   "latestStable": "101.7.2207.25",
+   "latest": "101.7.2207.25",
+   "count": 33
+  },
+  "Microsoft.Direct3D.WARP": {
+   "latestStable": "1.0.22",
+   "latest": "1.65535.22-preview",
+   "count": 38
+  },
+  "Microsoft.Direct3D.DirectStorage": {
+   "latestStable": "1.3.0",
+   "latest": "1.4.0-preview2-2606.904",
+   "count": 12
+  },
+  "Microsoft.WindowsAppSDK": {
+   "latestStable": "2.6.5",
+   "latest": "2.6.6-experimental",
+   "count": 127
+  },
+  "Microsoft.Windows.CsWin32": {
+   "latestStable": "0.3.371",
+   "latest": "0.3.371",
+   "count": 68
+  },
+  "Microsoft.Windows.SDK.BuildTools": {
+   "latestStable": "10.0.28000.2957",
+   "latest": "10.0.29648.1000-preview",
+   "count": 116
+  },
+  "Microsoft.Windows.CppWinRT": {
+   "latestStable": "3.0.260818.1",
+   "latest": "3.0.260818.1",
+   "count": 142
+  },
+  "Microsoft.Windows.ImplementationLibrary": {
+   "latestStable": "1.0.260126.7",
+   "latest": "1.0.260126.7",
+   "count": 24
+  },
+  "Microsoft.DotNet.ILCompiler": {
+   "latestStable": "11.0.0",
+   "latest": "11.0.0",
+   "count": 140
+  },
+  "Microsoft.Windows.SDK.NET.Ref": {
+   "latestStable": "10.0.28000.87",
+   "latest": "10.0.28000.87",
+   "count": 405
+  },
+  "Microsoft.NET.Runtime.WebAssembly.Sdk": {
+   "latestStable": "11.0.0",
+   "latest": "11.0.0",
+   "count": 186
+  },
+  "MSTest.Sdk": {
+   "latestStable": "4.5.3",
+   "latest": "4.5.3",
+   "count": 60
+  },
+  "Microsoft.Testing.Platform": {
+   "latestStable": "2.5.3",
+   "latest": "2.5.3",
+   "count": 65
+  }
+ },
+ "cratesio": {
+  "windows": {
+   "max": "0.62.2",
+   "updated": "2025-10-06",
+   "downloads": 404877683
+  },
+  "windows-sys": {
+   "max": "0.61.2",
+   "updated": "2025-10-06",
+   "downloads": 1913826103
+  },
+  "windows-core": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 539585771
+  },
+  "windows-bindgen": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 6738514
+  },
+  "windows-window": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 3822
+  },
+  "windows-reactor": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 7867
+  },
+  "windows-link": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 561060051
+  },
+  "windows-metadata": {
+   "max": "0.100.0",
+   "updated": "2026-09-03",
+   "downloads": 5454897
+  },
+  "wdk": {
+   "max": "0.5.0",
+   "updated": "2026-10-26",
+   "downloads": 357443
+  },
+  "wdk-sys": {
+   "max": "0.5.2",
+   "updated": "2026-10-26",
+   "downloads": 371457
+  },
+  "wdk-build": {
+   "max": "0.6.0",
+   "updated": "2026-10-26",
+   "downloads": 406745
+  },
+  "mimalloc": {
+   "max": "0.1.52",
+   "updated": "2026-05-22",
+   "downloads": 74880051
+  },
+  "hyperlight-host": {
+   "max": "0.19.0",
+   "updated": "2026-11-04",
+   "downloads": 114770
+  },
+  "wgpu": {
+   "max": "30.0.1",
+   "updated": "2026-08-22",
+   "downloads": 49723374
+  },
+  "wasm-bindgen": {
+   "max": "0.2.130",
+   "updated": "2026-10-30",
+   "downloads": 653470910
+  },
+  "web-sys": {
+   "max": "0.3.107",
+   "updated": "2026-10-30",
+   "downloads": 468442188
+  }
+ },
+ "gh": {
+  "oven-sh/bun": {
+   "pushed": "2026-11-12",
+   "stars": 96671,
+   "license": "NOASSERTION",
+   "releases": [
+    {
+     "tag": "bun-v1.4.4",
+     "date": "2026-10-22",
+     "pre": false
+    },
+    {
+     "tag": "bun-v1.4.3",
+     "date": "2026-10-10",
+     "pre": false
+    },
+    {
+     "tag": "bun-v1.4.2",
+     "date": "2026-09-05",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/DirectXShaderCompiler": {
+   "pushed": "2026-11-11",
+   "stars": 3695,
+   "license": "NOASSERTION",
+   "releases": [
+    {
+     "tag": "v1.9.2609",
+     "date": "2026-09-29",
+     "pre": false
+    },
+    {
+     "tag": "v1.10.2605.37",
+     "date": "2026-08-12",
+     "pre": true
+    },
+    {
+     "tag": "v1.9.2607",
+     "date": "2026-07-29",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/DirectX-Headers": {
+   "pushed": "2026-11-11",
+   "stars": 749,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v1.722.1-preview",
+     "date": "2026-11-09",
+     "pre": true
+    },
+    {
+     "tag": "v1.620.2",
+     "date": "2026-11-09",
+     "pre": false
+    },
+    {
+     "tag": "v1.722.0-preview",
+     "date": "2026-10-28",
+     "pre": true
+    }
+   ]
+  },
+  "microsoft/windows-rs": {
+   "pushed": "2026-11-11",
+   "stars": 12913,
+   "license": "Apache-2.0",
+   "releases": [
+    {
+     "tag": "74",
+     "date": "2026-09-03",
+     "pre": false
+    },
+    {
+     "tag": "73",
+     "date": "2026-02-17",
+     "pre": false
+    },
+    {
+     "tag": "72",
+     "date": "2026-01-08",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/windows-drivers-rs": {
+   "pushed": "2026-11-10",
+   "stars": 1940,
+   "license": "Apache-2.0",
+   "releases": [
+    {
+     "tag": "wdk-v0.5.0",
+     "date": "2026-10-26",
+     "pre": false
+    },
+    {
+     "tag": "wdk-sys-v0.5.2",
+     "date": "2026-10-26",
+     "pre": false
+    },
+    {
+     "tag": "wdk-panic-v0.5.0",
+     "date": "2026-10-26",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/openvmm": {
+   "pushed": "2026-11-12",
+   "stars": 1965,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "openvmm-v0.4.0",
+     "date": "2026-10-28",
+     "pre": false
+    },
+    {
+     "tag": "openvmm-v0.3.0",
+     "date": "2026-10-22",
+     "pre": false
+    },
+    {
+     "tag": "openvmm-v0.2.0",
+     "date": "2026-10-02",
+     "pre": false
+    }
+   ]
+  },
+  "hyperlight-dev/hyperlight": {
+   "pushed": "2026-11-12",
+   "stars": 4801,
+   "license": "Apache-2.0",
+   "releases": [
+    {
+     "tag": "dev-latest",
+     "date": "2026-11-12",
+     "pre": true
+    },
+    {
+     "tag": "v0.19.0",
+     "date": "2026-11-04",
+     "pre": false
+    },
+    {
+     "tag": "v0.18.0",
+     "date": "2026-10-14",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/litebox": {
+   "pushed": "2026-11-12",
+   "stars": 3279,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v0.1.0",
+     "date": "2026-10-07",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/mxc": {
+   "pushed": "2026-11-12",
+   "stars": 3134,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v1.0.1",
+     "date": "2026-10-17",
+     "pre": false
+    },
+    {
+     "tag": "v1.0.0",
+     "date": "2026-10-07",
+     "pre": false
+    },
+    {
+     "tag": "v0.9.0",
+     "date": "2026-09-29",
+     "pre": true
+    }
+   ]
+  },
+  "microsoft/WindowsAppSDK": {
+   "pushed": "2026-11-12",
+   "stars": 4731,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v2.6.6-exp",
+     "date": "2026-11-07",
+     "pre": true
+    },
+    {
+     "tag": "v2.6.5",
+     "date": "2026-11-03",
+     "pre": false
+    },
+    {
+     "tag": "v2.6.4",
+     "date": "2026-10-27",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/microsoft-ui-xaml": {
+   "pushed": "2026-11-12",
+   "stars": 8603,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "winui3/release/2.6.6-experimental",
+     "date": "2026-11-11",
+     "pre": true
+    },
+    {
+     "tag": "winui3/release/2.6.5",
+     "date": "2026-11-11",
+     "pre": false
+    },
+    {
+     "tag": "winui3/release/2.6.4",
+     "date": "2026-10-31",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/terminal": {
+   "pushed": "2026-11-11",
+   "stars": 105375,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v1.26.3133.0",
+     "date": "2026-11-11",
+     "pre": true
+    },
+    {
+     "tag": "v1.25.3131.0",
+     "date": "2026-11-11",
+     "pre": false
+    },
+    {
+     "tag": "v1.26.2734.0",
+     "date": "2026-10-02",
+     "pre": true
+    }
+   ]
+  },
+  "microsoft/WSL": {
+   "pushed": "2026-11-12",
+   "stars": 34359,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "3.0.5",
+     "date": "2026-11-03",
+     "pre": false
+    },
+    {
+     "tag": "3.0.4",
+     "date": "2026-10-20",
+     "pre": true
+    },
+    {
+     "tag": "3.0.3",
+     "date": "2026-10-09",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/edit": {
+   "pushed": "2026-11-07",
+   "stars": 14772,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v2.0.0",
+     "date": "2026-04-28",
+     "pre": false
+    },
+    {
+     "tag": "v1.2.1",
+     "date": "2025-10-15",
+     "pre": false
+    },
+    {
+     "tag": "v1.2.0",
+     "date": "2025-06-11",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/mimalloc": {
+   "pushed": "2026-11-12",
+   "stars": 13539,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v3.6.1",
+     "date": "2026-10-30",
+     "pre": false
+    },
+    {
+     "tag": "v3.6.0",
+     "date": "2026-10-23",
+     "pre": false
+    },
+    {
+     "tag": "v3.5.3",
+     "date": "2026-09-17",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/STL": {
+   "pushed": "2026-11-12",
+   "stars": 11189,
+   "license": "NOASSERTION",
+   "releases": [
+    {
+     "tag": "msvc-build-tools-14.51",
+     "date": "2026-06-23",
+     "pre": false
+    },
+    {
+     "tag": "msvc-build-tools-14.50",
+     "date": "2025-11-14",
+     "pre": false
+    },
+    {
+     "tag": "vs-2022-17.14",
+     "date": "2025-05-14",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/CsWin32": {
+   "pushed": "2026-11-11",
+   "stars": 2528,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v0.3.371",
+     "date": "2026-11-10",
+     "pre": false
+    },
+    {
+     "tag": "v0.3.369",
+     "date": "2026-11-06",
+     "pre": false
+    },
+    {
+     "tag": "v0.3.367",
+     "date": "2026-10-22",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/win32metadata": {
+   "pushed": "2026-11-06",
+   "stars": 1510,
+   "license": "NOASSERTION",
+   "releases": [
+    {
+     "tag": "v71.0.45-preview",
+     "date": "2026-11-05",
+     "pre": false
+    },
+    {
+     "tag": "v71.0.37-preview",
+     "date": "2026-10-19",
+     "pre": false
+    },
+    {
+     "tag": "v71.0.30-preview",
+     "date": "2026-10-07",
+     "pre": false
+    }
+   ]
+  },
+  "dotnet/runtime": {
+   "pushed": "2026-11-12",
+   "stars": 18426,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v9.0.23",
+     "date": "2026-11-10",
+     "pre": false
+    },
+    {
+     "tag": "v9.0.22",
+     "date": "2026-11-10",
+     "pre": false
+    },
+    {
+     "tag": "v8.0.34",
+     "date": "2026-11-10",
+     "pre": false
+    }
+   ]
+  },
+  "dotnet/sdk": {
+   "pushed": "2026-11-12",
+   "stars": 3247,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "v9.0.321",
+     "date": "2026-11-10",
+     "pre": false
+    },
+    {
+     "tag": "v8.0.428",
+     "date": "2026-11-10",
+     "pre": false
+    },
+    {
+     "tag": "v9.0.320",
+     "date": "2026-11-10",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/vcpkg": {
+   "pushed": "2026-11-12",
+   "stars": 27597,
+   "license": "MIT",
+   "releases": [
+    {
+     "tag": "2026.10.16",
+     "date": "2026-10-20",
+     "pre": false
+    },
+    {
+     "tag": "2026.07.29",
+     "date": "2026-07-31",
+     "pre": false
+    },
+    {
+     "tag": "2026.06.24",
+     "date": "2026-06-26",
+     "pre": false
+    }
+   ]
+  },
+  "microsoft/DirectStorage": {
+   "pushed": "2026-11-11",
+   "stars": 910,
+   "license": "MIT",
+   "releases": []
+  },
+  "gfx-rs/wgpu": {
+   "pushed": "2026-11-11",
+   "stars": 18523,
+   "license": "Apache-2.0",
+   "releases": [
+    {
+     "tag": "v30.0.1",
+     "date": "2026-08-22",
+     "pre": false
+    },
+    {
+     "tag": "v29.0.4",
+     "date": "2026-07-02",
+     "pre": false
+    },
+    {
+     "tag": "v30.0.0",
+     "date": "2026-07-01",
+     "pre": false
+    }
+   ]
+  },
+  "gpuweb/gpuweb": {
+   "pushed": "2026-11-10",
+   "stars": 5530,
+   "license": "NOASSERTION",
+   "releases": []
+  }
+ },
+ "webgpu": [
+  {
+   "name": "Decisions API",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: atomic-vec2u-min-max",
+   "status": "Proposed",
+   "desktop": 157
+  },
+  {
+   "name": "WebGPU: Texture Compression Unaligned",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU HDR texture import",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGL drawingBufferToneMapping",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: WGSL Swizzle Assignment",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: WGSL Fragment Depth",
+   "status": "Proposed",
+   "desktop": 156
+  },
+  {
+   "name": "Language Detector API on Android",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: Subgroup Size Control",
+   "status": "Proposed",
+   "desktop": 152
+  },
+  {
+   "name": "WebGPU: `buffer_view` feature",
+   "status": "Proposed",
+   "desktop": 153
+  },
+  {
+   "name": "Embedding API",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: Immediates",
+   "status": "Proposed",
+   "desktop": 150
+  },
+  {
+   "name": "WebGPU: `linear_indexing` feature",
+   "status": "Proposed",
+   "desktop": 148
+  },
+  {
+   "name": "WebGPU: Transient attachments",
+   "status": "Proposed",
+   "desktop": 146
+  },
+  {
+   "name": "WebGPU: Texture and Sampler Lets",
+   "status": "Proposed",
+   "desktop": 146
+  },
+  {
+   "name": "WebGPU: `subgroup_uniformity` feature",
+   "status": "Proposed",
+   "desktop": 145
+  },
+  {
+   "name": "WebGPU: `subgroup_id` feature",
+   "status": "Proposed",
+   "desktop": 144
+  },
+  {
+   "name": "WebGPU: Uniform buffer standard layout",
+   "status": "Proposed",
+   "desktop": 144
+  },
+  {
+   "name": "WebGPU: Texture component swizzle",
+   "status": "Proposed",
+   "desktop": 143
+  },
+  {
+   "name": "Canvas2D tone mapping",
+   "status": "Proposed",
+   "desktop": 160
+  },
+  {
+   "name": "WebGPU: Texture formats tier1 and tier2",
+   "status": "Proposed",
+   "desktop": 142
+  },
+  {
+   "name": "WebGPU: 'primitive_index' feature",
+   "status": "Proposed",
+   "desktop": 142
+  },
+  {
+   "name": "HDR headroom query",
+   "status": "Proposed",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: 3D texture support for BC and ASTC compressed formats",
+   "status": "Proposed",
+   "desktop": 139
+  },
+  {
+   "name": "WebGPU 'core-features-and-limits'",
+   "status": "Proposed",
+   "desktop": 139
+  },
+  {
+   "name": "Prompt API",
+   "status": "Proposed",
+   "desktop": 148
+  },
+  {
+   "name": "WebGPU: Deprecate GPUAdapter isFallbackAdapter attribute",
+   "status": "Proposed",
+   "desktop": 138
+  },
+  {
+   "name": "WebGPU: GPUTextureView for externalTexture binding",
+   "status": "Proposed",
+   "desktop": 137
+  },
+  {
+   "name": "WebGPU: copyBufferToBuffer overload",
+   "status": "Proposed",
+   "desktop": 137
+  },
+  {
+   "name": "WebGPU: GPUAdapterInfo isFallbackAdapter attribute",
+   "status": "In developer trial (Behind a flag)",
+   "desktop": 136
+  },
+  {
+   "name": "WebGPU Compatibility mode",
+   "status": "Proposed",
+   "desktop": 146
+  },
+  {
+   "name": "WebGPU: implement requestAdapter()'s featureLevel placeholder",
+   "status": "In developer trial (Behind a flag)",
+   "desktop": null
+  },
+  {
+   "name": "WebGPU: 1-component vertex formats (and unorm8x4-bgra)",
+   "status": "Enabled by default",
+   "desktop": 133
+  },
+  {
+   "name": "Remove WebGPU limit maxInterStageShaderComponents",
+   "status": "Removed",
+   "desktop": 135
+  },
+  {
+   "name": "WebGPU: Expose GPUAdapterInfo from GPUDevice",
+   "status": "Enabled by default",
+   "desktop": 132
+  },
+  {
+   "name": "WebGPU: 32-bit float textures blending",
+   "status": "Enabled by default",
+   "desktop": 132
+  },
+  {
+   "name": "WebGPU: Texture view usage",
+   "status": "Enabled by default",
+   "desktop": 132
+  },
+  {
+   "name": "WebGPU: GPUCanvasContext getConfiguration()",
+   "status": "Enabled by default",
+   "desktop": 131
+  },
+  {
+   "name": "WebGPU: Clip Distances",
+   "status": "Enabled by default",
+   "desktop": 131
+  },
+  {
+   "name": "Remove non-standard GPUAdapter requestAdapterInfo() method",
+   "status": "Removed",
+   "desktop": 131
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+[install]
+exact = true
+minimumReleaseAge = "3d"
+
+[fmt]
+printWidth = 140
+ignorePatterns = ["vendor/", "docs/", "target/", "artifacts/"]

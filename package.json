@@ -1,0 +1,12 @@
+{
+  "name": "nt",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "src/web"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@webgpu/types": "latest"
+  }
+}

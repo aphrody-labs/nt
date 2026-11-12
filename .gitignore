@@ -1,0 +1,13 @@
+*.tsbuildinfo
+.vs/
+/artifacts/
+/docs/ms/data/sites/
+/node_modules/
+/target/
+/tools/dxc/
+/vendor/
+bin/
+node_modules/
+obj/
+/build/
+/.claude/settings.local.json

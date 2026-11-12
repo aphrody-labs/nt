@@ -1,0 +1,114 @@
+# playwright.dev
+
+1 sitemaps lus, 359 URLs.
+
+## Sections
+
+| Section | URLs |
+|---|---:|
+| `/` | 359 |
+
+## Dernières pages modifiées
+
+| lastmod | URL |
+|---|---|
+| - | https://playwright.dev/community/conference-videos |
+| - | https://playwright.dev/community/feature-videos |
+| - | https://playwright.dev/community/learn-videos |
+| - | https://playwright.dev/community/live-streams |
+| - | https://playwright.dev/community/mcp-videos |
+| - | https://playwright.dev/community/release-videos |
+| - | https://playwright.dev/search |
+| - | https://playwright.dev/agent-cli/capabilities |
+| - | https://playwright.dev/agent-cli/commands/attach |
+| - | https://playwright.dev/agent-cli/commands/codegen |
+| - | https://playwright.dev/agent-cli/commands/console-eval |
+| - | https://playwright.dev/agent-cli/commands/dialogs |
+| - | https://playwright.dev/agent-cli/commands/interaction |
+| - | https://playwright.dev/agent-cli/commands/keyboard-mouse |
+| - | https://playwright.dev/agent-cli/commands/navigation |
+| - | https://playwright.dev/agent-cli/commands/network-routing |
+| - | https://playwright.dev/agent-cli/commands/screenshots-pdf |
+| - | https://playwright.dev/agent-cli/commands/storage |
+| - | https://playwright.dev/agent-cli/commands/tabs |
+| - | https://playwright.dev/agent-cli/commands/test-debugging |
+| - | https://playwright.dev/agent-cli/commands/tracing |
+| - | https://playwright.dev/agent-cli/commands/video-recording |
+| - | https://playwright.dev/agent-cli/configuration |
+| - | https://playwright.dev/agent-cli/installation |
+| - | https://playwright.dev/agent-cli/introduction |
+| - | https://playwright.dev/agent-cli/quick-start |
+| - | https://playwright.dev/agent-cli/sessions |
+| - | https://playwright.dev/agent-cli/skills |
+| - | https://playwright.dev/agent-cli/snapshots |
+| - | https://playwright.dev/agent-cli/vision-mode |
+| - | https://playwright.dev/community/ambassadors |
+| - | https://playwright.dev/community/welcome |
+| - | https://playwright.dev/docs/next/accessibility-testing |
+| - | https://playwright.dev/docs/next/actionability |
+| - | https://playwright.dev/docs/next/api-testing |
+| - | https://playwright.dev/docs/next/api/class-android |
+| - | https://playwright.dev/docs/next/api/class-androiddevice |
+| - | https://playwright.dev/docs/next/api/class-androidinput |
+| - | https://playwright.dev/docs/next/api/class-androidsocket |
+| - | https://playwright.dev/docs/next/api/class-androidwebview |
+| - | https://playwright.dev/docs/next/api/class-apirequest |
+| - | https://playwright.dev/docs/next/api/class-apirequestcontext |
+| - | https://playwright.dev/docs/next/api/class-apiresponse |
+| - | https://playwright.dev/docs/next/api/class-apiresponseassertions |
+| - | https://playwright.dev/docs/next/api/class-browser |
+| - | https://playwright.dev/docs/next/api/class-browsercontext |
+| - | https://playwright.dev/docs/next/api/class-browserserver |
+| - | https://playwright.dev/docs/next/api/class-browsertype |
+| - | https://playwright.dev/docs/next/api/class-cdpsession |
+| - | https://playwright.dev/docs/next/api/class-clock |
+| - | https://playwright.dev/docs/next/api/class-consolemessage |
+| - | https://playwright.dev/docs/next/api/class-coverage |
+| - | https://playwright.dev/docs/next/api/class-credentials |
+| - | https://playwright.dev/docs/next/api/class-debugger |
+| - | https://playwright.dev/docs/next/api/class-dialog |
+| - | https://playwright.dev/docs/next/api/class-disposable |
+| - | https://playwright.dev/docs/next/api/class-download |
+| - | https://playwright.dev/docs/next/api/class-electron |
+| - | https://playwright.dev/docs/next/api/class-electronapplication |
+| - | https://playwright.dev/docs/next/api/class-elementhandle |
+| - | https://playwright.dev/docs/next/api/class-filechooser |
+| - | https://playwright.dev/docs/next/api/class-fixtures |
+| - | https://playwright.dev/docs/next/api/class-frame |
+| - | https://playwright.dev/docs/next/api/class-framelocator |
+| - | https://playwright.dev/docs/next/api/class-fullconfig |
+| - | https://playwright.dev/docs/next/api/class-fullproject |
+| - | https://playwright.dev/docs/next/api/class-genericassertions |
+| - | https://playwright.dev/docs/next/api/class-jshandle |
+| - | https://playwright.dev/docs/next/api/class-keyboard |
+| - | https://playwright.dev/docs/next/api/class-location |
+| - | https://playwright.dev/docs/next/api/class-locator |
+| - | https://playwright.dev/docs/next/api/class-locatorassertions |
+| - | https://playwright.dev/docs/next/api/class-logger |
+| - | https://playwright.dev/docs/next/api/class-mouse |
+| - | https://playwright.dev/docs/next/api/class-page |
+| - | https://playwright.dev/docs/next/api/class-pageassertions |
+| - | https://playwright.dev/docs/next/api/class-playwright |
+| - | https://playwright.dev/docs/next/api/class-playwrightassertions |
+| - | https://playwright.dev/docs/next/api/class-reporter |
+| - | https://playwright.dev/docs/next/api/class-request |
+| - | https://playwright.dev/docs/next/api/class-response |
+| - | https://playwright.dev/docs/next/api/class-route |
+| - | https://playwright.dev/docs/next/api/class-screencast |
+| - | https://playwright.dev/docs/next/api/class-selectors |
+| - | https://playwright.dev/docs/next/api/class-snapshotassertions |
+| - | https://playwright.dev/docs/next/api/class-suite |
+| - | https://playwright.dev/docs/next/api/class-test |
+| - | https://playwright.dev/docs/next/api/class-testcase |
+| - | https://playwright.dev/docs/next/api/class-testconfig |
+| - | https://playwright.dev/docs/next/api/class-testerror |
+| - | https://playwright.dev/docs/next/api/class-testinfo |
+| - | https://playwright.dev/docs/next/api/class-testinfoerror |
+| - | https://playwright.dev/docs/next/api/class-testoptions |
+| - | https://playwright.dev/docs/next/api/class-testproject |
+| - | https://playwright.dev/docs/next/api/class-testresult |
+| - | https://playwright.dev/docs/next/api/class-testrun |
+| - | https://playwright.dev/docs/next/api/class-teststep |
+| - | https://playwright.dev/docs/next/api/class-teststepinfo |
+| - | https://playwright.dev/docs/next/api/class-timeouterror |
+| - | https://playwright.dev/docs/next/api/class-touchscreen |

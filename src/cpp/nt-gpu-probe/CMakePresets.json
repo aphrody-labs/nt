@@ -1,0 +1,13 @@
+{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "windows",
+      "displayName": "Windows (Visual Studio 2026, MSVC trouvé par CMake)",
+      "generator": "Visual Studio 18 2026",
+      "binaryDir": "${sourceDir}/../../../target/cmake/nt-gpu-probe/${presetName}",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+    }
+  ],
+  "buildPresets": [{ "name": "windows", "configurePreset": "windows", "configuration": "Release" }]
+}
