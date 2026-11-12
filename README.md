@@ -22,7 +22,7 @@ Le cœur Rust de nt est le monorepo à plat basé sur windows-rs : fork `aphrody
 
 ```
 just serve        # http://localhost:8787/  (?report=1 : mesure d'affichage réelle)
-just index        # index de C:\Windows
+just index        # index de %SystemRoot%
 just app          # coque WinUI 3 (compilée par la CI)
 ```
 
