@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12T18:30:57.776Z",
+  "rid": "linux-x64",
+  "cpu": "AMD EPYC 9V45 96-Core Processor",
+  "bun": "1.4.4+38afee6c8",
+  "iterations": 1000000,
+  "unit": "ns/appel (médiane de 7)",
+  "results": {
+    "js": {
+      "add": 0.2
+    },
+    "c": {
+      "openMs": 0.21,
+      "noop": 1.7,
+      "label": "libc!abs"
+    },
+    "aot": {
+      "openMs": 0.55,
+      "framework": ".NET 11.0.0",
+      "noop": 6.6,
+      "add": 4.4,
+      "tickCountI64": 14,
+      "systemInfoStruct": 51,
+      "utf8InCstring": 19.9,
+      "utf16InBuffer": 49.4,
+      "utf16OutString": 507.1,
+      "callbackPerCall": 62.5
+    },
+    "coreclr": {
+      "openMs": 26.08,
+      "framework": ".NET 11.0.0",
+      "noop": 5.5,
+      "add": 5.2,
+      "tickCountI64": 15.4,
+      "systemInfoStruct": 52.1,
+      "utf8InCstring": 21.7,
+      "utf16InBuffer": 49.5,
+      "utf16OutString": 611.8,
+      "callbackPerCall": 68.3
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12T18:32:12.160Z",
+  "rid": "win-x64",
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "bun": "1.4.4+38afee6c8",
+  "iterations": 1000000,
+  "unit": "ns/appel (médiane de 7)",
+  "results": {
+    "js": {
+      "add": 0.6
+    },
+    "c": {
+      "openMs": 0.16,
+      "noop": 3.7,
+      "label": "kernel32!GetCurrentProcessId"
+    },
+    "aot": {
+      "openMs": 3.91,
+      "framework": ".NET 11.0.0",
+      "noop": 4.9,
+      "add": 5.1,
+      "tickCountI64": 18.6,
+      "systemInfoStruct": 12172.8,
+      "utf8InCstring": 32.8,
+      "utf16InBuffer": 72.8,
+      "utf16OutString": 460.1,
+      "callbackPerCall": 87.4
+    },
+    "coreclr": {
+      "openMs": 39.94,
+      "framework": ".NET 11.0.0",
+      "noop": 7.1,
+      "add": 7,
+      "tickCountI64": 17.7,
+      "systemInfoStruct": 12287.3,
+      "utf8InCstring": 30.6,
+      "utf16InBuffer": 72.6,
+      "utf16OutString": 443.2,
+      "callbackPerCall": 87.5
+    }
+  }
+}
