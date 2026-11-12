@@ -38,16 +38,22 @@ async function child(mode: string): Promise<Record<string, number | string>> {
   if (mode === "c") {
     const win = process.platform === "win32";
     const t0 = performance.now();
+    // Fonctions C sans appel système : coût de la seule transition bun:ffi (getpid est un appel système sous Linux).
     const lib = win
-      ? dlopen("kernel32.dll", { GetCurrentProcessId: { args: [], returns: "u32" }, GetTickCount64: { args: [], returns: "u64" } })
-      : dlopen(process.platform === "darwin" ? "libSystem.B.dylib" : "libc.so.6", { getpid: { args: [], returns: "i32" } });
+      ? dlopen("kernel32.dll", { GetCurrentProcessId: { args: [], returns: "u32" } })
+      : dlopen(process.platform === "darwin" ? "libSystem.B.dylib" : "libc.so.6", { abs: { args: ["i32"], returns: "i32" } });
     r.openMs = Math.round((performance.now() - t0) * 100) / 100;
-    const s = lib.symbols as Record<string, () => unknown>;
-    const pid = (win ? s.GetCurrentProcessId : s.getpid)!;
-    r.noop = measure(N, (n) => {
-      for (let i = 0; i < n; i++) pid();
-    });
-    r.label = win ? "kernel32!GetCurrentProcessId" : "libc!getpid";
+    const s = lib.symbols as Record<string, (x?: number) => number>;
+    const f = (win ? s.GetCurrentProcessId : s.abs)!;
+    // Arité exacte : un argument en trop fait quitter le chemin rapide du DFG (8 ns au lieu de 2,2 ns constatés).
+    r.noop = win
+      ? measure(N, (n) => {
+          for (let i = 0; i < n; i++) f();
+        })
+      : measure(N, (n) => {
+          for (let i = 0; i < n; i++) f(i);
+        });
+    r.label = win ? "kernel32!GetCurrentProcessId" : "libc!abs";
     return r;
   }
   const b = await load();
