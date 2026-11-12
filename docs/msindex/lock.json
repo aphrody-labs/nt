@@ -1,0 +1,760 @@
+{
+ "schema": 1,
+ "date": "2026-11-12",
+ "tool": {
+  "path": "sdk/tools/msindex",
+  "commit": "0230acb2c3f9d6f66e6396b5dffacabeac143b34",
+  "bun": "1.4.4"
+ },
+ "machine": {
+  "caption": "26H1",
+  "build": "28120",
+  "lab": "28000.7.amd64fre.br_release_flt.260716-1702"
+ },
+ "versions": {
+  "windowsAppSdk": "2.6.5",
+  "msvc": "14.52.37025",
+  "ucrt": "10.0.26100.0",
+  "apiSetSchema": 6
+ },
+ "nuget": {
+  "wdk": {
+   "id": "microsoft.windows.wdk.win32metadata",
+   "version": "0.13.25-experimental",
+   "sha512": "a+ckO4IT8LbPX1UrlF2R9yKr7/uNFu/stDh6TupyA3A2v/R2CQbNahW1u1DCMn+ueM2Zf3OADc2etel3YgXQfw=="
+  }
+ },
+ "repos": {
+  "WindowsAppSDK": {
+   "remote": "https://github.com/aphrody-labs/WindowsAppSDK",
+   "commit": "bdc0deb73183d8b7920f353a2b589f8f307ad653",
+   "date": "2026-11-11",
+   "dirty": false
+  },
+  "microsoft-ui-xaml": {
+   "remote": "https://github.com/aphrody-labs/microsoft-ui-xaml",
+   "commit": "e38939f2680f0da968d7536a0b7863617ab5793e",
+   "date": "2026-11-12",
+   "dirty": false
+  },
+  "windows-rs": {
+   "remote": "https://github.com/aphrody-labs/windows-rs",
+   "commit": "055939ca8dbd86518f564b6a286fac3daa065765",
+   "date": "2026-11-12",
+   "dirty": false
+  }
+ },
+ "inputs": [
+  {
+   "root": "dotnet",
+   "path": "packs/Microsoft.NETCore.App.Ref/10.0.15/ref/net10.0",
+   "size": 37843565,
+   "sha256": "tree:28469096ad363f0c92d7107f88a3766775ab36ebc2564104ea25c45651d34a31"
+  },
+  {
+   "root": "dotnet",
+   "path": "packs/Microsoft.NETCore.App.Ref/11.0.0/ref/net11.0",
+   "size": 39713990,
+   "sha256": "tree:6d0af74663ed04027baa8ae047c64ea7c4529615dd976dab43cdeebd0f955eaf"
+  },
+  {
+   "root": "dotnet",
+   "path": "shared/Microsoft.NETCore.App/10.0.15",
+   "size": 79938368,
+   "sha256": "tree:65543e4e720cdf294c2e6efa0725275a33f33a1ac51d3af208ebdffa94afd6aa"
+  },
+  {
+   "root": "dotnet",
+   "path": "shared/Microsoft.NETCore.App/11.0.0",
+   "size": 86419632,
+   "sha256": "tree:9b1861263768a8282a19715b1fbe682d45da2b861e4434f0415f7da2599e7e1e"
+  },
+  {
+   "root": "kits",
+   "path": "Include/10.0.26100.0/ucrt",
+   "size": 1068707,
+   "sha256": "tree:263adf05d6c6d16e33f9ed8081f47a2713a0dea2de30d86533d2f36370fb6bf9"
+  },
+  {
+   "root": "msvc",
+   "path": "include",
+   "size": 14169681,
+   "sha256": "tree:bdd9f9c487037442f26e0d8915ec8d39b9bf2c7ac11869d27beb0b41370f1adb"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windows.wdk.win32metadata/0.13.25-experimental/Windows.Wdk.winmd",
+   "size": 1218048,
+   "sha256": "54b8e48866b0a7e066981b63bb6f82fc6947fe8c57e2b5cb4513b1537aa836c2"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Graphics.Imaging.winmd",
+   "size": 13616,
+   "sha256": "c80f93134dccb0f63154e21c6e5122b44d522d019c20172950d893e0d615c2c0"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Graphics.Imaging.xml",
+   "size": 3997,
+   "sha256": "fef0c9ff8dd3d61a20247363eadb2ccd316e5bf3ff676090d31394c2fd62a24f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.ContentSafety.winmd",
+   "size": 15680,
+   "sha256": "046b8f9bf7b32b207fe51ad4efb88a3d592dd741f0ba4a5cbaff3146c6bf0f52"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.ContentSafety.xml",
+   "size": 5190,
+   "sha256": "0790afe729af492d8164e058aca80d9dbd0c696646f540dd6f1ceec71e6d62f8"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Foundation.winmd",
+   "size": 12568,
+   "sha256": "6ea2bc294b0f95af7804f94c649dbd495c79f62065b5386623a1331d60bfa83c"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Foundation.xml",
+   "size": 1444,
+   "sha256": "d0dc69ab0880d6daf47bf5e0c01cec0a97fa6dfd534b86315aa2d8265b56d6f4"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Imaging.winmd",
+   "size": 21304,
+   "sha256": "6451a2b0db9544402b545f120a1c29c2930fbf28244b9e42ddbf603f8f62d5ce"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Imaging.xml",
+   "size": 17712,
+   "sha256": "100557097c18da6f2467a99560ee6cb8aeff89a38844a3bdb8921b1c964f0751"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Text.winmd",
+   "size": 26392,
+   "sha256": "e75c55ed8b663c7b9d53cc68c0c14269514688725715e4df8daf143e3c029de1"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Text.xml",
+   "size": 26811,
+   "sha256": "57a03ec45fc053eb650d86e3845b850140d0184a2d22af3d711f8650dbd6d07f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Video.winmd",
+   "size": 14112,
+   "sha256": "5a00e21c77ac1fd4da836ac0a518e5bbf6ed452f402a4da62fc8b686ceafd6ca"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.Video.xml",
+   "size": 4652,
+   "sha256": "4a950449c93297c610aa5b31c4f3b18793c9f4522ca6cde1a042744526444c07"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.winmd",
+   "size": 13616,
+   "sha256": "2b250d8b9bfee8a02ef219947ebff2379bdd16648084f2a3b01783b08b99ce10"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.AI.xml",
+   "size": 4284,
+   "sha256": "daf315649a71f3ac31ff37614e57af4b27fb9b7f6d35e93cd056393912b8c474"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.SemanticSearch.winmd",
+   "size": 12592,
+   "sha256": "53d8c4c95cc69c9f0c0141575e522ecf72a95189414ff74a8d4b84a53fadb4e1"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.SemanticSearch.xml",
+   "size": 1451,
+   "sha256": "5ccf5d26438291f82c13031b638916c6c1fd15e00cc6870698f33ad78b972ec7"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.Vision.winmd",
+   "size": 12080,
+   "sha256": "8dea713b58e70a03349e89775419ef789a91a2f2c925353a73b92e23f7eac992"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.Workloads.winmd",
+   "size": 11560,
+   "sha256": "15a82f8fa4884311a459fb96a3f2f3b1f257da160eea84e6b2eaa20d3050ee12"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/metadata/Microsoft.Windows.Workloads.xml",
+   "size": 868,
+   "sha256": "41b3a4cb3f3668b2e18a6d9666cfa2f6d9356a5f419929f5454eb545603a0758"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/microsoft.windowsappsdk.ai.nuspec",
+   "size": 1094,
+   "sha256": "2b3b7bc161279ed8d494afd4b8459c0ce127a7e0316c5727605fecbbfeec1af3"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ai/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 9352,
+   "sha256": "59ac5ecb8bf88bdceda32494ae35f4a5feb5441a7a616e369b5bea4374572814"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.base/2.6.5/microsoft.windowsappsdk.base.nuspec",
+   "size": 1580,
+   "sha256": "8a16ad455f91faa4121369b257e62e2428a8615865366f93ec82ad4c5cb8cf42"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.dwrite/2.6.5/microsoft.windowsappsdk.dwrite.nuspec",
+   "size": 1018,
+   "sha256": "e1ce1f8f681d578a1af8ef51f9db35494e2ecb0d4e71fe561649b624a5a9d917"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Security.Authentication.OAuth.winmd",
+   "size": 24376,
+   "sha256": "0a5b730b03eadb18263f98f8a8c7a4476c517789a66b5625544b13ba8213e34d"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppLifecycle.winmd",
+   "size": 17208,
+   "sha256": "47a60a4ee8daa0b57d2fb0715ff43d5732d33daba21b73043b3a25412ef5bfc0"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppLifecycle.xml",
+   "size": 19653,
+   "sha256": "d5ac94339a63a963437678da0081306df3758ebff34a484658a1f3a38294be70"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppNotifications.Builder.winmd",
+   "size": 24416,
+   "sha256": "be15bbe08cbbc0387d9226e5279b85903c44069f94f1dbcd135a8bca82b1de4c"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppNotifications.Builder.xml",
+   "size": 41794,
+   "sha256": "ef1b79ad1260c617690d71bac14deabf3033386834956f5df01b93706e35a513"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppNotifications.winmd",
+   "size": 19768,
+   "sha256": "737f4aabb8f0a0639a78ced96c5fff760802bd879fa7a9eca45f105d0d5a8190"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.AppNotifications.xml",
+   "size": 18285,
+   "sha256": "ba8bf5aa055bea1cadbdab39ea9631e8833e4fe141cbed15492f5d2dfb133da9"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.winmd",
+   "size": 12600,
+   "sha256": "d8b60fb45f2715e84cf76678ccb2b60edd824e8f40cda08ba7670ef5e75bf044"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.Background.winmd",
+   "size": 13624,
+   "sha256": "9266dbc78ee7dab0c68cee35f9df6af0ccef1e746fe879c4ffc48dfa6263121f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.DynamicDependency.winmd",
+   "size": 18232,
+   "sha256": "44bc4d97fd53db80430f4f891db0b7c8be67c73b95890c6546cc231540d0df99"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.DynamicDependency.xml",
+   "size": 17573,
+   "sha256": "57de8d6537199b4834a47b31256acaaa19cb1dc5965f2ff37bf39053b160f96a"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.Resources.winmd",
+   "size": 19296,
+   "sha256": "5d8811b8cc57e23db73d431056471b842dd4a517b4933fd9cc4df3c467c23e43"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.Resources.xml",
+   "size": 26022,
+   "sha256": "62f656bdd8179bd98d6a22fd1fc90d72776b124a31bf921353c8274e70820497"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.winmd",
+   "size": 23392,
+   "sha256": "e87fd14d1d7295339767c8c7732189a3ca95fd32dad2aff121545e97a3bb7354"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.ApplicationModel.WindowsAppRuntime.xml",
+   "size": 6577,
+   "sha256": "b352541f3b1c5d1da5bf6f07078113d50a4d9eade960cdc8d599c066b4757bf6"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.BadgeNotifications.winmd",
+   "size": 13112,
+   "sha256": "5d4860ffbfa11726e676dade24cf9f1b3669900692e2750c20635f2f0eacb2d6"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Foundation.winmd",
+   "size": 16184,
+   "sha256": "8814d4c9ccd16715f56282c5b724a8f5a8097b0e2d923f622eff27366b3cc86f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Globalization.winmd",
+   "size": 12640,
+   "sha256": "a901f4431761043e417e12803ad99739ca387944d188b536b8f4ba86d78fdd1d"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Globalization.xml",
+   "size": 483,
+   "sha256": "e89b15c3fac41b8d299c59d43ecf5aaae163654a3cdf5d910e3af2c06379eb5e"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Management.Deployment.winmd",
+   "size": 42336,
+   "sha256": "f377b87c75c0f242014a28a7960d7352a39c005201025e978bc3a2699c25d187"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Management.Deployment.xml",
+   "size": 26696,
+   "sha256": "fe0228bc77163fb9075f6e6b3dbc4c4993912d1787111e28e3055a2b013a5aa3"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Media.Capture.winmd",
+   "size": 16184,
+   "sha256": "8d3f4405cd89e29baf7e730bcb3f93ba8c9525433db60b461fca0e1dac9f6c6c"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.PushNotifications.winmd",
+   "size": 15672,
+   "sha256": "12b97f4d14ab85f4d0716b1b37bc6d0d8e2604cd165decfabcd80d70cee06f43"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.PushNotifications.xml",
+   "size": 8879,
+   "sha256": "0c8dc1a0b238d289554f320d43a57cb50ab805a3e2053b86db12f02c678131db"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Security.AccessControl.winmd",
+   "size": 12600,
+   "sha256": "b2e495d10d0dac9fe555fd54edaf9ed7e65d61992b28b70d5380b95d7738ee91"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Security.AccessControl.xml",
+   "size": 2516,
+   "sha256": "a3bf73733a0b6ff09bcc7bf60c5c49d9d23c0d8c5444f32a7c708e101338f4c2"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Storage.Pickers.winmd",
+   "size": 19768,
+   "sha256": "0c525d8c4566b0f82a74c1136cb5fd1f3058ab0adf22134d15f7a56e57c8fc70"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Storage.winmd",
+   "size": 16224,
+   "sha256": "78f81a794a6bf33eda3d2391c84c0cef7cf2ef7d592e52e4cf41b70b942dd51c"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.Storage.xml",
+   "size": 10908,
+   "sha256": "8421f46e34421b2e37372f722187242b95795785a0931262641fc8dcbb4f09d7"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.System.Power.winmd",
+   "size": 17208,
+   "sha256": "8940dbf74c0920ef08a30b13cbed8f9f580bdabaf65b2c6880f06e71de12160c"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.System.Power.xml",
+   "size": 11777,
+   "sha256": "844480600621b7fe348a8766c4dd3bca9c5d3a91ecef9659efe1175528591311"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.System.winmd",
+   "size": 13624,
+   "sha256": "6ed062e1f7ec7a6bcdc44f41848cd9d26c197f5ea0ce5ae70bb990c7d1644d94"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/metadata/Microsoft.Windows.System.xml",
+   "size": 4057,
+   "sha256": "bb6f5ad6eb6188c8f810a344dec4603685a1bbcb91521fe175b17e664343ce3a"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/microsoft.windowsappsdk.foundation.nuspec",
+   "size": 962,
+   "sha256": "a7f191334d5f2254aff8cf0075c1ef1d7e9c1f5e75e359ab0723d26256e5562a"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.foundation/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 10997,
+   "sha256": "ecedf5e9e2ae3631d1401d0d71438c98564cedbb6de75da350f1fac59ff8420f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/metadata/10.0.17763.0/Microsoft.Foundation.winmd",
+   "size": 11576,
+   "sha256": "826c64beb93d355e68d99ede5603bcb31aec6a462d5fc8bf3bd1d8c83464a1c4"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/metadata/10.0.17763.0/Microsoft.Graphics.winmd",
+   "size": 21272,
+   "sha256": "00ba3eeb2c23421951a0f434c6ad2d58e9755a5a609db8c974c8f74c29a728fc"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/metadata/10.0.17763.0/Microsoft.Graphics.xml",
+   "size": 36870,
+   "sha256": "3be0fa7a797dc0aba277cd236c0af2ae835bd28293fee3f8c466a9820ffa66d1"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/metadata/10.0.17763.0/Microsoft.UI.winmd",
+   "size": 294200,
+   "sha256": "addf153f0f1796acbcc36cb865d84e2540ab6f26aa95f6189db73a7b9688b153"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/metadata/10.0.17763.0/Microsoft.UI.xml",
+   "size": 609836,
+   "sha256": "6cdad512f802ebb6157ca055ba3938895dddf8c28a36b9d9e5aec8cab14f5a83"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/microsoft.windowsappsdk.interactiveexperiences.nuspec",
+   "size": 1121,
+   "sha256": "9e19e12c83ea2edbc783e89aee7950920f03a750c118c352e02421905b7a8988"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.interactiveexperiences/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 15467,
+   "sha256": "2b7aafe88b6865e365f561a6747055b43841035701fea1750ed41c7eb67f2553"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ml/2.6.5/microsoft.windowsappsdk.ml.nuspec",
+   "size": 2069,
+   "sha256": "1934c4097b47e07c1c6fce5622b40cdd9164402d7e89812ade45b1bafe9e65e0"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.ml/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 1492,
+   "sha256": "153bd30539a69f4552e494b9aff2f563e9b8d78fb89ab24a9481c8b4d4f93688"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.runtime/2.6.5/microsoft.windowsappsdk.runtime.nuspec",
+   "size": 1473,
+   "sha256": "9f870db8f8d00e124a9d6eaa2b366f1a90071b567c2440998e3efa9167c61c34"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.search/2.6.5/metadata/Microsoft.Windows.Search.winmd",
+   "size": 41752,
+   "sha256": "c8428d21a92a2c7bee06393949acaa6a708e5594ac1954284ec05a5135060c90"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.search/2.6.5/microsoft.windowsappsdk.search.nuspec",
+   "size": 1215,
+   "sha256": "9879af1fce07271d21f99d3ff8f21933c357799ba5d743a5b8322743a717976e"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.search/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 3429,
+   "sha256": "e3d386a546d10ba629e5b6c64509df1277f04e1ba08071c81f91a5c11a2c1b05"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.widgets/2.6.5/metadata/Microsoft.Windows.Widgets.winmd",
+   "size": 36152,
+   "sha256": "dcdb1c3042a03c84f5f92abb64a9849bdc93dfd996d2e8ba075747f73ab25694"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.widgets/2.6.5/metadata/Microsoft.Windows.Widgets.xml",
+   "size": 53843,
+   "sha256": "74c3fac6559cfeaa2b316b1d17c678389a96153e8cf31d5ec9b1fb9dabe02d03"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.widgets/2.6.5/microsoft.windowsappsdk.widgets.nuspec",
+   "size": 1123,
+   "sha256": "8a61aa58a629d74dd2d827737ec39068e013d64ef7fe591dae4468c38c62e033"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.widgets/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 3359,
+   "sha256": "dc05acaa06f54cb75d2627fc1938049a20d398ceba6e470e61df78757091a052"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/build/native/LiftedWinRTClassRegistrations.xml",
+   "size": 109528,
+   "sha256": "3865d30a6fa57e854c158097edab4fb5d763ee7e5de8d25c21fd77fe14f3137d"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/metadata/Microsoft.UI.Text.winmd",
+   "size": 35128,
+   "sha256": "eaeebebbe2b789acd957f55e5cb1bb45ed4331e6a0408617da017fc4382ba1ee"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/metadata/Microsoft.UI.Text.xml",
+   "size": 122036,
+   "sha256": "234a9fd96d708b9a2b176e4166df16ba5fba2be35b9d86595891152cbe627469"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/metadata/Microsoft.UI.Xaml.winmd",
+   "size": 1634656,
+   "sha256": "72bcc3558747aa127364e7b06e55dd165784a15a77efc640b0c18080579d167f"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/metadata/Microsoft.UI.Xaml.xml",
+   "size": 2899880,
+   "sha256": "328711e9670633aed020a0cd97b855e47e3bf9ce83dd784cad13a4109a189fb8"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/microsoft.windowsappsdk.winui.nuspec",
+   "size": 1523,
+   "sha256": "98a735bdd38560dfb51417e4658aed3bb007da5c3e323ce26b599197f1b9071e"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk.winui/2.6.5/runtimes-framework/package.appxfragment",
+   "size": 91342,
+   "sha256": "733092d3dd2495ee98fb6cc30041b670fff45967bcd1b792003841edda979bfa"
+  },
+  {
+   "root": "nuget",
+   "path": "microsoft.windowsappsdk/2.6.5/microsoft.windowsappsdk.nuspec",
+   "size": 2010,
+   "sha256": "8ea5bed6450f6352531909d7edf6b8bfbc55b55d5e138c7b039cad92654f788c"
+  },
+  {
+   "root": "src",
+   "path": "third_party/windows-rs-nt/crates/libs/default/Windows.Win32.winmd",
+   "size": 14456320,
+   "sha256": "a74c9df5469cbfb8dea826129a281cd6311029e132acae3ed2a137622f12b0a1"
+  },
+  {
+   "root": "src",
+   "path": "third_party/windows-rs-nt/crates/libs/default/Windows.winmd",
+   "size": 4668416,
+   "sha256": "acca774164ef51fc894503644e1ae1305d106ba1705c6a41cf11b3639efdab92"
+  },
+  {
+   "root": "system32",
+   "path": "concrt140.dll",
+   "size": 368064,
+   "sha256": "8efda0374a4b4df975feeefbea3d86cafdd36802a0144c3d261295bd268071c7"
+  },
+  {
+   "root": "system32",
+   "path": "msvcp140.dll",
+   "size": 652136,
+   "sha256": "59d325227321d52b9a523ea401ce6787a5d59f78229a0ff3a6f124e5d3445685"
+  },
+  {
+   "root": "system32",
+   "path": "msvcp140_1.dll",
+   "size": 35696,
+   "sha256": "1c6522f4d005539109aa040f063659704bfda94a224142f50942573cfbcf7ec9"
+  },
+  {
+   "root": "system32",
+   "path": "msvcp140_2.dll",
+   "size": 271800,
+   "sha256": "56318c983acc3914f8523be61f6b1f1c91e6c1ae4b6c531169882aa59baaec6b"
+  },
+  {
+   "root": "system32",
+   "path": "msvcp140_atomic_wait.dll",
+   "size": 58736,
+   "sha256": "8b10c6bd4c3c427ce7c8be96ef0fef0f8187bc236962be62a03caef834b37dcd"
+  },
+  {
+   "root": "system32",
+   "path": "msvcp140_codecvt_ids.dll",
+   "size": 31080,
+   "sha256": "695dbb4921cc1536429d238488cbee73581357a2fa05bb5c87b0f6ae48efcaca"
+  },
+  {
+   "root": "system32",
+   "path": "ucrtbase.dll",
+   "size": 1357512,
+   "sha256": "91faed2f3a5c8c9428658bd9173c12b912dc3e872a8275329ae126e344cb0925"
+  },
+  {
+   "root": "system32",
+   "path": "vccorlib140.dll",
+   "size": 351600,
+   "sha256": "d247b63cf9b93a5769b5ac205e10fe29029c8ddce1b800159dc6061a36a1c149"
+  },
+  {
+   "root": "system32",
+   "path": "vcruntime140.dll",
+   "size": 176488,
+   "sha256": "eb1ee979bf02324712346e5bdbfc59c785388bc50d18cc2688aae4b0734915a0"
+  },
+  {
+   "root": "system32",
+   "path": "vcruntime140_1.dll",
+   "size": 50544,
+   "sha256": "a14b4a42a2c6df04d6d53a8340816023d953406f7f3d94996c7cab30c414ff63"
+  },
+  {
+   "root": "system32",
+   "path": "vcruntime140_threads.dll",
+   "size": 38840,
+   "sha256": "44a0a0b925242699f2b31bf40a43b54ab3513584dfe7869521d1983e40ea1f06"
+  }
+ ],
+ "digests": {
+  "graph": "b5d1c0a702bf230483005e0d4709162870fec4e05132a000a0211ac859ce912a",
+  "proofs": "e270b706cae93f1fd1ee1ea1a2ec25af9a90f88cf9ae717674d0d121947db050"
+ },
+ "counts": {
+  "nodes": 533264,
+  "edges": 132283,
+  "proofs": 53358,
+  "kinds": {
+   "constant": 155908,
+   "method": 107924,
+   "field": 103326,
+   "property": 48674,
+   "struct": 32493,
+   "function": 18520,
+   "interface": 15749,
+   "constructor": 10319,
+   "class": 10195,
+   "enum": 8463,
+   "export": 4735,
+   "delegate": 3780,
+   "event": 2575,
+   "cargo-feature": 1694,
+   "c-function": 1529,
+   "idl-runtimeclass": 1180,
+   "apiset": 989,
+   "namespace": 936,
+   "std-export": 894,
+   "header": 849,
+   "attribute": 825,
+   "assembly": 343,
+   "idl-enum": 328,
+   "crate": 324,
+   "idl-interface": 171,
+   "idl": 170,
+   "component": 95,
+   "idl-delegate": 65,
+   "idl-gated": 49,
+   "winmd": 40,
+   "idl-apicontract": 25,
+   "idl-struct": 24,
+   "scope": 18,
+   "feature": 17,
+   "package": 11,
+   "dll": 11,
+   "source": 6,
+   "repo": 2,
+   "runtime": 2,
+   "rdl-area": 2,
+   "index": 1,
+   "rdl": 1,
+   "headers": 1,
+   "module": 1
+  }
+ },
+ "proofs": {
+  "RoGetActivationFactory": {
+   "ok": 1820,
+   "total": 1848
+  },
+  "activation-export": {
+   "ok": 1847,
+   "total": 1848
+  },
+  "apiset-host": {
+   "ok": 857,
+   "total": 989
+  },
+  "dotnet-impl": {
+   "ok": 8262,
+   "total": 8262
+  },
+  "loader": {
+   "ok": 16697,
+   "total": 16806
+  },
+  "pe-export": {
+   "ok": 18409,
+   "total": 18520
+  },
+  "ucrtbase-export": {
+   "ok": 1257,
+   "total": 1529
+  },
+  "wasdk-activation": {
+   "ok": 1665,
+   "total": 1665
+  },
+  "winrt-registered": {
+   "ok": 1864,
+   "total": 1891
+  }
+ }
+}
