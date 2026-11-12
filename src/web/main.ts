@@ -192,6 +192,22 @@ setInterval(() => {
     `${adapter.info.vendor} ${adapter.info.architecture}`;
 }, 500);
 
+// `?report=1` : publie les statistiques vivantes (cadence rAF réellement affichée) vers le serveur, pour une
+// preuve « affichage réel » automatisable (fenêtre visible, non occultée).
+if (q.has("report"))
+  setInterval(() => {
+    navigator.sendBeacon(
+      "/stats",
+      JSON.stringify({
+        t: new Date().toISOString(),
+        visible: document.visibilityState,
+        screen: `${screen.width}x${screen.height}`,
+        dpr: devicePixelRatio,
+        ...stats,
+      }),
+    );
+  }, 1000);
+
 // Banc d'essai `?bench=N` : N frames 4K enchaînées sur une texture hors écran (même noyau, même
 // pipeline), indépendant de la vsync et de l'occultation de fenêtre. Timestamps GPU par frame.
 async function bench(frames: number) {

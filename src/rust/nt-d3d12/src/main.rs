@@ -77,6 +77,8 @@ mod host {
         queue: ID3D12CommandQueue,
         swap: IDXGISwapChain3,
         waitable: HANDLE,
+        /// Tas RTV conservé : `rtv_start` pointe dans sa mémoire (le libérer rend les descripteurs invalides).
+        _rtv_heap: ID3D12DescriptorHeap,
         rtv_start: usize,
         rtv_size: usize,
         targets: [ID3D12Resource; FRAMES],
@@ -237,6 +239,7 @@ mod host {
                 queue,
                 swap,
                 waitable,
+                _rtv_heap: rtv_heap,
                 rtv_start,
                 rtv_size,
                 targets,
@@ -311,11 +314,28 @@ mod host {
             }
         }
 
+        /// Attend la fin de tout le travail GPU soumis (avant destruction des ressources).
+        fn flush(&self) {
+            // SAFETY: fence et événement valides pour la durée de `Gpu`.
+            unsafe {
+                let last = self.next_fence.saturating_sub(1);
+                if last > 0 && self.fence.GetCompletedValue() < last && self.fence.SetEventOnCompletion(last, self.event).is_ok() {
+                    WaitForSingleObject(self.event, u32::MAX);
+                }
+            }
+        }
+
         fn wait_latency(&self) {
             // SAFETY: handle waitable valide pour la durée de la swapchain.
             unsafe {
                 WaitForSingleObjectEx(self.waitable, 1000, true);
             }
+        }
+    }
+
+    impl Drop for Gpu {
+        fn drop(&mut self) {
+            self.flush();
         }
     }
 
