@@ -3,7 +3,9 @@
 //   /                noyau NT en 3D (WebGPU, aucun texte DOM)   WebSocket /kernel : échantillons ntdll (ntsys.ts)
 //   /api/icon?path=  icône réelle d'un PE (.ico)                /api/index/{stats,tree,search} : SQLite (winindex.ts)
 //   /desktop.svg     bureau entier (UI Automation)              /stats : mesures d'affichage (?report=1)
+//   /api/msindex/{stats,search,node/:id} : pile Microsoft indexée et prouvée (sdk/tools/msindex)
 // Usage : bun src/host/server.ts   [PORT=8787] [NT_HZ=15]
+import { Database } from "bun:sqlite";
 import app from "../../../modules/web/nt.html";
 import { desktopSvg } from "./desktop-svg.ts";
 import { createSampler, type Slow } from "./ntsys.ts";
@@ -30,6 +32,9 @@ const pathsMsg = (pids: number[]) =>
 let svgCache: { at: number; svg: string } | null = null;
 const json = (v: unknown) => Response.json(v, { headers: { "cache-control": "no-store" } });
 const noIndex = () => new Response("index absent : just index", { status: 404 });
+const msindexPath = new URL("target/index/msindex.sqlite", root);
+const msindex = (await Bun.file(msindexPath).exists()) ? new Database(Bun.fileURLToPath(msindexPath), { readonly: true }) : null;
+const noMsindex = () => new Response("msindex absent : just msindex <src>", { status: 404 });
 
 const server = Bun.serve({
   port,
@@ -96,6 +101,33 @@ const server = Bun.serve({
           )
           .all(`"${q.replace(/"/g, '""')}"`),
       );
+    },
+    // Pile Microsoft indexée et prouvée (sdk/tools/msindex, just msindex <src>) : bilan, recherche, nœud avec enfants et preuves.
+    "/api/msindex/stats": async () => {
+      const lock = Bun.file(new URL("docs/msindex/lock.json", root));
+      if (!(await lock.exists())) return new Response("msindex absent : just msindex <src>", { status: 404 });
+      const l = await lock.json();
+      return json({ date: l.date, machine: l.machine, versions: l.versions, digests: l.digests, counts: l.counts, proofs: l.proofs });
+    },
+    "/api/msindex/search": (req) => {
+      if (!msindex) return noMsindex();
+      const q = new URL(req.url).searchParams.get("q") ?? "";
+      if (q.length < 3) return json([]);
+      return json(
+        msindex
+          .query("SELECT n.id, n.kind, n.full, n.data FROM fts JOIN node n ON n.id = fts.rowid WHERE fts MATCH ? LIMIT 200")
+          .all(`"${q.replace(/"/g, '""')}"`),
+      );
+    },
+    "/api/msindex/node/:id": (req) => {
+      if (!msindex) return noMsindex();
+      const id = Number(req.params.id);
+      return json({
+        node: msindex.query("SELECT * FROM node WHERE id = ?").get(id),
+        children: msindex.query("SELECT id, kind, name, full FROM node WHERE parent = ? LIMIT 2000").all(id),
+        proofs: msindex.query('SELECT check_ AS "check", ok, detail FROM proof WHERE node = ?').all(id),
+        edges: msindex.query("SELECT src, dst, kind FROM edge WHERE src = ?1 OR dst = ?1 LIMIT 2000").all(id),
+      });
     },
     "/stats": {
       POST: async (req) => {

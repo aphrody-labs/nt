@@ -44,7 +44,7 @@ public sealed partial class NtApplication : Application
             ("Noyau NT en 3D", Symbol.World, ""),
             ("Bureau vectorisé (SVG)", Symbol.Pictures, "desktop.svg"),
             ("Index C:\\Windows", Symbol.Find, "api/index/stats"),
-            ("Démo wasm", Symbol.Play, "demo"),
+            ("Pile Microsoft prouvée (msindex)", Symbol.Library, "api/msindex/stats"),
         ];
         foreach (var (label, icon, path) in pages)
             nav.MenuItems.Add(new NavigationViewItem { Content = label, Icon = new SymbolIcon(icon), Tag = path });

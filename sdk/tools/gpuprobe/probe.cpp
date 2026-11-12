@@ -1,4 +1,4 @@
-// nt-gpu-probe — capacités D3D12 réelles du GPU (spike S0.2). C++23 `import std;` (CMake 4.5, MSVC), WIL, DirectX-Headers (vcpkg).
+// nt-gpu-probe — capacités D3D12 réelles du GPU. C++23 `import std;` (CMake 4.5, MSVC), WIL, DirectX-Headers (vcpkg).
 // Aucun en-tête de la bibliothèque standard C++ à côté de `import std` (Learn « Standard library named module considerations ») :
 // WIL sans exceptions (WIL_SUPPRESS_EXCEPTIONS => WIL_USE_STL 0, wil/common.h) n'inclut ni <tuple>, ni <iterator>, ni <new>.
 #define NOMINMAX

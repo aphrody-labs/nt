@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.5)
-# Sonde des capacités Direct3D 12 (spike S0.2). C++23 avec `import std;` : stable depuis CMake 4.5 pour toute cible
+# Sonde des capacités Direct3D 12. C++23 avec `import std;` : stable depuis CMake 4.5 pour toute cible
 # C++20+ scannée (Help/release/4.5.rst), générateurs Ninja seulement, MSVC 14.36+ (cmake-cxxmodules(7)).
 # Dépendances : vcpkg en mode manifeste (vcpkg.json, vcpkg-configuration.json), ports aphrody-labs en overlay.
 project(nt_gpu_probe LANGUAGES CXX)

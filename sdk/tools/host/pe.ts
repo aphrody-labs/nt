@@ -64,6 +64,52 @@ export function exportsOf(p: Pe): string[] {
   return Array.from({ length: n }, (_, i) => p.cstr(b.getUint32(names + i * 4, true)));
 }
 
+export type ExportEntry = { name: string; ordinal: number; rva: number; forwarder?: string };
+
+/** Table d'exports complète : nom, ordinal, RVA ; une RVA dans le répertoire d'exports est une redirection (« dll.nom »). */
+export function exportTable(p: Pe): ExportEntry[] {
+  const d = p.dir(0);
+  const o = d.rva ? p.off(d.rva) : -1;
+  if (o < 0) return [];
+  const b = p.view;
+  const base = b.getUint32(o + 16, true);
+  const nNames = b.getUint32(o + 24, true);
+  const funcs = p.off(b.getUint32(o + 28, true));
+  const names = p.off(b.getUint32(o + 32, true));
+  const ords = p.off(b.getUint32(o + 36, true));
+  if (funcs < 0 || names < 0 || ords < 0) return [];
+  return Array.from({ length: nNames }, (_, i) => {
+    const idx = b.getUint16(ords + i * 2, true);
+    const rva = b.getUint32(funcs + idx * 4, true);
+    const fwd = rva >= d.rva && rva < d.rva + d.size;
+    return { name: p.cstr(b.getUint32(names + i * 4, true)), ordinal: base + idx, rva, ...(fwd ? { forwarder: p.cstr(rva) } : {}) };
+  });
+}
+
+/** Fonctions importées par DLL (thunks par nom ; « #n » pour un import par ordinal), PE32 et PE32+. */
+export function importFunctions(p: Pe): { dll: string; name: string }[] {
+  const d = p.dir(1);
+  let o = d.rva ? p.off(d.rva) : -1;
+  const b = p.view;
+  const plus = (b.getUint16(b.getUint32(60, true) + 24, true) & 0xffff) === 0x20b;
+  const out: { dll: string; name: string }[] = [];
+  while (o >= 0 && o + 20 <= b.byteLength) {
+    const nameRva = b.getUint32(o + 12, true);
+    if (!nameRva) break;
+    const dll = p.cstr(nameRva).toLowerCase();
+    let t = p.off(b.getUint32(o, true) || b.getUint32(o + 16, true));
+    while (t >= 0 && t + (plus ? 8 : 4) <= b.byteLength) {
+      const v = plus ? b.getBigUint64(t, true) : BigInt(b.getUint32(t, true));
+      if (!v) break;
+      const byOrd = plus ? v >> 63n === 1n : (v & 0x80000000n) !== 0n;
+      out.push({ dll, name: byOrd ? `#${Number(v & 0xffffn)}` : p.cstr(Number(v & 0x7fffffffn) + 2) });
+      t += plus ? 8 : 4;
+    }
+    o += 20;
+  }
+  return out;
+}
+
 /** DLL importées (IMAGE_IMPORT_DESCRIPTOR, répertoire 1, 20 octets par entrée, terminées par une entrée nulle). */
 export function importsOf(p: Pe): string[] {
   const d = p.dir(1);
