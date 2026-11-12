@@ -1,0 +1,3 @@
+# Sorties sous target/ à la racine de nt (ignoré par git), comme CMake et .NET.
+[build]
+target-dir = "../../target/cargo"

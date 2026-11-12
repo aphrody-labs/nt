@@ -5,6 +5,8 @@
 /target/
 /sdk/tools/dxc/
 /sdk/tools/niubash/
+/sdk/tools/cmake/
+/sdk/tools/ninja/
 bin/
 node_modules/
 obj/

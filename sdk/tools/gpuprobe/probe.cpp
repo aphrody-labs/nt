@@ -1,11 +1,13 @@
-// nt-gpu-probe — capacités D3D12 réelles du GPU (spike S0.2, docs/plan/04-plan.md). C++23, WIL, DirectX-Headers.
+// nt-gpu-probe — capacités D3D12 réelles du GPU (spike S0.2). C++23 `import std;` (CMake 4.5, MSVC), WIL, DirectX-Headers (vcpkg).
+// Aucun en-tête de la bibliothèque standard C++ à côté de `import std` (Learn « Standard library named module considerations ») :
+// WIL sans exceptions (WIL_SUPPRESS_EXCEPTIONS => WIL_USE_STL 0, wil/common.h) n'inclut ni <tuple>, ni <iterator>, ni <new>.
+#define NOMINMAX
+#define WIL_SUPPRESS_EXCEPTIONS
 #include <windows.h>
-#include <directx/d3d12.h> // DirectX-Headers v1.620.2 (FetchContent)
+#include <directx/d3d12.h> // DirectX-Headers 1.620.2 (port vcpkg aphrody-labs)
 #include <dxgi1_6.h>
 #include <wil/com.h>
-#include <print>
-#include <string>
-#include <string_view>
+import std;
 
 // Agility SDK 1.620 (Learn « D3D12SDKVersion symbol ») ; D3D12Core.dll copié dans .\D3D12\ par CMake (POST_BUILD).
 extern "C" { __declspec(dllexport) extern const UINT D3D12SDKVersion = 620; }

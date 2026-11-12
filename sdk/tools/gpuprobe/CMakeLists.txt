@@ -1,6 +1,7 @@
-cmake_minimum_required(VERSION 3.30)
-# Sonde des capacités Direct3D 12 (spike S0.2). C++23 standard (pas de `import std` : expérimental dans CMake 4.4).
-# Dépendances récupérées par FetchContent, épinglées par commit sur les forks aphrody-labs.
+cmake_minimum_required(VERSION 4.5)
+# Sonde des capacités Direct3D 12 (spike S0.2). C++23 avec `import std;` : stable depuis CMake 4.5 pour toute cible
+# C++20+ scannée (Help/release/4.5.rst), générateurs Ninja seulement, MSVC 14.36+ (cmake-cxxmodules(7)).
+# Dépendances : vcpkg en mode manifeste (vcpkg.json, vcpkg-configuration.json), ports aphrody-labs en overlay.
 project(nt_gpu_probe LANGUAGES CXX)
 
 if(NOT WIN32)
@@ -8,35 +9,21 @@ if(NOT WIN32)
   return()
 endif()
 
-include(FetchContent)
-# DirectX-Headers v1.620.2 (= Agility SDK 1.620.2 utilisé par l'hôte natif)
-FetchContent_Declare(directx_headers
-  GIT_REPOSITORY https://github.com/aphrody-labs/DirectX-Headers.git
-  GIT_TAG 61c7718954ec73dbdd43c723240fe1a0452a3724
-  GIT_SHALLOW FALSE)
-FetchContent_Declare(wil
-  GIT_REPOSITORY https://github.com/aphrody-labs/wil.git
-  GIT_TAG abb1bd3509b6e5db53ba29738a4180d857adfd40)
-set(WIL_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(WIL_BUILD_PACKAGING OFF CACHE BOOL "" FORCE)
-set(DXHEADERS_BUILD_TEST OFF CACHE BOOL "" FORCE)
-set(DXHEADERS_BUILD_GOOGLE_TEST OFF CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(directx_headers wil)
+find_package(directx-headers CONFIG REQUIRED) # 1.620.2 = Agility SDK 1.620.2
+find_package(wil CONFIG REQUIRED)
 
 add_executable(nt-gpu-probe probe.cpp)
 target_compile_features(nt-gpu-probe PRIVATE cxx_std_23)
+set_target_properties(nt-gpu-probe PROPERTIES CXX_SCAN_FOR_MODULES ON)
 target_link_libraries(nt-gpu-probe PRIVATE Microsoft::DirectX-Headers WIL::WIL d3d12 dxgi)
 if(MSVC)
+  # Options de cible : CMake les reporte sur la cible synthétique qui compile le BMI de `std` (cmake-cxxmodules(7)).
   target_compile_options(nt-gpu-probe PRIVATE /W4 /WX /permissive- /guard:cf /utf-8)
   target_link_options(nt-gpu-probe PRIVATE /CETCOMPAT /DYNAMICBASE /GUARD:CF)
 endif()
 
 # Agility SDK : D3D12Core.dll dans <exe>\D3D12\ (export D3D12SDKPath). Paquet NuGet récupéré par `just tools`.
-if(CMAKE_SYSTEM_PROCESSOR MATCHES "ARM64|arm64|aarch64")
-  set(NT_AGILITY_ARCH arm64)
-else()
-  set(NT_AGILITY_ARCH x64)
-endif()
+string(TOLOWER "${CMAKE_CXX_COMPILER_ARCHITECTURE_ID}" NT_AGILITY_ARCH) # x64 | arm64
 set(NT_AGILITY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../dxc/microsoft.direct3d.d3d12/build/native/bin/${NT_AGILITY_ARCH}")
 add_custom_command(TARGET nt-gpu-probe POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:nt-gpu-probe>/D3D12"

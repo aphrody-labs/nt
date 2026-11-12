@@ -1,13 +1,35 @@
 {
-  "version": 8,
+  "version": 10,
+  "cmakeMinimumRequired": { "major": 4, "minor": 5, "patch": 0 },
+  "$comment": [
+    "`import std` : stable depuis CMake 4.5, générateurs Ninja uniquement (Help/release/4.5.rst, cmake-cxxmodules(7)).",
+    "Lancer dans l'environnement VS : `bun ../vsdev.ts cmake --workflow --preset windows` (just probe) ;",
+    "vsdev.ts fournit cl, VCPKG_ROOT, VSCMD_ARG_TGT_ARCH (x64 | arm64) et CMake 4.5.0 / Ninja 1.13.2 épinglés (sdk/tools/fetch-tools.ts)."
+  ],
   "configurePresets": [
     {
       "name": "windows",
-      "displayName": "Windows (Visual Studio 2026, MSVC trouvé par CMake)",
-      "generator": "Visual Studio 18 2026",
+      "displayName": "Windows (MSVC + Ninja, vcpkg, import std)",
+      "generator": "Ninja",
       "binaryDir": "${sourceDir}/../../../target/cmake/nt-gpu-probe/${presetName}",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_COMPILER": "cl",
+        "VCPKG_TARGET_TRIPLET": "$env{VSCMD_ARG_TGT_ARCH}-windows",
+        "VCPKG_INSTALLED_DIR": "${sourceDir}/../../../target/vcpkg_installed"
+      },
       "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
     }
   ],
-  "buildPresets": [{ "name": "windows", "configurePreset": "windows", "configuration": "Release" }]
+  "buildPresets": [{ "name": "windows", "configurePreset": "windows" }],
+  "workflowPresets": [
+    {
+      "name": "windows",
+      "steps": [
+        { "type": "configure", "name": "windows" },
+        { "type": "build", "name": "windows" }
+      ]
+    }
+  ]
 }

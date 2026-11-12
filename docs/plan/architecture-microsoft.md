@@ -49,3 +49,24 @@ Sources : cinq relevés en lecture seule (forks aphrody-labs dans `third_party/`
    - la scène noyau est en rendu GPU pur (Direct3D 12 natif, WebGPU dans le navigateur) ;
    - la passerelle .NET ↔ bun passe par node-api-dotnet (addon NativeAOT).
 6. Aucune compilation sur le poste : la compilation se fait sur GitHub Actions (forks aphrody-labs) ou sur prd.
+
+## Chaîne d'outils native — décisions du 2026-11-12 (branche `nt/toolchain`)
+
+Sources consultées le jour même : Kitware/CMake `v4.5.0` (Help/release/4.5.rst, cmake-cxxmodules(7)), Learn (vcpkg binary caching,
+single-project MSIX, Windows App SDK 1.6/2.x, Native AOT, WinGet Configuration v3, MSVC 14.52 / VS 18.12), microsoft/vcpkg@177e8175,
+nuget.org, PowerShell/DSC, PSGallery, `winget show`, actions/runner-images (windows-2025-vs2026 20261103 : VS 18.11, CMake 4.4.5).
+
+7. C++23 `import std;` par CMake 4.5 (stable, tag du 2026-11-12) avec Ninja et MSVC ; les générateurs Visual Studio ne le
+   prennent pas en charge (pas de BMI pour les cibles importées). CMake 4.5.0 et Ninja 1.13.2 sont épinglés par
+   `sdk/tools/fetch-tools.ts` (SHA-256), l'environnement VS est chargé par `sdk/tools/vsdev.ts` (vswhere + VsDevCmd).
+   MSVC 19.52.37029+ reçoit `-std:c++23` (stable), les versions antérieures `-std:c++latest`.
+8. vcpkg en mode manifeste : registre par défaut microsoft/vcpkg épinglé par commit, ports aphrody-labs en overlay
+   (`sdk/vcpkg/ports` : directx-headers 1.620.2 = Agility SDK 1.620.2, absent du registre ; wil abb1bd35). Cache binaire CI :
+   fournisseur NuGet sur GitHub Packages (recommandé par Learn ; `x-gha` est retiré de vcpkg).
+9. Coque : NativeAOT (exe 3,5 Mo mesuré) ; deux sorties, non empaquetée autonome et MSIX projet unique, Windows App SDK 2.6.5
+   embarqué dans les deux cas ; certificat de test généré par la CI, jamais versionné.
+10. WinUI depuis Rust : windows-reactor (windows-rs) en dépendance git épinglée, échantillon `sdk/rust/winui-hello`.
+11. Poste : `.config/configuration.winget` (WinGet Configuration v3, processeur dscv3) ; module PSGallery
+    Microsoft.VisualStudio.DSC pour les composants C++ de Visual Studio Build Tools 2026.
+12. .NET : applications net11.0 ; bibliothèques consommées par d'autres hôtes .NET en net10.0;net11.0
+    (`$(NtLibraryTargetFrameworks)`), IsAotCompatible par défaut.

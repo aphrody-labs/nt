@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg-configuration.schema.json",
+  "$comment": [
+    "Registre par défaut : microsoft/vcpkg épinglé par commit (master du 2026-11-12, [libressl] 4.4.1) ; ports hôtes vcpkg-cmake*.",
+    "Ports aphrody-labs (forks épinglés par commit) en overlay : directx-headers 1.620.2 = Agility SDK 1.620.2, absent du registre",
+    "(1.619.5 puis 1.721.2, en-têtes preview) ; wil abb1bd35. À déplacer dans un registre git aphrody-labs le jour où il existe."
+  ],
+  "default-registry": {
+    "kind": "git",
+    "repository": "https://github.com/microsoft/vcpkg",
+    "baseline": "177e8175121536d414f405ed8b3099b325a42638"
+  },
+  "overlay-ports": ["../../vcpkg/ports"]
+}

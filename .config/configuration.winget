@@ -1,0 +1,131 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/PowerShell/DSC/main/schemas/2023/08/config/document.json
+# Poste de développement nt (Windows) : WinGet Configuration v3, processeur DSC v3 (Learn « WinGet Configuration file v3
+# schema reference », WinGet 1.11+ ; chemin conventionnel ./.config/configuration.winget).
+#   winget configure validate -f .config/configuration.winget     (lecture seule)
+#   winget configure -f .config/configuration.winget               (just setup)
+# Paquets winget relevés le 2026-11-12 (winget show) ; aucune version épinglée sauf niubash (épinglé par sdk/tools/fetch-tools.ts).
+# CMake 4.5.0 et Ninja 1.13.2 de la sonde C++23 `import std` sont épinglés par sdk/tools/fetch-tools.ts : winget n'a que CMake 4.4.4.
+# Modules PSGallery (ressources DSC adaptées par l'adaptateur PowerShell 7) : installés explicitement, DSC v3 ne le fait pas.
+# Scripts : Microsoft.DSC.Transitional/PowerShellScript (pwsh 7, aucun chemin d'exécutable codé en dur) ; testScript émet un
+# seul booléen et setScript est toujours exécuté, donc idempotent (PowerShell/DSC docs/reference/.../PowerShellScript).
+$schema: https://raw.githubusercontent.com/PowerShell/DSC/main/schemas/2023/08/config/document.json
+metadata:
+  winget:
+    processor:
+      identifier: dscv3
+resources:
+- type: Microsoft.WinGet/Package
+  name: PowerShell
+  properties: { id: Microsoft.PowerShell, source: winget, useLatest: true }
+  metadata:
+    description: PowerShell 7 (scripts DSC et adaptateur des ressources PSGallery)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: Git
+  properties: { id: Git.Git, source: winget, useLatest: true }
+  metadata:
+    description: Git
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: GitHubCli
+  properties: { id: GitHub.cli, source: winget, useLatest: true }
+  metadata:
+    description: GitHub CLI (sdk/tools/fetch-tools.ts télécharge les releases épinglées)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: VisualStudioBuildTools
+  properties: { id: Microsoft.VisualStudio.BuildTools, source: winget, useLatest: true }
+  metadata:
+    description: Visual Studio Build Tools 2026 (MSVC, link.exe pour NativeAOT, vcpkg)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.DSC.Transitional/PowerShellScript
+  name: VisualStudioDscModule
+  dependsOn: [PowerShell]
+  properties:
+    testScript: |
+      [bool](Get-Module -ListAvailable -Name Microsoft.VisualStudio.DSC | Where-Object Version -ge ([version]'1.0.35'))
+    setScript: |
+      if (-not (Get-Module -ListAvailable -Name Microsoft.VisualStudio.DSC | Where-Object Version -ge ([version]'1.0.35'))) {
+        Install-PSResource -Name Microsoft.VisualStudio.DSC -Version '[1.0.35,2.0.0)' -Repository PSGallery -TrustRepository -AcceptLicense
+      }
+  metadata:
+    description: Module PSGallery Microsoft.VisualStudio.DSC 1.0.35 (stable, 2026-07-31) pour VSComponents
+
+- type: Microsoft.VisualStudio.DSC/VSComponents
+  name: VisualStudioCpp
+  dependsOn: [VisualStudioBuildTools, VisualStudioDscModule]
+  properties:
+    productId: Microsoft.VisualStudio.Product.BuildTools
+    channelId: VisualStudio.18.Release
+    includeRecommended: false
+    components:
+    - Microsoft.VisualStudio.Workload.VCTools
+    - Microsoft.VisualStudio.Component.VC.Tools.x86.x64
+    - Microsoft.VisualStudio.Component.VC.Tools.ARM64
+    - Microsoft.VisualStudio.Component.Windows11SDK.26100
+    - Microsoft.VisualStudio.Component.Vcpkg
+  metadata:
+    description: C++ (MSVC x64/ARM64, SDK Windows 11, vcpkg) ; NativeAOT exige link.exe et la CRT VC (Learn « Native AOT deployment »)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: CMake
+  properties: { id: Kitware.CMake, source: winget, useLatest: true }
+  metadata:
+    description: CMake (4.4.4 sur winget au 2026-11-12 ; la sonde utilise CMake 4.5.0 épinglé)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: DotNetSdk11
+  properties: { id: Microsoft.DotNet.SDK.11, source: winget, useLatest: true }
+  metadata:
+    description: SDK .NET 11 (global.json 11.0.100, rollForward latestFeature ; cible aussi net10.0)
+    winget: { securityContext: elevated }
+
+- type: Microsoft.WinGet/Package
+  name: Bun
+  properties: { id: Oven-sh.Bun, source: winget, useLatest: true }
+  metadata:
+    description: bun (JS/TS)
+
+- type: Microsoft.WinGet/Package
+  name: Just
+  properties: { id: Casey.Just, source: winget, useLatest: true }
+  metadata:
+    description: just (entrée unique du dépôt)
+
+- type: Microsoft.WinGet/Package
+  name: Niubash
+  properties: { id: Unixwin.Niubash, source: winget, version: 1.5.0 }
+  metadata:
+    description: niubash 1.5.0 (shell Windows des recettes just)
+
+- type: Microsoft.WinGet/Package
+  name: Rustup
+  properties: { id: Rustlang.Rustup, source: winget, useLatest: true }
+  metadata:
+    description: rustup (sdk/rust/rust-toolchain.toml installe la nightly épinglée)
+
+- type: Microsoft.DSC.Transitional/PowerShellScript
+  name: WindowsAppRuntime
+  dependsOn: [PowerShell]
+  properties:
+    testScript: |
+      $arch = if ($env:PROCESSOR_ARCHITECTURE -eq 'ARM64') { 'Arm64' } else { 'X64' }
+      [bool](Get-AppxPackage -Name Microsoft.WindowsAppRuntime.2 | Where-Object { $_.Architecture -eq $arch -and [version]$_.Version -ge [version]'2.6.5.0' })
+    setScript: |
+      $arch = if ($env:PROCESSOR_ARCHITECTURE -eq 'ARM64') { 'arm64' } else { 'x64' }
+      $ok = Get-AppxPackage -Name Microsoft.WindowsAppRuntime.2 | Where-Object { $_.Architecture -eq $arch -and [version]$_.Version -ge [version]'2.6.5.0' }
+      if (-not $ok) {
+        $exe = Join-Path $env:TEMP "WindowsAppRuntimeInstall-$arch.exe"
+        Invoke-WebRequest -Uri "https://aka.ms/windowsappsdk/2.6/2.6.5/windowsappruntimeinstall-$arch.exe" -OutFile $exe
+        Start-Process -FilePath $exe -ArgumentList '--quiet' -Wait
+      }
+  metadata:
+    description: >-
+      Windows App Runtime 2.6.5 (framework Microsoft.WindowsAppRuntime.2) pour les échantillons reactor dépendants du
+      framework (sdk/rust) ; winget n'a que Microsoft.WindowsAppRuntime.2 2.5.1 au 2026-11-12. Nt.App l'embarque (autonome).

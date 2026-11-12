@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "directx-headers",
+  "version": "1.620.2",
+  "description": "DirectX 12 headers, fork aphrody-labs/DirectX-Headers at tag v1.620.2 (= Agility SDK 1.620.2 retail). The curated registry jumps from 1.619.5 to 1.721.2 (preview headers).",
+  "homepage": "https://github.com/aphrody-labs/DirectX-Headers",
+  "license": "MIT",
+  "supports": "(windows & !arm32 & !xbox) | linux",
+  "dependencies": [
+    { "name": "vcpkg-cmake", "host": true },
+    { "name": "vcpkg-cmake-config", "host": true }
+  ]
+}
