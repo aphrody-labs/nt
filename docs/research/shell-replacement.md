@@ -36,10 +36,10 @@ Rapport tiers (brush#1296) : suite GNU Bash `.tests` (83 fichiers) sous Windows,
 Pas de remplaçant « drop-in » : pwsh est un langage .NET distinct. Remplacement par usage :
 - Claude : outil PowerShell désactivé (`CLAUDE_CODE_USE_POWERSHELL_TOOL=0`), tout passe par niubash.
 - Windows Terminal : profil par défaut niubash (`niu --install-wt-profile --set-default`, Context7).
-- `justfile` (`C:\src`, `nt`) : `windows-shell` pwsh → niubash, après test de chaque recette.
+- `justfile` (`src`, `nt`) : `windows-shell` pwsh → niubash, après test de chaque recette.
 - Windows PowerShell 5.1 reste (composant système) ; pwsh 7 reste installé mais n'est plus appelé.
 
 ## 6. Reproductibilité
 
 - Microsoft : **WinGet Configuration** (YAML, `winget configure -f`) — mécanisme documenté sur Learn pour une installation répétable.
-- Monorepo `C:\src` : `tools.toml` + `ay up` (sources `github` avec checksum). **Bloquant** : le `ay` 0.2.0 installé ne lit plus `tools.toml` (`unknown variant "ubi"`) et sa recompilation depuis `C:\src/crates/ay` a échoué (`failed to compile aphrody v0.2.0`, cause non encore analysée).
+- Monorepo `src` : `tools.toml` + `ay up` (sources `github` avec checksum). **Bloquant** : le `ay` 0.2.0 installé ne lit plus `tools.toml` (`unknown variant "ubi"`) et sa recompilation depuis `src/crates/ay` a échoué (`failed to compile aphrody v0.2.0`, cause non encore analysée).

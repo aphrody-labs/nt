@@ -1,4 +1,4 @@
-// Serveur bun de nt : modèle 3D du noyau Windows en direct (rendu GPU pur), index NTFS de C:\Windows, icônes réelles
+// Serveur bun de nt : modèle 3D du noyau Windows en direct (rendu GPU pur), index NTFS de %SystemRoot%, icônes réelles
 // des PE, bureau vectorisé en SVG.
 //   /                noyau NT en 3D (WebGPU, aucun texte DOM)   WebSocket /kernel : échantillons ntdll (ntsys.ts)
 //   /api/icon?path=  icône réelle d'un PE (.ico)                /api/index/{stats,tree,search} : SQLite (winindex.ts)

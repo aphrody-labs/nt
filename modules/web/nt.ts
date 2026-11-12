@@ -1,5 +1,5 @@
 // nt — modèle 3D du noyau Windows NT en direct, rendu GPU pur (WebGPU, 3840 x 2160, MSAA 4x) : aucun texte DOM.
-// Couches : C:\Windows réel (index NTFS, treemap) · matériel (KPRCB, mémoire physique, volume NTFS/MFT) ·
+// Couches : %SystemRoot% réel (index NTFS, treemap) · matériel (KPRCB, mémoire physique, volume NTFS/MFT) ·
 // noyau et exécutif (ntoskrnl, 75 types d'objets, pool par tag, pilotes chargés) · processus et threads réels,
 // icônes extraites des PE réels, chemins réels. Textes : atlas de glyphes ; icônes : atlas RGBA ; tout est GPU.
 import { FRAME, MAGIC, type Slow, THREAD_STATE, WAIT_REASON } from "./ntsys-format.ts";
@@ -480,7 +480,7 @@ function buildStatic() {
   layer("noyau & exécutif — ntoskrnl · Ob · Mm · Io", Y.ex + 1);
   layer("processus (EPROCESS) · threads (ETHREAD)", Y.pr + 1);
 
-  // C:\Windows : dossiers niveau 1 (socles) et 2 (tours), icône de l'exécutable principal.
+  // %SystemRoot% : dossiers niveau 1 (socles) et 2 (tours), icône de l'exécutable principal.
   if (tree) {
     const lv1 = tree.children.filter((d) => d.bytes > 0);
     const b1: Box[] = [];
