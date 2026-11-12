@@ -304,7 +304,7 @@ const bytes = (v: number) =>
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
 // --- Caméra orbitale ----------------------------------------------------------------------------------------------------
-const cam = { yaw: -0.9, pitch: 0.55, dist: 170, tx: 0, ty: 6, tz: 0, fov: 0.85 };
+const cam = { yaw: -Math.PI / 4, pitch: 0.62, dist: 150, tx: 0, ty: 12, tz: 0, fov: 0.85 };
 const camData = new Float32Array(32);
 const eye = [0, 0, 0];
 const fwd = [0, 0, 0];

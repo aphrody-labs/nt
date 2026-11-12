@@ -32,6 +32,7 @@ jobs:
       - run: just lint
       - run: just test
       - run: just build
+      - run: just app
       - run: just cross
       - run: bun tools/budgets.ts --json target/budgets-windows.json
       # Fumée D3D12 sur l'adaptateur logiciel du runner (WARP) : pas de GPU, donc pas de mesure de performance.
@@ -46,6 +47,7 @@ jobs:
             target/x86_64-pc-windows-msvc/release/nt-d3d12.exe
             target/x86_64-pc-windows-msvc/release/D3D12/
             target/dotnet/publish/Nt.Shell/release_win-x64/
+            target/dotnet/publish/Nt.App/release_win-x64/
             target/web/
             target/budgets-windows.json
           if-no-files-found: error

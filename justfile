@@ -93,3 +93,8 @@ bench-native: native
 cross:
     cargo check -p nt-kernel -p nt-ffi -p nt-d3d12 --target aarch64-pc-windows-msvc
     cargo check -p nt-kernel -p nt-ffi --target x86_64-unknown-linux-musl
+
+# Coque native WinUI 3 (Fluent, Mica, WebView2 -> scène GPU) ; nécessite `just serve` pour les données
+[windows]
+app:
+    dotnet publish src/dotnet/Nt.App -c Release -r {{ rid }}

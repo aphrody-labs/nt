@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/dotnet/Nt.Shell/Nt.Shell.csproj" />
+    <Project Path="src/dotnet/Nt.App/Nt.App.csproj" />
   </Folder>
 </Solution>
