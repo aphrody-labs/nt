@@ -4,7 +4,7 @@
 //   /api/icon?path=  icône réelle d'un PE (.ico)                /api/index/{stats,tree,search} : SQLite (winindex.ts)
 //   /desktop.svg     bureau entier (UI Automation)              /stats : mesures d'affichage (?report=1)
 // Usage : bun src/host/server.ts   [PORT=8787] [NT_HZ=15]
-import app from "../../../shell/web/nt.html";
+import app from "../../../modules/web/nt.html";
 import { desktopSvg } from "./desktop-svg.ts";
 import { createSampler, type Slow } from "./ntsys.ts";
 import { iconOf, ntfsVolume, processPath } from "./pe-icon.ts";

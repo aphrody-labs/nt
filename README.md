@@ -4,8 +4,8 @@ Modèle du **vrai** Windows NT de ce poste, en direct et rendu entièrement par 
 Architecture et décisions : [docs/plan/architecture-microsoft.md](docs/plan/architecture-microsoft.md).
 
 ```
-shell/app/          coque native WinUI 3 (Windows App SDK 2.6.5 : Fluent, Mica, NavigationView, WebView2)
-shell/web/          scène GPU du noyau : WebGPU 3840x2160 MSAA 4x, boîtes instanciées + atlas glyphes/icônes, sans texte DOM
+base/shell/explorer/  coque native WinUI 3 (place d'explorer.exe) (Windows App SDK 2.6.5 : Fluent, Mica, NavigationView, WebView2)
+modules/web/        portage navigateur : scène GPU du noyau : WebGPU 3840x2160 MSAA 4x, boîtes instanciées + atlas glyphes/icônes, sans texte DOM
 sdk/tools/host/     lecture du Windows réel via bun:ffi
                     ntsys.ts        ntdll : processeurs, compteurs, processus/threads, pilotes, pool, types et espace de noms d'objets
                     winindex.ts     index NTFS de %SystemRoot% (FindFirstFileExW + SQLite FTS5 + en-têtes PE)

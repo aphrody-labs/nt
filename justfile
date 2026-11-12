@@ -22,7 +22,7 @@ lint: install
 
 # Scène GPU du noyau (WebGPU) -> target/web
 web: install
-    bun build shell/web/nt.html --outdir target/web --minify
+    bun build modules/web/nt.html --outdir target/web --minify
 
 # Serveur : noyau NT en direct (WebSocket /kernel), /api/icon, /api/index, /desktop.svg
 serve: install
@@ -46,4 +46,4 @@ probe:
 # Coque native WinUI 3 (Fluent, Mica, WebView2 -> scène GPU) ; nécessite `just serve` pour les données
 [windows]
 app:
-    dotnet publish shell/app -c Release -r {{ rid }}
+    dotnet publish base/shell/explorer -c Release -r {{ rid }}

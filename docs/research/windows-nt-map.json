@@ -1,0 +1,4062 @@
+{
+ "date": "2026-11-12T17:51:10.292Z",
+ "source": "binaires de %SystemRoot% et système en marche (ntdll via bun:ffi), relevé par sdk/tools/host/ntmap.ts",
+ "boot": [
+  {
+   "path": "C:\\WINDOWS\\Boot\\EFI\\bootmgfw.efi",
+   "present": true,
+   "size": 3086848,
+   "machine": 34404,
+   "timestamp": 3759371568,
+   "exports": 0,
+   "components": {}
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\winload.efi",
+   "present": true,
+   "size": 3488208,
+   "machine": 34404,
+   "timestamp": 4180063132,
+   "exports": 487,
+   "components": {
+    "(autre)": {
+     "count": 416,
+     "sample": [
+      "AhCreateLoadOptionsString",
+      "AhGetArcDevice",
+      "ArchBuildKernelGdt",
+      "ArchGetGdtRegister"
+     ]
+    },
+    "Rtl": {
+     "count": 66,
+     "sample": [
+      "RtlAnsiStringToUnicodeString",
+      "RtlAppendUnicodeStringToString",
+      "RtlAppendUnicodeToString",
+      "RtlApplyFunctionOverrideFixupsToImage"
+     ]
+    },
+    "Dbg": {
+     "count": 2,
+     "sample": [
+      "DbgLoadImageSymbols",
+      "DbgPrint"
+     ]
+    },
+    "Kd": {
+     "count": 2,
+     "sample": [
+      "KdNetGetNetDataSize",
+      "KdNetGetParameters"
+     ]
+    },
+    "Ldr": {
+     "count": 1,
+     "sample": [
+      "LdrInitSecurityCookie"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\winresume.efi",
+   "present": true,
+   "size": 3007840,
+   "machine": 34404,
+   "timestamp": 3111274974,
+   "exports": 0,
+   "components": {}
+  }
+ ],
+ "kernel": {
+  "ntoskrnl": {
+   "path": "C:\\WINDOWS\\System32\\ntoskrnl.exe",
+   "present": true,
+   "size": 13912208,
+   "machine": 34404,
+   "timestamp": 3509768331,
+   "exports": 3392,
+   "imports": [
+    "bootvid.dll",
+    "ci.dll",
+    "cng.sys",
+    "ext-ms-win-accel-api-km-l1-1-1.dll",
+    "ext-ms-win-fs-clfs-l1-1-0.dll",
+    "ext-ms-win-kmpdc-l1-1-0.dll",
+    "ext-ms-win-ntos-clipsp-l1-1-0.dll",
+    "ext-ms-win-ntos-globmerger-l1-1-0.dll",
+    "ext-ms-win-ntos-kcminitcfg-l1-1-0.dll",
+    "ext-ms-win-ntos-ksecurity-l1-1-1.dll",
+    "ext-ms-win-ntos-ksr-l1-1-6.dll",
+    "ext-ms-win-ntos-processparameters-l1-1-0.dll",
+    "ext-ms-win-ntos-runlevels-l1-1-0.dll",
+    "ext-ms-win-ntos-stateseparation-l1-1-1.dll",
+    "ext-ms-win-ntos-tm-l1-1-0.dll",
+    "ext-ms-win-ntos-trace-l1-1-0.dll",
+    "ext-ms-win-ntos-ucode-l1-1-0.dll",
+    "ext-ms-win-ntos-werkernel-l1-1-1.dll",
+    "ext-ms-win-ntos-win32k-l1-1-0.dll",
+    "kdcom.dll",
+    "msrpc.sys",
+    "pshed.dll",
+    "symcryptk.dll"
+   ],
+   "components": {
+    "Rtl": {
+     "count": 544,
+     "sample": [
+      "RtlAbsoluteToSelfRelativeSD",
+      "RtlAddAccessAllowedAce",
+      "RtlAddAccessAllowedAceEx",
+      "RtlAddAccessAllowedObjectAce"
+     ]
+    },
+    "(autre)": {
+     "count": 423,
+     "sample": [
+      "BgkDisplayCharacter",
+      "BgkGetConsoleState",
+      "BgkGetCursorState",
+      "BgkSetCursor"
+     ]
+    },
+    "Io": {
+     "count": 373,
+     "sample": [
+      "IoAcquireCancelSpinLock",
+      "IoAcquireKsrPersistentMemory",
+      "IoAcquireKsrPersistentMemoryEx",
+      "IoAcquireRemoveLockEx"
+     ]
+    },
+    "Ke": {
+     "count": 294,
+     "sample": [
+      "KeAcquireGuardedMutex",
+      "KeAcquireGuardedMutexUnsafe",
+      "KeAcquireInStackQueuedSpinLock",
+      "KeAcquireInStackQueuedSpinLockAtDpcLevel"
+     ]
+    },
+    "Zw": {
+     "count": 268,
+     "sample": [
+      "ZwAccessCheckAndAuditAlarm",
+      "ZwAddBootEntry",
+      "ZwAddDriverEntry",
+      "ZwAdjustPrivilegesToken"
+     ]
+    },
+    "Ex": {
+     "count": 237,
+     "sample": [
+      "ExAccessByte",
+      "ExAcquireAutoExpandPushLockExclusive",
+      "ExAcquireAutoExpandPushLockShared",
+      "ExAcquireCacheAwarePushLockExclusive"
+     ]
+    },
+    "FsRtl": {
+     "count": 234,
+     "sample": [
+      "FsRtlAcknowledgeEcp",
+      "FsRtlAcquireEofLock",
+      "FsRtlAcquireFileExclusive",
+      "FsRtlAcquireHeaderMutex"
+     ]
+    },
+    "Ps": {
+     "count": 219,
+     "sample": [
+      "PsAcquireProcessExitSynchronization",
+      "PsAcquireSiloHardReference",
+      "PsAdjustWin32kPriorityFloor",
+      "PsAllocSiloContextSlot"
+     ]
+    },
+    "Mm": {
+     "count": 131,
+     "sample": [
+      "MmAddPhysicalMemory",
+      "MmAddVerifierSpecialThunks",
+      "MmAddVerifierThunks",
+      "MmAdjustWorkingSetSize"
+     ]
+    },
+    "Se": {
+     "count": 115,
+     "sample": [
+      "SeAccessCheck",
+      "SeAccessCheckEx",
+      "SeAccessCheckFromState",
+      "SeAccessCheckFromStateEx"
+     ]
+    },
+    "Nt": {
+     "count": 114,
+     "sample": [
+      "NtAddAtom",
+      "NtAdjustPrivilegesToken",
+      "NtAllocateLocallyUniqueId",
+      "NtAllocateUuids"
+     ]
+    },
+    "Po": {
+     "count": 93,
+     "sample": [
+      "PoCallDriver",
+      "PoCancelDeviceNotify",
+      "PoClearPowerRequest",
+      "PoCpuIdledSinceLastCallImprecise"
+     ]
+    },
+    "Hal": {
+     "count": 77,
+     "sample": [
+      "HalAcpiGetTableEx",
+      "HalAcquireDisplayOwnership",
+      "HalAdjustResourceList",
+      "HalAllProcessorsStarted"
+     ]
+    },
+    "Cc": {
+     "count": 70,
+     "sample": [
+      "CcAddDirtyPagesToExternalCache",
+      "CcAsyncCopyRead",
+      "CcCanIWrite",
+      "CcCoherencyFlushAndPurgeCache"
+     ]
+    },
+    "Ob": {
+     "count": 46,
+     "sample": [
+      "ObAssignSecurity",
+      "ObCheckCreateObjectAccess",
+      "ObCheckObjectAccess",
+      "ObCloseHandle"
+     ]
+    },
+    "Tm": {
+     "count": 39,
+     "sample": [
+      "TmCancelPropagationRequest",
+      "TmCommitComplete",
+      "TmCommitEnlistment",
+      "TmCommitTransaction"
+     ]
+    },
+    "Kd": {
+     "count": 21,
+     "sample": [
+      "KdAcquireDebuggerLock",
+      "KdChangeOption",
+      "KdComPortInUse",
+      "KdDebuggerEnabled"
+     ]
+    },
+    "Etw": {
+     "count": 16,
+     "sample": [
+      "EtwActivityIdControl",
+      "EtwEnableTrace",
+      "EtwEventEnabled",
+      "EtwProviderEnabled"
+     ]
+    },
+    "Inbv": {
+     "count": 14,
+     "sample": [
+      "InbvAcquireDisplayOwnership",
+      "InbvCheckDisplayOwnership",
+      "InbvDisplayString",
+      "InbvEnableBootDriver"
+     ]
+    },
+    "Cm": {
+     "count": 12,
+     "sample": [
+      "CmCallbackGetKeyObjectID",
+      "CmCallbackGetKeyObjectIDEx",
+      "CmCallbackReleaseKeyObjectIDEx",
+      "CmGetBoundTransaction"
+     ]
+    },
+    "Dbg": {
+     "count": 11,
+     "sample": [
+      "DbgBreakPoint",
+      "DbgBreakPointWithStatus",
+      "DbgCommandString",
+      "DbgLoadImageSymbols"
+     ]
+    },
+    "Ldr": {
+     "count": 8,
+     "sample": [
+      "LdrAccessResource",
+      "LdrEnumResources",
+      "LdrFindResourceDirectory_U",
+      "LdrFindResourceEx_U"
+     ]
+    },
+    "Lsa": {
+     "count": 6,
+     "sample": [
+      "LsaCallAuthenticationPackage",
+      "LsaDeregisterLogonProcess",
+      "LsaFreeReturnBuffer",
+      "LsaLogonUser"
+     ]
+    },
+    "Nls": {
+     "count": 6,
+     "sample": [
+      "NlsAnsiCodePage",
+      "NlsLeadByteInfo",
+      "NlsMbCodePageTag",
+      "NlsMbOemCodePageTag"
+     ]
+    },
+    "Vf": {
+     "count": 6,
+     "sample": [
+      "VfInsertContext",
+      "VfQueryDeviceContext",
+      "VfQueryDispatchTable",
+      "VfQueryDriverContext"
+     ]
+    },
+    "Alpc": {
+     "count": 4,
+     "sample": [
+      "AlpcCreateSecurityContext",
+      "AlpcGetHeaderSize",
+      "AlpcGetMessageAttribute",
+      "AlpcInitializeMessageAttribute"
+     ]
+    },
+    "Dbgk": {
+     "count": 4,
+     "sample": [
+      "DbgkLkmdRegisterCallback",
+      "DbgkLkmdUnregisterCallback",
+      "DbgkWerCaptureLiveKernelDump",
+      "DbgkWerCaptureLiveKernelDump2"
+     ]
+    },
+    "Wmi": {
+     "count": 4,
+     "sample": [
+      "WmiGetClock",
+      "WmiQueryTraceInformation",
+      "WmiTraceMessage",
+      "WmiTraceMessageVa"
+     ]
+    },
+    "Ki": {
+     "count": 2,
+     "sample": [
+      "KiBugCheckData",
+      "KiCheckForKernelApcDelivery"
+     ]
+    },
+    "Pf": {
+     "count": 1,
+     "sample": [
+      "PfFileInfoNotify"
+     ]
+    }
+   }
+  },
+  "hal": {
+   "path": "C:\\WINDOWS\\System32\\hal.dll",
+   "present": true,
+   "size": 30864,
+   "machine": 34404,
+   "timestamp": 929069979,
+   "exports": 91,
+   "imports": [],
+   "components": {
+    "Hal": {
+     "count": 74,
+     "sample": [
+      "HalAcpiGetTableEx",
+      "HalAcquireDisplayOwnership",
+      "HalAdjustResourceList",
+      "HalAllProcessorsStarted"
+     ]
+    },
+    "Io": {
+     "count": 7,
+     "sample": [
+      "IoFlushAdapterBuffers",
+      "IoFreeAdapterChannel",
+      "IoFreeMapRegisters",
+      "IoMapTransfer"
+     ]
+    },
+    "(autre)": {
+     "count": 5,
+     "sample": [
+      "x86BiosAllocateBuffer",
+      "x86BiosCall",
+      "x86BiosFreeBuffer",
+      "x86BiosReadMemory"
+     ]
+    },
+    "Ke": {
+     "count": 3,
+     "sample": [
+      "KeFlushWriteBuffer",
+      "KeQueryPerformanceCounter",
+      "KeStallExecutionProcessor"
+     ]
+    },
+    "Kd": {
+     "count": 2,
+     "sample": [
+      "KdComPortInUse",
+      "KdHvComPortInUse"
+     ]
+    }
+   }
+  }
+ },
+ "win32k": [
+  {
+   "path": "C:\\WINDOWS\\System32\\win32k.sys",
+   "present": true,
+   "size": 817272,
+   "machine": 34404,
+   "timestamp": 1671737337,
+   "exports": 1807,
+   "imports": [
+    "ext-ms-win-core-win32k-dxgk-l1-1-0.dll",
+    "ext-ms-win-core-win32k-flipmgr-l1-1-1.dll",
+    "ext-ms-win-core-win32k-surfmgr-l1-1-1.dll",
+    "ext-ms-win-core-win32k-tokenmgr-l1-1-0.dll",
+    "ntoskrnl.exe",
+    "watchdog.sys"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 1787,
+     "sample": [
+      "BRUSHOBJ_hGetColorTransform",
+      "BRUSHOBJ_pvAllocRbrush",
+      "BRUSHOBJ_pvGetRbrush",
+      "BRUSHOBJ_ulGetBrushColor"
+     ]
+    },
+    "Rtl": {
+     "count": 19,
+     "sample": [
+      "RtlAnsiCharToUnicodeChar",
+      "RtlCaptureContext",
+      "RtlCopyMemory",
+      "RtlCopyMemoryNonTemporal"
+     ]
+    },
+    "Nt": {
+     "count": 1,
+     "sample": [
+      "NtUserInitialize"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\win32kbase.sys",
+   "present": true,
+   "size": 3379200,
+   "machine": 34404,
+   "timestamp": 982507459,
+   "exports": 2533,
+   "imports": [
+    "cng.sys",
+    "dxgkrnl.sys",
+    "ext-ms-win-core-win32k-dxgk-internal-l1-1-0.dll",
+    "ext-ms-win-ntos-werkernel-l1-1-1.dll",
+    "hal.dll",
+    "hidparse.sys",
+    "msrpc.sys",
+    "ntoskrnl.exe",
+    "watchdog.sys",
+    "win32k.sys",
+    "wpprecorder.sys"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 1992,
+     "sample": [
+      "??0BRUSHMEMOBJ@@QEAA@KKHH@Z",
+      "??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z",
+      "??0CAutoMutex@OPM@@QEAA@PEAVCMutex@1@@Z",
+      "??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z"
+     ]
+    },
+    "Etw": {
+     "count": 270,
+     "sample": [
+      "EtwBindLogicalSurfaceRHEvent",
+      "EtwBindSwapChain",
+      "EtwDevLockEndTightUpdate",
+      "EtwDevLockEndUpdate"
+     ]
+    },
+    "Nt": {
+     "count": 267,
+     "sample": [
+      "NtCloseCompositionInputSink",
+      "NtCompositionSetDropTarget",
+      "NtConfigureInputSpace",
+      "NtCreateCompositionInputSink"
+     ]
+    },
+    "Nls": {
+     "count": 2,
+     "sample": [
+      "NlsKbdInitializePerSystem",
+      "NlsKbdSendIMENotification"
+     ]
+    },
+    "Io": {
+     "count": 1,
+     "sample": [
+      "IoControl"
+     ]
+    },
+    "Rtl": {
+     "count": 1,
+     "sample": [
+      "RtlLoadStringOrError"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\win32kfull.sys",
+   "present": true,
+   "size": 4345856,
+   "machine": 34404,
+   "timestamp": 3618900273,
+   "exports": 2368,
+   "imports": [
+    "cng.sys",
+    "dxgkrnl.sys",
+    "hal.dll",
+    "hidparse.sys",
+    "msrpc.sys",
+    "ntoskrnl.exe",
+    "watchdog.sys",
+    "win32k.sys",
+    "win32kbase.sys",
+    "wpprecorder.sys"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 1424,
+     "sample": [
+      "AddMagnificationOutputTransform",
+      "AdjustLinearity",
+      "AllocateCvr",
+      "AllocateEditionSessionGlobalsArea"
+     ]
+    },
+    "Nt": {
+     "count": 931,
+     "sample": [
+      "NtGdiAbortDoc",
+      "NtGdiAbortPath",
+      "NtGdiAddEmbFontToDC",
+      "NtGdiAddFontMemResourceEx"
+     ]
+    },
+    "Rtl": {
+     "count": 11,
+     "sample": [
+      "RtlCaptureContext",
+      "RtlCopyMemory",
+      "RtlCopyMemoryNonTemporal",
+      "RtlFillMemory"
+     ]
+    },
+    "Dbg": {
+     "count": 1,
+     "sample": [
+      "DbgValidateHooks"
+     ]
+    },
+    "Ps": {
+     "count": 1,
+     "sample": [
+      "PsW32ScreenSaver_Show"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\win32kbase_rs.sys",
+   "present": true,
+   "size": 176128,
+   "machine": 34404,
+   "timestamp": 2987807957,
+   "exports": 98,
+   "imports": [
+    "ntoskrnl.exe",
+    "win32k.sys",
+    "win32kbase.sys"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 98,
+     "sample": [
+      "EXFORMOBJR_bXformRound_pointl_pointfx",
+      "EXFORMOBJR_bXformRound_umptr_pointl_pointfx",
+      "EXFORMOBJR_bXformRound_vectorl_vectorfx",
+      "EXFORMOBJ_SetFlAccel"
+     ]
+    }
+   }
+  }
+ ],
+ "native": {
+  "ntdll": {
+   "path": "C:\\WINDOWS\\System32\\ntdll.dll",
+   "present": true,
+   "size": 2485568,
+   "machine": 34404,
+   "timestamp": 3463442579,
+   "exports": 2547,
+   "components": {
+    "Rtl": {
+     "count": 1016,
+     "sample": [
+      "RtlAbortRXact",
+      "RtlAbsoluteToSelfRelativeSD",
+      "RtlAcquirePebLock",
+      "RtlAcquirePrivilege"
+     ]
+    },
+    "Nt": {
+     "count": 491,
+     "sample": [
+      "NtAcceptConnectPort",
+      "NtAccessCheck",
+      "NtAccessCheckAndAuditAlarm",
+      "NtAccessCheckByType"
+     ]
+    },
+    "Zw": {
+     "count": 490,
+     "sample": [
+      "ZwAcceptConnectPort",
+      "ZwAccessCheck",
+      "ZwAccessCheckAndAuditAlarm",
+      "ZwAccessCheckByType"
+     ]
+    },
+    "(autre)": {
+     "count": 306,
+     "sample": [
+      "A_SHAFinal",
+      "A_SHAInit",
+      "A_SHAUpdate",
+      "ApiSetGetImplementationHost"
+     ]
+    },
+    "Ldr": {
+     "count": 80,
+     "sample": [
+      "LdrAccessResource",
+      "LdrAddDllDirectory",
+      "LdrAddLoadAsDataTable",
+      "LdrAddRefDll"
+     ]
+    },
+    "Tp": {
+     "count": 65,
+     "sample": [
+      "TpAllocAlpcCompletion",
+      "TpAllocAlpcCompletionEx",
+      "TpAllocCleanupGroup",
+      "TpAllocIoCompletion"
+     ]
+    },
+    "Etw": {
+     "count": 36,
+     "sample": [
+      "EtwCheckCoverage",
+      "EtwCreateTraceInstanceId",
+      "EtwDeliverDataBlock",
+      "EtwEnumerateProcessRegGuids"
+     ]
+    },
+    "Dbg": {
+     "count": 19,
+     "sample": [
+      "DbgBreakPoint",
+      "DbgPrint",
+      "DbgPrintEx",
+      "DbgPrintReturnControlC"
+     ]
+    },
+    "Alpc": {
+     "count": 15,
+     "sample": [
+      "AlpcAdjustCompletionListConcurrencyCount",
+      "AlpcFreeCompletionListMessage",
+      "AlpcGetCompletionListLastMessageInformation",
+      "AlpcGetCompletionListMessageAttributes"
+     ]
+    },
+    "Csr": {
+     "count": 13,
+     "sample": [
+      "CsrAllocateCaptureBuffer",
+      "CsrAllocateMessagePointer",
+      "CsrCaptureMessageBuffer",
+      "CsrCaptureMessageMultiUnicodeStringsInPlace"
+     ]
+    },
+    "Pss": {
+     "count": 8,
+     "sample": [
+      "PssNtCaptureSnapshot",
+      "PssNtDuplicateSnapshot",
+      "PssNtFreeRemoteSnapshot",
+      "PssNtFreeSnapshot"
+     ]
+    },
+    "Ki": {
+     "count": 5,
+     "sample": [
+      "KiRaiseUserExceptionDispatcher",
+      "KiUserApcDispatcher",
+      "KiUserCallbackDispatcher",
+      "KiUserExceptionDispatcher"
+     ]
+    },
+    "Nls": {
+     "count": 3,
+     "sample": [
+      "NlsAnsiCodePage",
+      "NlsMbCodePageTag",
+      "NlsMbOemCodePageTag"
+     ]
+    }
+   }
+  }
+ },
+ "win32": [
+  {
+   "path": "C:\\WINDOWS\\System32\\kernelbase.dll",
+   "present": true,
+   "size": 4258176,
+   "machine": 34404,
+   "timestamp": 1564760747,
+   "exports": 2040,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-apiquery-l1-1-2.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "ntdll.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 2022,
+     "sample": [
+      "AccessCheck",
+      "AccessCheckAndAuditAlarmW",
+      "AccessCheckByType",
+      "AccessCheckByTypeAndAuditAlarmW"
+     ]
+    },
+    "Pss": {
+     "count": 10,
+     "sample": [
+      "PssCaptureSnapshot",
+      "PssDuplicateSnapshot",
+      "PssFreeSnapshot",
+      "PssQuerySnapshot"
+     ]
+    },
+    "Nls": {
+     "count": 8,
+     "sample": [
+      "NlsCheckPolicy",
+      "NlsDispatchAnsiEnumProc",
+      "NlsGetACPFromLocale",
+      "NlsGetCacheUpdateCount"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\kernel32.dll",
+   "present": true,
+   "size": 828616,
+   "machine": 34404,
+   "timestamp": 48136734,
+   "exports": 1700,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-appcompat-l1-1-0.dll",
+    "api-ms-win-core-appcompat-l1-1-1.dll",
+    "api-ms-win-core-comm-l1-1-0.dll",
+    "api-ms-win-core-console-l1-1-0.dll",
+    "api-ms-win-core-console-l1-2-0.dll",
+    "api-ms-win-core-console-l1-2-1.dll",
+    "api-ms-win-core-console-l1-2-2.dll",
+    "api-ms-win-core-console-l2-1-0.dll",
+    "api-ms-win-core-console-l2-2-0.dll",
+    "api-ms-win-core-console-l3-2-0.dll",
+    "api-ms-win-core-datetime-l1-1-0.dll",
+    "api-ms-win-core-datetime-l1-1-1.dll",
+    "api-ms-win-core-datetime-l1-1-2.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-debug-l1-1-1.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-3.dll",
+    "api-ms-win-core-fibers-l1-1-0.dll",
+    "api-ms-win-core-fibers-l2-1-0.dll",
+    "api-ms-win-core-fibers-l2-1-1.dll",
+    "api-ms-win-core-file-l1-1-0.dll",
+    "api-ms-win-core-file-l1-2-0.dll",
+    "api-ms-win-core-file-l1-2-1.dll",
+    "api-ms-win-core-file-l1-2-2.dll",
+    "api-ms-win-core-file-l1-2-3.dll",
+    "api-ms-win-core-file-l1-2-5.dll",
+    "api-ms-win-core-file-l2-1-0.dll",
+    "api-ms-win-core-file-l2-1-1.dll",
+    "api-ms-win-core-file-l2-1-2.dll",
+    "api-ms-win-core-file-l2-1-3.dll",
+    "api-ms-win-core-file-l2-1-4.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-heap-obsolete-l1-1-0.dll",
+    "api-ms-win-core-io-l1-1-0.dll",
+    "api-ms-win-core-io-l1-1-1.dll",
+    "api-ms-win-core-job-l1-1-0.dll",
+    "api-ms-win-core-largeinteger-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-1.dll",
+    "api-ms-win-core-libraryloader-l1-2-2.dll",
+    "api-ms-win-core-libraryloader-l1-2-3.dll",
+    "api-ms-win-core-libraryloader-l2-1-0.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-localization-l2-1-0.dll",
+    "api-ms-win-core-localization-private-l1-1-0.dll",
+    "api-ms-win-core-memory-l1-1-0.dll",
+    "api-ms-win-core-memory-l1-1-1.dll",
+    "api-ms-win-core-memory-l1-1-2.dll",
+    "api-ms-win-core-namedpipe-l1-1-0.dll",
+    "api-ms-win-core-namedpipe-l1-2-1.dll",
+    "api-ms-win-core-namedpipe-l1-2-2.dll",
+    "api-ms-win-core-namespace-l1-1-0.dll",
+    "api-ms-win-core-normalization-l1-1-0.dll",
+    "api-ms-win-core-processenvironment-l1-1-0.dll",
+    "api-ms-win-core-processenvironment-l1-2-0.dll",
+    "api-ms-win-core-processsnapshot-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-processthreads-l1-1-2.dll",
+    "api-ms-win-core-processthreads-l1-1-3.dll",
+    "api-ms-win-core-processtopology-l1-1-0.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-psapi-ansi-l1-1-0.dll",
+    "api-ms-win-core-psapi-l1-1-0.dll",
+    "api-ms-win-core-realtime-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-rtlsupport-l1-1-0.dll",
+    "api-ms-win-core-rtlsupport-l1-2-2.dll",
+    "api-ms-win-core-sidebyside-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-synch-l1-2-1.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-sysinfo-l1-2-0.dll",
+    "api-ms-win-core-sysinfo-l1-2-1.dll",
+    "api-ms-win-core-sysinfo-l1-2-3.dll",
+    "api-ms-win-core-systemtopology-l1-1-0.dll",
+    "api-ms-win-core-systemtopology-l1-1-1.dll",
+    "api-ms-win-core-threadpool-legacy-l1-1-0.dll",
+    "api-ms-win-core-threadpool-private-l1-1-0.dll",
+    "api-ms-win-core-timezone-l1-1-0.dll",
+    "api-ms-win-core-util-l1-1-0.dll",
+    "api-ms-win-core-windowserrorreporting-l1-1-0.dll",
+    "api-ms-win-core-windowserrorreporting-l1-1-1.dll",
+    "api-ms-win-core-windowserrorreporting-l1-1-2.dll",
+    "api-ms-win-core-windowserrorreporting-l1-1-3.dll",
+    "api-ms-win-core-wow64-l1-1-0.dll",
+    "api-ms-win-core-wow64-l1-1-1.dll",
+    "api-ms-win-core-wow64-l1-1-3.dll",
+    "api-ms-win-core-xstate-l2-1-0.dll",
+    "api-ms-win-core-xstate-l2-1-1.dll",
+    "api-ms-win-core-xstate-l2-1-2.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "api-ms-win-security-appcontainer-l1-1-0.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "api-ms-win-security-base-l1-2-0.dll",
+    "kernelbase.dll",
+    "ntdll.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 1663,
+     "sample": [
+      "AcquireSRWLockExclusive",
+      "AcquireSRWLockShared",
+      "ActivateActCtx",
+      "ActivateActCtxWorker"
+     ]
+    },
+    "Rtl": {
+     "count": 19,
+     "sample": [
+      "RtlAddFunctionTable",
+      "RtlCaptureContext",
+      "RtlCaptureStackBackTrace",
+      "RtlCompareMemory"
+     ]
+    },
+    "Pss": {
+     "count": 13,
+     "sample": [
+      "PssCaptureSnapshot",
+      "PssDuplicateSnapshot",
+      "PssFreeSnapshot",
+      "PssQuerySnapshot"
+     ]
+    },
+    "Nls": {
+     "count": 4,
+     "sample": [
+      "NlsCheckPolicy",
+      "NlsGetCacheUpdateCount",
+      "NlsUpdateLocale",
+      "NlsUpdateSystemLocale"
+     ]
+    },
+    "Nt": {
+     "count": 1,
+     "sample": [
+      "NtVdm64CreateProcessInternalW"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\user32.dll",
+   "present": true,
+   "size": 1956632,
+   "machine": 34404,
+   "timestamp": 2131208061,
+   "exports": 1049,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-appinit-l1-1-0.dll",
+    "api-ms-win-core-atoms-l1-1-0.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-2.dll",
+    "api-ms-win-core-file-l1-1-0.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-heap-obsolete-l1-1-0.dll",
+    "api-ms-win-core-kernel32-legacy-l1-1-0.dll",
+    "api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+    "api-ms-win-core-kernel32-private-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-localization-obsolete-l1-2-0.dll",
+    "api-ms-win-core-memory-l1-1-0.dll",
+    "api-ms-win-core-memory-l1-1-3.dll",
+    "api-ms-win-core-privateprofile-l1-1-0.dll",
+    "api-ms-win-core-processenvironment-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-sidebyside-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-string-l2-1-0.dll",
+    "api-ms-win-core-string-obsolete-l1-1-0.dll",
+    "api-ms-win-core-stringansi-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-eventing-classicprovider-l1-1-0.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "api-ms-win-stateseparation-helpers-l1-1-0.dll",
+    "gdi32.dll",
+    "kernelbase.dll",
+    "ntdll.dll",
+    "win32u.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 1048,
+     "sample": [
+      "ActivateKeyboardLayout",
+      "AddClipboardFormatListener",
+      "AddVisualIdentifier",
+      "AdjustWindowRect"
+     ]
+    },
+    "Csr": {
+     "count": 1,
+     "sample": [
+      "CsrBroadcastSystemMessageExW"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\gdi32.dll",
+   "present": true,
+   "size": 217056,
+   "machine": 34404,
+   "timestamp": 3210897513,
+   "exports": 997,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-gdi-internal-uap-l1-1-0.dll",
+    "ntdll.dll",
+    "win32u.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 997,
+     "sample": [
+      "AbortDoc",
+      "AbortPath",
+      "AddFontMemResourceEx",
+      "AddFontResourceA"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\advapi32.dll",
+   "present": true,
+   "size": 770768,
+   "machine": 34404,
+   "timestamp": 3629482167,
+   "exports": 854,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-namedpipe-l1-1-0.dll",
+    "api-ms-win-core-pcw-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-1.dll",
+    "api-ms-win-core-registry-l1-1-2.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-sysinfo-l1-2-0.dll",
+    "api-ms-win-core-timezone-l1-1-0.dll",
+    "api-ms-win-eventing-consumer-l1-1-0.dll",
+    "api-ms-win-eventing-consumer-l1-1-1.dll",
+    "api-ms-win-eventing-controller-l1-1-0.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "api-ms-win-security-audit-l1-1-0.dll",
+    "api-ms-win-security-audit-l1-1-1.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "api-ms-win-security-base-private-l1-1-0.dll",
+    "api-ms-win-service-core-l1-1-0.dll",
+    "api-ms-win-service-core-l1-1-1.dll",
+    "api-ms-win-service-core-l1-1-2.dll",
+    "api-ms-win-service-management-l1-1-0.dll",
+    "api-ms-win-service-management-l2-1-0.dll",
+    "api-ms-win-service-private-l1-1-0.dll",
+    "api-ms-win-service-private-l1-1-2.dll",
+    "api-ms-win-service-private-l1-1-3.dll",
+    "api-ms-win-service-private-l1-1-4.dll",
+    "api-ms-win-service-winsvc-l1-1-0.dll",
+    "kernel32.dll",
+    "kernelbase.dll",
+    "msvcrt.dll",
+    "ntdll.dll",
+    "rpcrt4.dll",
+    "sechost.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 743,
+     "sample": [
+      "A_SHAFinal",
+      "A_SHAInit",
+      "A_SHAUpdate",
+      "AbortSystemShutdownA"
+     ]
+    },
+    "Lsa": {
+     "count": 82,
+     "sample": [
+      "LsaAddAccountRights",
+      "LsaAddPrivilegesToAccount",
+      "LsaClearAuditLog",
+      "LsaClose"
+     ]
+    },
+    "Wmi": {
+     "count": 29,
+     "sample": [
+      "WmiCloseBlock",
+      "WmiDevInstToInstanceNameA",
+      "WmiDevInstToInstanceNameW",
+      "WmiEnumerateGuids"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\combase.dll",
+   "present": true,
+   "size": 3692072,
+   "machine": 34404,
+   "timestamp": 291701934,
+   "exports": 466,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-2.dll",
+    "api-ms-win-core-fibers-l1-1-0.dll",
+    "api-ms-win-core-fibers-l1-1-1.dll",
+    "api-ms-win-core-file-l1-1-0.dll",
+    "api-ms-win-core-file-l2-1-0.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-heap-obsolete-l1-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-memory-l1-1-0.dll",
+    "api-ms-win-core-path-l1-1-0.dll",
+    "api-ms-win-core-privateprofile-l1-1-0.dll",
+    "api-ms-win-core-processenvironment-l1-1-0.dll",
+    "api-ms-win-core-processsnapshot-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-psapi-l1-1-0.dll",
+    "api-ms-win-core-quirks-l1-1-0.dll",
+    "api-ms-win-core-realtime-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-shlwapi-legacy-l1-1-0.dll",
+    "api-ms-win-core-sidebyside-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-string-obsolete-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-synch-l1-2-1.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-sysinfo-l1-2-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-core-timezone-l1-1-0.dll",
+    "api-ms-win-core-util-l1-1-0.dll",
+    "api-ms-win-core-windowserrorreporting-l1-1-0.dll",
+    "api-ms-win-core-wow64-l1-1-1.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "api-ms-win-security-base-l1-2-0.dll",
+    "kernelbase.dll",
+    "ntdll.dll",
+    "rpcrt4.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 466,
+     "sample": [
+      "CLIPFORMAT_UserFree",
+      "CLIPFORMAT_UserFree64",
+      "CLIPFORMAT_UserMarshal",
+      "CLIPFORMAT_UserMarshal64"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\dxgi.dll",
+   "present": true,
+   "size": 1316192,
+   "machine": 34404,
+   "timestamp": 181713337,
+   "exports": 20,
+   "imports": [
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-atoms-l1-1-0.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-2.dll",
+    "api-ms-win-core-file-l1-1-0.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-kernel32-legacy-ansi-l1-1-0.dll",
+    "api-ms-win-core-kernel32-legacy-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-1.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-memory-l1-1-0.dll",
+    "api-ms-win-core-path-l1-1-0.dll",
+    "api-ms-win-core-processenvironment-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-1.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-psapi-l1-1-0.dll",
+    "api-ms-win-core-quirks-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-1.dll",
+    "api-ms-win-core-shlwapi-obsolete-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-string-obsolete-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-synch-l1-2-1.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-core-util-l1-1-0.dll",
+    "api-ms-win-core-version-l1-1-0.dll",
+    "api-ms-win-core-version-l1-1-1.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-power-setting-l1-1-0.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "kernelbase.dll",
+    "msvcp_win.dll",
+    "ntdll.dll",
+    "win32u.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 20,
+     "sample": [
+      "ApplyCompatResolutionQuirking",
+      "CompatString",
+      "CompatValue",
+      "CreateDXGIFactory"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\d3d12.dll",
+   "present": true,
+   "size": 146816,
+   "machine": 34404,
+   "timestamp": 1205098668,
+   "exports": 18,
+   "imports": [
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-file-l1-1-0.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-1.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-psapi-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-rtlsupport-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "msvcp_win.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 18,
+     "sample": [
+      "D3D12CoreCreateLayeredDevice",
+      "D3D12CoreGetLayeredDeviceSize",
+      "D3D12CoreRegisterLayers",
+      "D3D12CreateDevice"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\dwmapi.dll",
+   "present": true,
+   "size": 184000,
+   "machine": 34404,
+   "timestamp": 478840079,
+   "exports": 44,
+   "imports": [
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-2.dll",
+    "api-ms-win-core-errorhandling-l1-1-3.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-heap-l2-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-kernel32-legacy-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-1.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-core-util-l1-1-0.dll",
+    "api-ms-win-core-winrt-error-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "gdi32.dll",
+    "ntdll.dll",
+    "user32.dll",
+    "win32u.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 44,
+     "sample": [
+      "DllCanUnloadNow",
+      "DllGetClassObject",
+      "DwmAttachMilContent",
+      "DwmDefWindowProc"
+     ]
+    }
+   }
+  },
+  {
+   "path": "C:\\WINDOWS\\System32\\dcomp.dll",
+   "present": true,
+   "size": 2233472,
+   "machine": 34404,
+   "timestamp": 33853775,
+   "exports": 19,
+   "imports": [
+    "api-ms-win-appmodel-unlock-l1-1-0.dll",
+    "api-ms-win-core-apiquery-l1-1-0.dll",
+    "api-ms-win-core-com-l1-1-0.dll",
+    "api-ms-win-core-com-l1-1-1.dll",
+    "api-ms-win-core-debug-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-0.dll",
+    "api-ms-win-core-delayload-l1-1-1.dll",
+    "api-ms-win-core-errorhandling-l1-1-0.dll",
+    "api-ms-win-core-errorhandling-l1-1-2.dll",
+    "api-ms-win-core-errorhandling-l1-1-3.dll",
+    "api-ms-win-core-handle-l1-1-0.dll",
+    "api-ms-win-core-heap-l1-1-0.dll",
+    "api-ms-win-core-interlocked-l1-1-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-0.dll",
+    "api-ms-win-core-libraryloader-l1-2-1.dll",
+    "api-ms-win-core-localization-l1-2-0.dll",
+    "api-ms-win-core-memory-l1-1-0.dll",
+    "api-ms-win-core-processthreads-l1-1-0.dll",
+    "api-ms-win-core-profile-l1-1-0.dll",
+    "api-ms-win-core-psapi-l1-1-0.dll",
+    "api-ms-win-core-registry-l1-1-0.dll",
+    "api-ms-win-core-rtlsupport-l1-1-0.dll",
+    "api-ms-win-core-string-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-1-0.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "api-ms-win-core-synch-l1-2-1.dll",
+    "api-ms-win-core-sysinfo-l1-1-0.dll",
+    "api-ms-win-core-sysinfo-l1-2-0.dll",
+    "api-ms-win-core-threadpool-l1-2-0.dll",
+    "api-ms-win-core-util-l1-1-0.dll",
+    "api-ms-win-core-version-l1-1-0.dll",
+    "api-ms-win-core-version-l1-1-1.dll",
+    "api-ms-win-core-winrt-error-l1-1-0.dll",
+    "api-ms-win-core-winrt-error-l1-1-1.dll",
+    "api-ms-win-core-winrt-l1-1-0.dll",
+    "api-ms-win-core-winrt-string-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-eventing-provider-l1-1-0.dll",
+    "api-ms-win-rtcore-ntuser-private-l1-1-0.dll",
+    "api-ms-win-rtcore-ntuser-private-l1-1-11.dll",
+    "api-ms-win-rtcore-ntuser-private-l1-1-7.dll",
+    "api-ms-win-rtcore-ntuser-private-l1-1-9.dll",
+    "api-ms-win-security-base-l1-1-0.dll",
+    "api-ms-win-stateseparation-helpers-l1-1-0.dll",
+    "microsoft.internal.warppal.dll",
+    "msvcp_win.dll",
+    "ntdll.dll",
+    "win32u.dll"
+   ],
+   "components": {
+    "(autre)": {
+     "count": 19,
+     "sample": [
+      "CreatePresentationFactory",
+      "DCompositionAttachMouseDragToHwnd",
+      "DCompositionAttachMouseWheelToHwnd",
+      "DCompositionBoostCompositorClock"
+     ]
+    }
+   }
+  }
+ ],
+ "drivers": [
+  {
+   "order": 0,
+   "name": "ntoskrnl.exe",
+   "path": "\\SystemRoot\\system32\\ntoskrnl.exe",
+   "size": 21340160
+  },
+  {
+   "order": 1,
+   "name": "hal.dll",
+   "path": "\\SystemRoot\\system32\\hal.dll",
+   "size": 24576
+  },
+  {
+   "order": 2,
+   "name": "kd.dll",
+   "path": "\\SystemRoot\\system32\\kd.dll",
+   "size": 45056
+  },
+  {
+   "order": 3,
+   "name": "symcryptk.dll",
+   "path": "\\SystemRoot\\system32\\symcryptk.dll",
+   "size": 53248
+  },
+  {
+   "order": 4,
+   "name": "cng.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\cng.sys",
+   "size": 921600
+  },
+  {
+   "order": 5,
+   "name": "CLFS.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\CLFS.SYS",
+   "size": 573440
+  },
+  {
+   "order": 6,
+   "name": "tm.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\tm.sys",
+   "size": 172032
+  },
+  {
+   "order": 7,
+   "name": "winaccel.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\winaccel.sys",
+   "size": 131072
+  },
+  {
+   "order": 8,
+   "name": "msrpc.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\msrpc.sys",
+   "size": 409600
+  },
+  {
+   "order": 9,
+   "name": "CEA.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\CEA.sys",
+   "size": 102400
+  },
+  {
+   "order": 10,
+   "name": "pdc.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\pdc.sys",
+   "size": 245760
+  },
+  {
+   "order": 11,
+   "name": "PSHED.dll",
+   "path": "\\SystemRoot\\system32\\PSHED.dll",
+   "size": 151552
+  },
+  {
+   "order": 12,
+   "name": "BOOTVID.dll",
+   "path": "\\SystemRoot\\system32\\BOOTVID.dll",
+   "size": 49152
+  },
+  {
+   "order": 13,
+   "name": "FLTMGR.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\FLTMGR.SYS",
+   "size": 598016
+  },
+  {
+   "order": 14,
+   "name": "ksecdd.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ksecdd.sys",
+   "size": 212992
+  },
+  {
+   "order": 15,
+   "name": "clipsp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\clipsp.sys",
+   "size": 1134592
+  },
+  {
+   "order": 16,
+   "name": "cmimcext.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\cmimcext.sys",
+   "size": 73728
+  },
+  {
+   "order": 17,
+   "name": "werkernel.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\werkernel.sys",
+   "size": 90112
+  },
+  {
+   "order": 18,
+   "name": "ntosext.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ntosext.sys",
+   "size": 53248
+  },
+  {
+   "order": 19,
+   "name": "watchdog.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\watchdog.sys",
+   "size": 131072
+  },
+  {
+   "order": 20,
+   "name": "WMILIB.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\WMILIB.SYS",
+   "size": 53248
+  },
+  {
+   "order": 21,
+   "name": "dxgkrnl.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\dxgkrnl.sys",
+   "size": 5365760
+  },
+  {
+   "order": 22,
+   "name": "win32k.sys",
+   "path": "\\SystemRoot\\System32\\win32k.sys",
+   "size": 819200
+  },
+  {
+   "order": 23,
+   "name": "CI.dll",
+   "path": "\\SystemRoot\\system32\\CI.dll",
+   "size": 1155072
+  },
+  {
+   "order": 24,
+   "name": "globmerger.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\globmerger.sys",
+   "size": 122880
+  },
+  {
+   "order": 25,
+   "name": "Wdf01000.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\Wdf01000.sys",
+   "size": 983040
+  },
+  {
+   "order": 26,
+   "name": "WppRecorder.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\WppRecorder.sys",
+   "size": 77824
+  },
+  {
+   "order": 27,
+   "name": "WDFLDR.SYS",
+   "path": "\\SystemRoot\\system32\\drivers\\WDFLDR.SYS",
+   "size": 94208
+  },
+  {
+   "order": 28,
+   "name": "PRM.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\prm.inf_amd64_34a1a22a3aed4d51\\PRM.sys",
+   "size": 61440
+  },
+  {
+   "order": 29,
+   "name": "acpiex.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\acpiex.sys",
+   "size": 172032
+  },
+  {
+   "order": 30,
+   "name": "msseccore.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\msseccore.sys",
+   "size": 45056
+  },
+  {
+   "order": 31,
+   "name": "lxss.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\lxss.sys",
+   "size": 40960
+  },
+  {
+   "order": 32,
+   "name": "LXCORE.SYS",
+   "path": "\\SystemRoot\\system32\\drivers\\LXCORE.SYS",
+   "size": 1101824
+  },
+  {
+   "order": 33,
+   "name": "ACPI.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ACPI.sys",
+   "size": 946176
+  },
+  {
+   "order": 34,
+   "name": "msisadrv.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\msisadrv.sys",
+   "size": 49152
+  },
+  {
+   "order": 35,
+   "name": "pci.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\pci.sys",
+   "size": 749568
+  },
+  {
+   "order": 36,
+   "name": "tpm.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\tpm.sys",
+   "size": 364544
+  },
+  {
+   "order": 37,
+   "name": "amdwps.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\amdwps.sys",
+   "size": 65536
+  },
+  {
+   "order": 38,
+   "name": "WindowsTrustedRT.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\WindowsTrustedRT.sys",
+   "size": 98304
+  },
+  {
+   "order": 39,
+   "name": "intelpep.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\intelpep.inf_amd64_48a96249a79f8b88\\intelpep.sys",
+   "size": 655360
+  },
+  {
+   "order": 40,
+   "name": "WindowsTrustedRTProxy.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\WindowsTrustedRTProxy.sys",
+   "size": 49152
+  },
+  {
+   "order": 41,
+   "name": "IntelPMT.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\intelpmt.inf_amd64_2f4438aeab6a7ee2\\IntelPMT.sys",
+   "size": 81920
+  },
+  {
+   "order": 42,
+   "name": "pcw.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\pcw.sys",
+   "size": 94208
+  },
+  {
+   "order": 43,
+   "name": "vdrvroot.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vdrvroot.sys",
+   "size": 114688
+  },
+  {
+   "order": 44,
+   "name": "partmgr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\partmgr.sys",
+   "size": 217088
+  },
+  {
+   "order": 45,
+   "name": "spaceport.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\spaceport.sys",
+   "size": 1007616
+  },
+  {
+   "order": 46,
+   "name": "volmgr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\volmgr.sys",
+   "size": 122880
+  },
+  {
+   "order": 47,
+   "name": "volmgrx.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\volmgrx.sys",
+   "size": 425984
+  },
+  {
+   "order": 48,
+   "name": "mountmgr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mountmgr.sys",
+   "size": 143360
+  },
+  {
+   "order": 49,
+   "name": "iaStorVD.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\iaStorVD.sys",
+   "size": 2084864
+  },
+  {
+   "order": 50,
+   "name": "storport.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\storport.sys",
+   "size": 2531328
+  },
+  {
+   "order": 51,
+   "name": "WinSetupMon.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\WinSetupMon.sys",
+   "size": 159744
+  },
+  {
+   "order": 52,
+   "name": "fileinfo.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\fileinfo.sys",
+   "size": 126976
+  },
+  {
+   "order": 53,
+   "name": "Wof.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\Wof.sys",
+   "size": 303104
+  },
+  {
+   "order": 54,
+   "name": "WdFilter.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\wd\\WdFilter.sys",
+   "size": 688128
+  },
+  {
+   "order": 55,
+   "name": "Ntfs.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\Ntfs.sys",
+   "size": 3923968
+  },
+  {
+   "order": 56,
+   "name": "Fs_Rec.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\Fs_Rec.sys",
+   "size": 57344
+  },
+  {
+   "order": 57,
+   "name": "ndis.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\ndis.sys",
+   "size": 1822720
+  },
+  {
+   "order": 58,
+   "name": "NETIO.SYS",
+   "path": "\\SystemRoot\\system32\\drivers\\NETIO.SYS",
+   "size": 757760
+  },
+  {
+   "order": 59,
+   "name": "fse.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\fse.sys",
+   "size": 225280
+  },
+  {
+   "order": 60,
+   "name": "fwpkclnt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\fwpkclnt.sys",
+   "size": 565248
+  },
+  {
+   "order": 61,
+   "name": "ksecpkg.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\ksecpkg.sys",
+   "size": 233472
+  },
+  {
+   "order": 62,
+   "name": "Kerb3961Kernel.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\Kerb3961Kernel.sys",
+   "size": 147456
+  },
+  {
+   "order": 63,
+   "name": "tcpip.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\tcpip.sys",
+   "size": 3530752
+  },
+  {
+   "order": 64,
+   "name": "wfplwfs.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\wfplwfs.sys",
+   "size": 237568
+  },
+  {
+   "order": 65,
+   "name": "VmsProxy.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\VmsProxy.sys",
+   "size": 65536
+  },
+  {
+   "order": 66,
+   "name": "VmsProxyHNic.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\VmsProxyHNic.sys",
+   "size": 65536
+  },
+  {
+   "order": 67,
+   "name": "fvevol.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\fvevol.sys",
+   "size": 1085440
+  },
+  {
+   "order": 68,
+   "name": "volume.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\volume.sys",
+   "size": 45056
+  },
+  {
+   "order": 69,
+   "name": "volsnap.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\volsnap.sys",
+   "size": 544768
+  },
+  {
+   "order": 70,
+   "name": "rdyboost.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rdyboost.sys",
+   "size": 262144
+  },
+  {
+   "order": 71,
+   "name": "nvmedisk.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\nvmedisk.sys",
+   "size": 114688
+  },
+  {
+   "order": 72,
+   "name": "mup.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\mup.sys",
+   "size": 172032
+  },
+  {
+   "order": 73,
+   "name": "iorate.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\iorate.sys",
+   "size": 98304
+  },
+  {
+   "order": 74,
+   "name": "disk.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\disk.sys",
+   "size": 139264
+  },
+  {
+   "order": 75,
+   "name": "CLASSPNP.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\CLASSPNP.SYS",
+   "size": 503808
+  },
+  {
+   "order": 76,
+   "name": "cdrom.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\cdrom.sys",
+   "size": 233472
+  },
+  {
+   "order": 77,
+   "name": "filecrypt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\filecrypt.sys",
+   "size": 98304
+  },
+  {
+   "order": 78,
+   "name": "tbs.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\tbs.sys",
+   "size": 69632
+  },
+  {
+   "order": 79,
+   "name": "UCPD.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\UCPD.sys",
+   "size": 217088
+  },
+  {
+   "order": 80,
+   "name": "Null.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\Null.SYS",
+   "size": 53248
+  },
+  {
+   "order": 81,
+   "name": "Beep.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\Beep.SYS",
+   "size": 40960
+  },
+  {
+   "order": 82,
+   "name": "uiomap.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\uiomap.inf_amd64_3f360a0fa8fbd3d2\\uiomap.sys",
+   "size": 69632
+  },
+  {
+   "order": 83,
+   "name": "BasicDisplay.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\basicdisplay.inf_amd64_58c88d688111b195\\BasicDisplay.sys",
+   "size": 102400
+  },
+  {
+   "order": 84,
+   "name": "BasicRender.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\basicrender.inf_amd64_48d846de398396f1\\BasicRender.sys",
+   "size": 77824
+  },
+  {
+   "order": 85,
+   "name": "Npfs.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\Npfs.SYS",
+   "size": 114688
+  },
+  {
+   "order": 86,
+   "name": "Msfs.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\Msfs.SYS",
+   "size": 77824
+  },
+  {
+   "order": 87,
+   "name": "CimFS.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\CimFS.SYS",
+   "size": 376832
+  },
+  {
+   "order": 88,
+   "name": "tdx.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\tdx.sys",
+   "size": 176128
+  },
+  {
+   "order": 89,
+   "name": "TDI.SYS",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\TDI.SYS",
+   "size": 69632
+  },
+  {
+   "order": 90,
+   "name": "netbt.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\netbt.sys",
+   "size": 360448
+  },
+  {
+   "order": 91,
+   "name": "afunix.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\afunix.sys",
+   "size": 90112
+  },
+  {
+   "order": 92,
+   "name": "afd.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\afd.sys",
+   "size": 753664
+  },
+  {
+   "order": 93,
+   "name": "vwififlt.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vwififlt.sys",
+   "size": 122880
+  },
+  {
+   "order": 94,
+   "name": "vfpext.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\vfpext.sys",
+   "size": 1724416
+  },
+  {
+   "order": 95,
+   "name": "pacer.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\pacer.sys",
+   "size": 204800
+  },
+  {
+   "order": 96,
+   "name": "ndiscap.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ndiscap.sys",
+   "size": 98304
+  },
+  {
+   "order": 97,
+   "name": "netbios.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\netbios.sys",
+   "size": 98304
+  },
+  {
+   "order": 98,
+   "name": "Vid.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\Vid.sys",
+   "size": 1056768
+  },
+  {
+   "order": 99,
+   "name": "winhvr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\winhvr.sys",
+   "size": 196608
+  },
+  {
+   "order": 100,
+   "name": "rdbss.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\rdbss.sys",
+   "size": 589824
+  },
+  {
+   "order": 101,
+   "name": "csc.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\csc.sys",
+   "size": 626688
+  },
+  {
+   "order": 102,
+   "name": "ViGEmBus.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ViGEmBus.sys",
+   "size": 262144
+  },
+  {
+   "order": 103,
+   "name": "nsiproxy.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\nsiproxy.sys",
+   "size": 77824
+  },
+  {
+   "order": 104,
+   "name": "npsvctrig.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\npsvctrig.sys",
+   "size": 69632
+  },
+  {
+   "order": 105,
+   "name": "mssmbios.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mssmbios.sys",
+   "size": 73728
+  },
+  {
+   "order": 106,
+   "name": "MsIo64.sys",
+   "path": "\\??\\C:\\Windows\\system32\\drivers\\MsIo64.sys",
+   "size": 28672
+  },
+  {
+   "order": 107,
+   "name": "hvsocketcontrol.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\hvsocketcontrol.sys",
+   "size": 69632
+  },
+  {
+   "order": 108,
+   "name": "hvsocket.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\hvsocket.sys",
+   "size": 180224
+  },
+  {
+   "order": 109,
+   "name": "hvservice.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\hvservice.sys",
+   "size": 90112
+  },
+  {
+   "order": 110,
+   "name": "dfsc.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\dfsc.sys",
+   "size": 200704
+  },
+  {
+   "order": 111,
+   "name": "CtiAIo64.sys",
+   "path": "\\??\\C:\\Windows\\system32\\drivers\\CtiAIo64.sys",
+   "size": 49152
+  },
+  {
+   "order": 112,
+   "name": "bam.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\bam.sys",
+   "size": 114688
+  },
+  {
+   "order": 113,
+   "name": "AsusWmiAcpi.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\asussci2.inf_amd64_01a5341a45b84f7d\\ASUSOptimization\\AsusWmiAcpi.sys",
+   "size": 45056
+  },
+  {
+   "order": 114,
+   "name": "AsIO3.sys",
+   "path": "\\??\\C:\\Windows\\system32\\drivers\\AsIO3.sys",
+   "size": 61440
+  },
+  {
+   "order": 115,
+   "name": "ahcache.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\ahcache.sys",
+   "size": 409600
+  },
+  {
+   "order": 116,
+   "name": "vmbusr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vmbusr.sys",
+   "size": 323584
+  },
+  {
+   "order": 117,
+   "name": "vmbkmclr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vmbkmclr.sys",
+   "size": 212992
+  },
+  {
+   "order": 118,
+   "name": "vmswitch.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vmswitch.sys",
+   "size": 2617344
+  },
+  {
+   "order": 119,
+   "name": "CompositeBus.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\compositebus.inf_amd64_4459e2f9ba09da7a\\CompositeBus.sys",
+   "size": 81920
+  },
+  {
+   "order": 120,
+   "name": "kdnic.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\kdnic.sys",
+   "size": 69632
+  },
+  {
+   "order": 121,
+   "name": "vkrnlintvsp.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\wvkrnlintvsp.inf_amd64_b7c591b6c3e7db05\\vkrnlintvsp.sys",
+   "size": 65536
+  },
+  {
+   "order": 122,
+   "name": "umbus.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\umbus.inf_amd64_493830c8b9c396a2\\umbus.sys",
+   "size": 90112
+  },
+  {
+   "order": 123,
+   "name": "wmiacpi.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\wmiacpi.sys",
+   "size": 57344
+  },
+  {
+   "order": 124,
+   "name": "nvlddmkm.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\nvaki.inf_amd64_dec97c07240f149a\\nvlddmkm.sys",
+   "size": 102842368
+  },
+  {
+   "order": 125,
+   "name": "fastfat.SYS",
+   "path": "\\SystemRoot\\System32\\Drivers\\fastfat.SYS",
+   "size": 438272
+  },
+  {
+   "order": 126,
+   "name": "HDAudBus.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\HDAudBus.sys",
+   "size": 204800
+  },
+  {
+   "order": 127,
+   "name": "portcls.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\portcls.sys",
+   "size": 479232
+  },
+  {
+   "order": 128,
+   "name": "drmk.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\drmk.sys",
+   "size": 131072
+  },
+  {
+   "order": 129,
+   "name": "ks.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ks.sys",
+   "size": 540672
+  },
+  {
+   "order": 130,
+   "name": "gna.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\gna.inf_amd64_04d4eecc5838a558\\gna.sys",
+   "size": 90112
+  },
+  {
+   "order": 131,
+   "name": "USBXHCI.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\USBXHCI.SYS",
+   "size": 782336
+  },
+  {
+   "order": 132,
+   "name": "ucx01000.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\ucx01000.sys",
+   "size": 294912
+  },
+  {
+   "order": 133,
+   "name": "iaLPSS2_I2C_ADL.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\ialpss2_i2c_adl.inf_amd64_e736c048ca307ed2\\iaLPSS2_I2C_ADL.sys",
+   "size": 212992
+  },
+  {
+   "order": 134,
+   "name": "SpbCx.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\SpbCx.sys",
+   "size": 114688
+  },
+  {
+   "order": 135,
+   "name": "TeeDriverW10x64.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\heci.inf_amd64_6467379f0b0f181f\\x64\\TeeDriverW10x64.sys",
+   "size": 319488
+  },
+  {
+   "order": 136,
+   "name": "e2fn.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\e2fn.inf_amd64_5882da94cd163e3f\\e2fn.sys",
+   "size": 1425408
+  },
+  {
+   "order": 137,
+   "name": "netadaptercx.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\netadaptercx.sys",
+   "size": 385024
+  },
+  {
+   "order": 138,
+   "name": "ExecutionContext.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\ExecutionContext.sys",
+   "size": 126976
+  },
+  {
+   "order": 139,
+   "name": "acpitime.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\acpitime.sys",
+   "size": 57344
+  },
+  {
+   "order": 140,
+   "name": "iaLPSS2_GPIO2_ADL.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\ialpss2_gpio2_adl.inf_amd64_302e75596cffa74a\\iaLPSS2_GPIO2_ADL.sys",
+   "size": 139264
+  },
+  {
+   "order": 141,
+   "name": "msgpioclx.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\msgpioclx.sys",
+   "size": 208896
+  },
+  {
+   "order": 142,
+   "name": "intelppm.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\cpu.inf_amd64_6209ce48edcc55e9\\intelppm.sys",
+   "size": 335872
+  },
+  {
+   "order": 143,
+   "name": "acpipagr.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\acpipagr.inf_amd64_891d53dd9f4e613c\\acpipagr.sys",
+   "size": 49152
+  },
+  {
+   "order": 144,
+   "name": "ipf_acpi.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\ipf_acpi.inf_amd64_da83b5c4fe3f9e84\\ipf_acpi.sys",
+   "size": 90112
+  },
+  {
+   "order": 145,
+   "name": "UEFI.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\uefi.inf_amd64_86aed204f16b60c1\\UEFI.sys",
+   "size": 77824
+  },
+  {
+   "order": 146,
+   "name": "vpcivsp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vpcivsp.sys",
+   "size": 266240
+  },
+  {
+   "order": 147,
+   "name": "SteamStreamingSpeakers.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\SteamStreamingSpeakers.sys",
+   "size": 49152
+  },
+  {
+   "order": 148,
+   "name": "ksthunk.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\ksthunk.sys",
+   "size": 77824
+  },
+  {
+   "order": 149,
+   "name": "storvsp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\storvsp.sys",
+   "size": 307200
+  },
+  {
+   "order": 150,
+   "name": "nvvad64v.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\nvvad64v.sys",
+   "size": 61440
+  },
+  {
+   "order": 151,
+   "name": "NdisVirtualBus.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\NdisVirtualBus.sys",
+   "size": 57344
+  },
+  {
+   "order": 152,
+   "name": "swenum.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\swenum.inf_amd64_01332babd06a7b5a\\swenum.sys",
+   "size": 49152
+  },
+  {
+   "order": 153,
+   "name": "logi_joy_bus_enum.x64.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\logi_joy_bus_enum.x64.sys",
+   "size": 49152
+  },
+  {
+   "order": 154,
+   "name": "logi_joy_xlcore.x64.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\logi_joy_xlcore.x64.sys",
+   "size": 81920
+  },
+  {
+   "order": 155,
+   "name": "rdpbus.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rdpbus.sys",
+   "size": 65536
+  },
+  {
+   "order": 156,
+   "name": "igovsd.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\igovsd.sys",
+   "size": 49152
+  },
+  {
+   "order": 157,
+   "name": "vbaudio_cable64_win10.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\vbmmecable64_win10.inf_amd64_dd707570a4bf06fd\\vbaudio_cable64_win10.sys",
+   "size": 139264
+  },
+  {
+   "order": 158,
+   "name": "UsbHub3.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\UsbHub3.sys",
+   "size": 729088
+  },
+  {
+   "order": 159,
+   "name": "USBD.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\USBD.SYS",
+   "size": 65536
+  },
+  {
+   "order": 160,
+   "name": "rhproxy.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rhproxy.sys",
+   "size": 143360
+  },
+  {
+   "order": 161,
+   "name": "nvhda64v.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\nvhda64v.sys",
+   "size": 139264
+  },
+  {
+   "order": 162,
+   "name": "ITEUcmCxClient.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ITEUcmCxClient.sys",
+   "size": 86016
+  },
+  {
+   "order": 163,
+   "name": "UcmCx.sys",
+   "path": "\\SystemRoot\\System32\\Drivers\\UcmCx.sys",
+   "size": 217088
+  },
+  {
+   "order": 164,
+   "name": "win32kbase.sys",
+   "path": "\\SystemRoot\\System32\\win32kbase.sys",
+   "size": 3395584
+  },
+  {
+   "order": 165,
+   "name": "HIDPARSE.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\HIDPARSE.SYS",
+   "size": 106496
+  },
+  {
+   "order": 166,
+   "name": "win32kfull.sys",
+   "path": "\\SystemRoot\\System32\\win32kfull.sys",
+   "size": 4349952
+  },
+  {
+   "order": 167,
+   "name": "win32kbase_rs.sys",
+   "path": "\\SystemRoot\\System32\\win32kbase_rs.sys",
+   "size": 176128
+  },
+  {
+   "order": 168,
+   "name": "vhf.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vhf.sys",
+   "size": 94208
+  },
+  {
+   "order": 169,
+   "name": "logi_lamparray.AMD64.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\logi_lamparray_usb.inf_amd64_0efdf0d8d6ee547b\\logi_lamparray.AMD64.sys",
+   "size": 86016
+  },
+  {
+   "order": 170,
+   "name": "usbccgp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\usbccgp.sys",
+   "size": 208896
+  },
+  {
+   "order": 171,
+   "name": "hidusb.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\hidusb.sys",
+   "size": 81920
+  },
+  {
+   "order": 172,
+   "name": "HIDCLASS.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\HIDCLASS.SYS",
+   "size": 323584
+  },
+  {
+   "order": 173,
+   "name": "kbdhid.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\kbdhid.sys",
+   "size": 86016
+  },
+  {
+   "order": 174,
+   "name": "kbdclass.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\kbdclass.sys",
+   "size": 86016
+  },
+  {
+   "order": 175,
+   "name": "dxgmms2.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\dxgmms2.sys",
+   "size": 1331200
+  },
+  {
+   "order": 176,
+   "name": "WinUSB.SYS",
+   "path": "\\SystemRoot\\System32\\drivers\\WinUSB.SYS",
+   "size": 143360
+  },
+  {
+   "order": 177,
+   "name": "monitor.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\monitor.sys",
+   "size": 135168
+  },
+  {
+   "order": 178,
+   "name": "cdd.dll",
+   "path": "\\SystemRoot\\System32\\cdd.dll",
+   "size": 344064
+  },
+  {
+   "order": 179,
+   "name": "mouhid.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mouhid.sys",
+   "size": 69632
+  },
+  {
+   "order": 180,
+   "name": "mouclass.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mouclass.sys",
+   "size": 86016
+  },
+  {
+   "order": 181,
+   "name": "bfs.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\bfs.sys",
+   "size": 172032
+  },
+  {
+   "order": 182,
+   "name": "luafv.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\luafv.sys",
+   "size": 217088
+  },
+  {
+   "order": 183,
+   "name": "wcifs.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\wcifs.sys",
+   "size": 245760
+  },
+  {
+   "order": 184,
+   "name": "cldflt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\cldflt.sys",
+   "size": 602112
+  },
+  {
+   "order": 185,
+   "name": "prjflt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\prjflt.sys",
+   "size": 335872
+  },
+  {
+   "order": 186,
+   "name": "UnionFS.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\UnionFS.sys",
+   "size": 692224
+  },
+  {
+   "order": 187,
+   "name": "storqosflt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\storqosflt.sys",
+   "size": 110592
+  },
+  {
+   "order": 188,
+   "name": "bindflt.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\bindflt.sys",
+   "size": 192512
+  },
+  {
+   "order": 189,
+   "name": "lltdio.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\lltdio.sys",
+   "size": 106496
+  },
+  {
+   "order": 190,
+   "name": "mslldp.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\mslldp.sys",
+   "size": 110592
+  },
+  {
+   "order": 191,
+   "name": "rspndr.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\rspndr.sys",
+   "size": 122880
+  },
+  {
+   "order": 192,
+   "name": "wanarp.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\wanarp.sys",
+   "size": 131072
+  },
+  {
+   "order": 193,
+   "name": "mpsdrv.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mpsdrv.sys",
+   "size": 118784
+  },
+  {
+   "order": 194,
+   "name": "bowser.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\bowser.sys",
+   "size": 172032
+  },
+  {
+   "order": 195,
+   "name": "mrxsmb.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\mrxsmb.sys",
+   "size": 954368
+  },
+  {
+   "order": 196,
+   "name": "mrxsmb20.sys",
+   "path": "\\SystemRoot\\system32\\DRIVERS\\mrxsmb20.sys",
+   "size": 401408
+  },
+  {
+   "order": 197,
+   "name": "condrv.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\condrv.sys",
+   "size": 86016
+  },
+  {
+   "order": 198,
+   "name": "googledrivefs32452.sys",
+   "path": "\\??\\C:\\Program Files\\Google\\Drive File Stream\\Drivers\\32452\\googledrivefs32452.sys",
+   "size": 413696
+  },
+  {
+   "order": 199,
+   "name": "srvnet.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\srvnet.sys",
+   "size": 409600
+  },
+  {
+   "order": 200,
+   "name": "mmcss.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\mmcss.sys",
+   "size": 90112
+  },
+  {
+   "order": 201,
+   "name": "mqac.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\mqac.sys",
+   "size": 217088
+  },
+  {
+   "order": 202,
+   "name": "Ld9BoxSup.sys",
+   "path": "\\??\\C:\\Program Files\\ldplayer9box\\Ld9BoxSup.sys",
+   "size": 471040
+  },
+  {
+   "order": 203,
+   "name": "Ndu.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\Ndu.sys",
+   "size": 192512
+  },
+  {
+   "order": 204,
+   "name": "peauth.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\peauth.sys",
+   "size": 880640
+  },
+  {
+   "order": 205,
+   "name": "tcpipreg.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\tcpipreg.sys",
+   "size": 90112
+  },
+  {
+   "order": 206,
+   "name": "wtd.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\wtd.sys",
+   "size": 131072
+  },
+  {
+   "order": 207,
+   "name": "HTTP.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\HTTP.sys",
+   "size": 2158592
+  },
+  {
+   "order": 208,
+   "name": "vmbuspipe.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\vmbuspipe.sys",
+   "size": 94208
+  },
+  {
+   "order": 209,
+   "name": "srv2.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\srv2.sys",
+   "size": 1019904
+  },
+  {
+   "order": 210,
+   "name": "vmbusproxy.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\vmbusproxy.sys",
+   "size": 163840
+  },
+  {
+   "order": 211,
+   "name": "p9rdr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\p9rdr.sys",
+   "size": 143360
+  },
+  {
+   "order": 212,
+   "name": "RtUsbA64.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\rtdusbad_asus.inf_amd64_b6dbd3be691fb4fe\\RtUsbA64.sys",
+   "size": 589824
+  },
+  {
+   "order": 213,
+   "name": "ipf_cpu.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_6b07cb792a2205ad\\ipf_cpu.sys",
+   "size": 81920
+  },
+  {
+   "order": 214,
+   "name": "ipf_lf.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\ipf_cpu.inf_amd64_6b07cb792a2205ad\\ipf_lf.sys",
+   "size": 442368
+  },
+  {
+   "order": 215,
+   "name": "WUDFRd.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\WUDFRd.sys",
+   "size": 401408
+  },
+  {
+   "order": 216,
+   "name": "dc1-controller.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\dc1-controller.sys",
+   "size": 98304
+  },
+  {
+   "order": 217,
+   "name": "xboxgip.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\xboxgip.sys",
+   "size": 2121728
+  },
+  {
+   "order": 218,
+   "name": "DevAuthE.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\DevAuthE.sys",
+   "size": 86016
+  },
+  {
+   "order": 219,
+   "name": "mshidkmdf.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\mshidkmdf.sys",
+   "size": 49152
+  },
+  {
+   "order": 220,
+   "name": "rdpdr.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rdpdr.sys",
+   "size": 217088
+  },
+  {
+   "order": 221,
+   "name": "tsusbhub.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\tsusbhub.sys",
+   "size": 167936
+  },
+  {
+   "order": 222,
+   "name": "KslD.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\wd\\KslD.sys",
+   "size": 98304
+  },
+  {
+   "order": 223,
+   "name": "FsDepends.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\FsDepends.sys",
+   "size": 94208
+  },
+  {
+   "order": 224,
+   "name": "vhdmp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\vhdmp.sys",
+   "size": 1089536
+  },
+  {
+   "order": 225,
+   "name": "vhdparser.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\vhdparser.sys",
+   "size": 77824
+  },
+  {
+   "order": 226,
+   "name": "winnat.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\winnat.sys",
+   "size": 315392
+  },
+  {
+   "order": 227,
+   "name": "qwavedrv.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\qwavedrv.sys",
+   "size": 90112
+  },
+  {
+   "order": 228,
+   "name": "xinputhid.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\xinputhid.sys",
+   "size": 131072
+  },
+  {
+   "order": 229,
+   "name": "hidgamepad.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\hidgamepad.inf_amd64_c2c063b5bbe45dc7\\hidgamepad.sys",
+   "size": 73728
+  },
+  {
+   "order": 230,
+   "name": "msquic.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\msquic.sys",
+   "size": 516096
+  },
+  {
+   "order": 231,
+   "name": "usbaudio.sys",
+   "path": "\\SystemRoot\\system32\\drivers\\usbaudio.sys",
+   "size": 290816
+  },
+  {
+   "order": 232,
+   "name": "wireguard.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\wireguard.sys",
+   "size": 638976
+  },
+  {
+   "order": 233,
+   "name": "rassstp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rassstp.sys",
+   "size": 126976
+  },
+  {
+   "order": 234,
+   "name": "NDProxy.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\NDProxy.sys",
+   "size": 131072
+  },
+  {
+   "order": 235,
+   "name": "AgileVpn.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\AgileVpn.sys",
+   "size": 176128
+  },
+  {
+   "order": 236,
+   "name": "rasl2tp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\rasl2tp.sys",
+   "size": 151552
+  },
+  {
+   "order": 237,
+   "name": "raspptp.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\raspptp.sys",
+   "size": 147456
+  },
+  {
+   "order": 238,
+   "name": "raspppoe.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\raspppoe.sys",
+   "size": 118784
+  },
+  {
+   "order": 239,
+   "name": "ndistapi.sys",
+   "path": "\\SystemRoot\\System32\\DRIVERS\\ndistapi.sys",
+   "size": 65536
+  },
+  {
+   "order": 240,
+   "name": "ndiswan.sys",
+   "path": "\\SystemRoot\\System32\\drivers\\ndiswan.sys",
+   "size": 270336
+  },
+  {
+   "order": 241,
+   "name": "xvdd.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\xvdd.inf_amd64_8f15a2927d7ab02d\\xvdd.sys",
+   "size": 1024000
+  },
+  {
+   "order": 242,
+   "name": "gameflt.sys",
+   "path": "\\SystemRoot\\System32\\DriverStore\\FileRepository\\gameflt.inf_amd64_c03f7ce96acee3d6\\gameflt.sys",
+   "size": 151552
+  }
+ ],
+ "objectTypes": [
+  {
+   "name": "File",
+   "index": 42,
+   "objects": 641095
+  },
+  {
+   "name": "Token",
+   "index": 5,
+   "objects": 43392
+  },
+  {
+   "name": "Section",
+   "index": 49,
+   "objects": 35343
+  },
+  {
+   "name": "EtwRegistration",
+   "index": 56,
+   "objects": 26181
+  },
+  {
+   "name": "Event",
+   "index": 21,
+   "objects": 25008
+  },
+  {
+   "name": "Key",
+   "index": 50,
+   "objects": 7845
+  },
+  {
+   "name": "Semaphore",
+   "index": 24,
+   "objects": 6205
+  },
+  {
+   "name": "WaitCompletionPacket",
+   "index": 41,
+   "objects": 5987
+  },
+  {
+   "name": "Thread",
+   "index": 9,
+   "objects": 4514
+  },
+  {
+   "name": "ALPC Port",
+   "index": 48,
+   "objects": 3778
+  },
+  {
+   "name": "IRTimer",
+   "index": 26,
+   "objects": 2078
+  },
+  {
+   "name": "IoCompletion",
+   "index": 40,
+   "objects": 1979
+  },
+  {
+   "name": "Mutant",
+   "index": 22,
+   "objects": 1271
+  },
+  {
+   "name": "Timer",
+   "index": 25,
+   "objects": 977
+  },
+  {
+   "name": "TpWorkerFactory",
+   "index": 35,
+   "objects": 934
+  },
+  {
+   "name": "Device",
+   "index": 38,
+   "objects": 640
+  },
+  {
+   "name": "SymbolicLink",
+   "index": 4,
+   "objects": 525
+  },
+  {
+   "name": "Process",
+   "index": 8,
+   "objects": 389
+  },
+  {
+   "name": "SchedulerSharedData",
+   "index": 17,
+   "objects": 294
+  },
+  {
+   "name": "Driver",
+   "index": 39,
+   "objects": 211
+  },
+  {
+   "name": "Composition",
+   "index": 31,
+   "objects": 196
+  },
+  {
+   "name": "IoCompletionReserve",
+   "index": 12,
+   "objects": 104
+  },
+  {
+   "name": "Directory",
+   "index": 3,
+   "objects": 102
+  },
+  {
+   "name": "Job",
+   "index": 7,
+   "objects": 86
+  },
+  {
+   "name": "Type",
+   "index": 2,
+   "objects": 75
+  },
+  {
+   "name": "PcwObject",
+   "index": 60,
+   "objects": 71
+  },
+  {
+   "name": "DxgkSharedResource",
+   "index": 63,
+   "objects": 61
+  },
+  {
+   "name": "DxgkCompositionObject",
+   "index": 70,
+   "objects": 50
+  },
+  {
+   "name": "Callback",
+   "index": 23,
+   "objects": 40
+  },
+  {
+   "name": "RawInputManager",
+   "index": 32,
+   "objects": 30
+  },
+  {
+   "name": "WmiGuid",
+   "index": 55,
+   "objects": 29
+  },
+  {
+   "name": "CoreMessaging",
+   "index": 33,
+   "objects": 23
+  },
+  {
+   "name": "FilterConnectionPort",
+   "index": 61,
+   "objects": 18
+  },
+  {
+   "name": "TmRm",
+   "index": 46,
+   "objects": 16
+  },
+  {
+   "name": "DxgkSharedSyncObject",
+   "index": 65,
+   "objects": 16
+  },
+  {
+   "name": "PsSiloContextPaged",
+   "index": 18,
+   "objects": 14
+  },
+  {
+   "name": "DmaAdapter",
+   "index": 52,
+   "objects": 13
+  },
+  {
+   "name": "VRegConfigurationContext",
+   "index": 74,
+   "objects": 12
+  },
+  {
+   "name": "Desktop",
+   "index": 30,
+   "objects": 11
+  },
+  {
+   "name": "PowerRequest",
+   "index": 54,
+   "objects": 11
+  },
+  {
+   "name": "EtwConsumer",
+   "index": 58,
+   "objects": 10
+  },
+  {
+   "name": "PsSiloContextNonPaged",
+   "index": 19,
+   "objects": 8
+  },
+  {
+   "name": "TmTm",
+   "index": 44,
+   "objects": 8
+  },
+  {
+   "name": "WindowStation",
+   "index": 29,
+   "objects": 7
+  },
+  {
+   "name": "IoRing",
+   "index": 43,
+   "objects": 6
+  },
+  {
+   "name": "FilterCommunicationPort",
+   "index": 62,
+   "objects": 4
+  },
+  {
+   "name": "DxgkDisplayManagerObject",
+   "index": 67,
+   "objects": 4
+  },
+  {
+   "name": "Session",
+   "index": 6,
+   "objects": 2
+  },
+  {
+   "name": "Partition",
+   "index": 10,
+   "objects": 1
+  },
+  {
+   "name": "CpuPartition",
+   "index": 16,
+   "objects": 1
+  },
+  {
+   "name": "KeyedEvent",
+   "index": 28,
+   "objects": 1
+  },
+  {
+   "name": "UserApcReserve",
+   "index": 11,
+   "objects": 0
+  },
+  {
+   "name": "ActivityReference",
+   "index": 13,
+   "objects": 0
+  },
+  {
+   "name": "ProcessStateChange",
+   "index": 14,
+   "objects": 0
+  },
+  {
+   "name": "ThreadStateChange",
+   "index": 15,
+   "objects": 0
+  },
+  {
+   "name": "DebugObject",
+   "index": 20,
+   "objects": 0
+  },
+  {
+   "name": "Profile",
+   "index": 27,
+   "objects": 0
+  },
+  {
+   "name": "ActivationObject",
+   "index": 34,
+   "objects": 0
+  },
+  {
+   "name": "Adapter",
+   "index": 36,
+   "objects": 0
+  },
+  {
+   "name": "Controller",
+   "index": 37,
+   "objects": 0
+  },
+  {
+   "name": "TmTx",
+   "index": 45,
+   "objects": 0
+  },
+  {
+   "name": "TmEn",
+   "index": 47,
+   "objects": 0
+  },
+  {
+   "name": "RegistryTransaction",
+   "index": 51,
+   "objects": 0
+  },
+  {
+   "name": "EnergyTracker",
+   "index": 53,
+   "objects": 0
+  },
+  {
+   "name": "EtwSessionDemuxEntry",
+   "index": 57,
+   "objects": 0
+  },
+  {
+   "name": "CoverageSampler",
+   "index": 59,
+   "objects": 0
+  },
+  {
+   "name": "DxgkSharedKeyedMutexObject",
+   "index": 64,
+   "objects": 0
+  },
+  {
+   "name": "DxgkSharedSwapChainObject",
+   "index": 66,
+   "objects": 0
+  },
+  {
+   "name": "DxgkSharedProtectedSessionObject",
+   "index": 68,
+   "objects": 0
+  },
+  {
+   "name": "DxgkSharedBundleObject",
+   "index": 69,
+   "objects": 0
+  },
+  {
+   "name": "DxgkDisplayMuxSwitch",
+   "index": 71,
+   "objects": 0
+  },
+  {
+   "name": "NdisCmState",
+   "index": 72,
+   "objects": 0
+  },
+  {
+   "name": "NdisThreadState",
+   "index": 73,
+   "objects": 0
+  },
+  {
+   "name": "CrossVmEvent",
+   "index": 75,
+   "objects": 0
+  },
+  {
+   "name": "CrossVmMutant",
+   "index": 76,
+   "objects": 0
+  }
+ ],
+ "systemProcesses": [
+  {
+   "pid": 4,
+   "ppid": 0,
+   "name": "System",
+   "session": 0,
+   "path": "",
+   "children": 3
+  },
+  {
+   "pid": 336,
+   "ppid": 4,
+   "name": "Secure System",
+   "session": 0,
+   "path": "",
+   "children": 0
+  },
+  {
+   "pid": 396,
+   "ppid": 4,
+   "name": "Registry",
+   "session": 0,
+   "path": "",
+   "children": 0
+  },
+  {
+   "pid": 1172,
+   "ppid": 4,
+   "name": "smss.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\smss.exe",
+   "children": 0
+  },
+  {
+   "pid": 1596,
+   "ppid": 1424,
+   "name": "csrss.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\csrss.exe",
+   "children": 0
+  },
+  {
+   "pid": 1696,
+   "ppid": 1424,
+   "name": "wininit.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\wininit.exe",
+   "children": 4
+  },
+  {
+   "pid": 1704,
+   "ppid": 1688,
+   "name": "csrss.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\csrss.exe",
+   "children": 0
+  },
+  {
+   "pid": 1788,
+   "ppid": 1696,
+   "name": "services.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\services.exe",
+   "children": 113
+  },
+  {
+   "pid": 1820,
+   "ppid": 1688,
+   "name": "winlogon.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\winlogon.exe",
+   "children": 2
+  },
+  {
+   "pid": 1856,
+   "ppid": 1696,
+   "name": "LsaIso.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\LsaIso.exe",
+   "children": 0
+  },
+  {
+   "pid": 1864,
+   "ppid": 1696,
+   "name": "lsass.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\lsass.exe",
+   "children": 0
+  },
+  {
+   "pid": 2012,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 13
+  },
+  {
+   "pid": 2040,
+   "ppid": 1696,
+   "name": "fontdrvhost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\fontdrvhost.exe",
+   "children": 0
+  },
+  {
+   "pid": 1088,
+   "ppid": 1820,
+   "name": "fontdrvhost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\fontdrvhost.exe",
+   "children": 0
+  },
+  {
+   "pid": 1400,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 1384,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2100,
+   "ppid": 1820,
+   "name": "dwm.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\dwm.exe",
+   "children": 0
+  },
+  {
+   "pid": 2304,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2412,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2420,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2432,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2464,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 1
+  },
+  {
+   "pid": 2536,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2544,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2624,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2652,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2768,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2820,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 1
+  },
+  {
+   "pid": 2864,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2976,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 2680,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3156,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3232,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3240,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3272,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3316,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3380,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3428,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3436,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3452,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3572,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3612,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3652,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 2
+  },
+  {
+   "pid": 3724,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3732,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3800,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3864,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3876,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3912,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4000,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4040,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4164,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4376,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 1
+  },
+  {
+   "pid": 4440,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4448,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4480,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 4488,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 5280,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 6048,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8292,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8664,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8732,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 1
+  },
+  {
+   "pid": 8564,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8556,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 9960,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8792,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8388,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 9936,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 9916,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 6100,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 9892,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 10460,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 11568,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 11628,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 11680,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 12004,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 9520,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 12260,
+   "ppid": 7012,
+   "name": "explorer.exe",
+   "session": 1,
+   "path": "C:\\Windows\\explorer.exe",
+   "children": 5
+  },
+  {
+   "pid": 12892,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 14048,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 16980,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 8916,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 10088,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 5020,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3300,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 3360,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 27468,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 37020,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 42636,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 41264,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 14496,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 27144,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 10200,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 1,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 30412,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  },
+  {
+   "pid": 25764,
+   "ppid": 1788,
+   "name": "svchost.exe",
+   "session": 0,
+   "path": "C:\\Windows\\System32\\svchost.exe",
+   "children": 0
+  }
+ ],
+ "counts": {
+  "processors": 24,
+  "processes": 303,
+  "drivers": 243,
+  "objectTypes": 75
+ }
+}

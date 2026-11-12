@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "shell/web"
+    "modules/web"
   ],
   "devDependencies": {
     "@types/bun": "latest",

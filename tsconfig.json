@@ -12,5 +12,5 @@
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["shell/web", "sdk/tools"]
+  "include": ["modules/web", "sdk/tools"]
 }
