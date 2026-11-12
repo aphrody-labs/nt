@@ -115,7 +115,7 @@ export async function desktopSvg(maxDepth = 14) {
 }
 
 if (import.meta.main) {
-  const out = process.argv[2] ?? join(import.meta.dir, "..", "..", "target", "desktop.svg");
+  const out = process.argv[2] ?? join(import.meta.dir, "..", "..", "..", "target", "desktop.svg");
   const { svg, stats } = await desktopSvg();
   await Bun.write(out, svg);
   console.log(JSON.stringify({ out, bytes: svg.length, ...stats }));

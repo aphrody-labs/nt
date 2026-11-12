@@ -28,13 +28,13 @@ jobs:
       - uses: taiki-e/install-action@v2
         with: { tool: just }
       # DXC, Agility SDK et niubash (shell des recettes just) ; niubash est ajouté au PATH des étapes suivantes.
-      - run: bun tools/fetch-tools.ts
+      - run: bun sdk/tools/fetch-tools.ts
       - run: just lint
       - run: just test
       - run: just build
       - run: just app
       - run: just cross
-      - run: bun tools/budgets.ts --json target/budgets-windows.json
+      - run: bun sdk/tools/budgets.ts --json target/budgets-windows.json
       # Fumée D3D12 sur l'adaptateur logiciel du runner (WARP) : pas de GPU, donc pas de mesure de performance.
       - name: d3d12 smoke (WARP)
         continue-on-error: true
@@ -62,12 +62,12 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - uses: taiki-e/install-action@v2
         with: { tool: just }
-      - run: bun tools/fetch-tools.ts
+      - run: bun sdk/tools/fetch-tools.ts
       - run: just lint
       - run: just test
       - run: just wasm ffi web shell
       - run: just cross
-      - run: bun tools/budgets.ts --json target/budgets-linux.json
+      - run: bun sdk/tools/budgets.ts --json target/budgets-linux.json
       - uses: actions/upload-artifact@v7
         with:
           name: nt-linux-x64

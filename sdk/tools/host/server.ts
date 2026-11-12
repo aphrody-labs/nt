@@ -4,14 +4,14 @@
 //   /api/icon?path=  icône réelle d'un PE (.ico)                /api/index/{stats,tree,search} : SQLite (winindex.ts)
 //   /desktop.svg     bureau entier (UI Automation)              /demo, /nt.wasm, /stats : démo wasm et mesures
 // Usage : bun src/host/server.ts   [PORT=8787] [NT_HZ=15]
-import demo from "../web/index.html";
-import app from "../web/nt.html";
+import demo from "../../../shell/web/index.html";
+import app from "../../../shell/web/nt.html";
 import { desktopSvg } from "./desktop-svg.ts";
 import { createSampler, type Slow } from "./ntsys.ts";
 import { iconOf, ntfsVolume, processPath } from "./pe-icon.ts";
 import { DB_PATH, openIndex } from "./winindex.ts";
 
-const root = new URL("../../", import.meta.url);
+const root = new URL("../../../", import.meta.url);
 const wasmPath = new URL("target/wasm32-unknown-unknown/wasm/nt_web.wasm", root);
 const statsPath = new URL("target/web-live-stats.json", root);
 const port = Number(process.env.PORT ?? 8787);

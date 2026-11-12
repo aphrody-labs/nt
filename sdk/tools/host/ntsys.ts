@@ -4,8 +4,8 @@
 // SYSTEM_THREAD_INFORMATION 0x50, RTL_PROCESS_MODULE_INFORMATION 0x128).
 // Trame binaire « rapide » (processeurs, compteurs, processus, threads) + objet « lent » (pilotes, pool, espace de noms).
 import { dlopen, ptr } from "bun:ffi";
-export { FRAME, MAGIC, THREAD_STATE, WAIT_REASON, type Slow } from "../web/ntsys-format.ts";
-import { FRAME, MAGIC, type Slow } from "../web/ntsys-format.ts";
+export { FRAME, MAGIC, THREAD_STATE, WAIT_REASON, type Slow } from "../../../shell/web/ntsys-format.ts";
+import { FRAME, MAGIC, type Slow } from "../../../shell/web/ntsys-format.ts";
 
 const STATUS_INFO_LENGTH_MISMATCH = 0xc0000004 | 0;
 const STATUS_BUFFER_TOO_SMALL = 0xc0000023 | 0;

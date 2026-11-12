@@ -20,7 +20,7 @@
     <NtRustTarget Condition="'$(RuntimeIdentifier)' == 'osx-arm64'">aarch64-apple-darwin</NtRustTarget>
     <NtFfiFile Condition="$(RuntimeIdentifier.StartsWith('win'))">nt_ffi.lib</NtFfiFile>
     <NtFfiFile Condition="!$(RuntimeIdentifier.StartsWith('win'))">libnt_ffi.a</NtFfiFile>
-    <NtFfiLib>$(MSBuildThisFileDirectory)../../../target/$(NtRustTarget)/release/$(NtFfiFile)</NtFfiLib>
+    <NtFfiLib>$(MSBuildThisFileDirectory)../../target/$(NtRustTarget)/release/$(NtFfiFile)</NtFfiLib>
     <!-- Baseline x86-64-v3 = minimum matériel du cahier des charges, x64 seulement. -->
     <IlcInstructionSet Condition="$(RuntimeIdentifier.EndsWith('-x64'))">x86-64-v3</IlcInstructionSet>
   </PropertyGroup>

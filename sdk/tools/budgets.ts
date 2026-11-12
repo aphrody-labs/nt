@@ -2,7 +2,7 @@
 // Usage : bun tools/budgets.ts [--json out.json]   (code 1 si un budget est dépassé ; artefact absent = échec)
 import { join } from "node:path";
 
-const root = join(import.meta.dir, "..");
+const root = join(import.meta.dir, "..", "..");
 const win = process.platform === "win32";
 const rid = `${win ? "win" : process.platform === "darwin" ? "osx" : "linux"}-${process.arch === "arm64" ? "arm64" : "x64"}`;
 const target = process.env.NT_TARGET ?? (win ? `${process.arch === "arm64" ? "aarch64" : "x86_64"}-pc-windows-msvc` : "");

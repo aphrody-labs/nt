@@ -8,9 +8,9 @@ import { appendFile, mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
 import { $ } from "bun";
 
-const root = join(import.meta.dir, "..");
+const root = join(import.meta.dir, "..", "..");
 const win = process.platform === "win32";
-const dir = join(root, "tools", "dxc");
+const dir = join(root, "sdk", "tools", "dxc");
 await mkdir(dir, { recursive: true });
 const extract = async (archive: string, dest: string) => {
   await mkdir(dest, { recursive: true });
@@ -49,7 +49,7 @@ if (win) {
     x64: "bb2e142ec617e91cb48bde8c0fa2b9cce2dc95bfc00857c82cef6a7ad4e12bcc", // SHA256SUMS de la release v1.5.0
     arm64: "f4b0fab55bd2f3e894bd2aea2f2bf8e02b6661d3d67aa15483ed5cc865d49bb3",
   };
-  const nbDir = join(root, "tools", "niubash");
+  const nbDir = join(root, "sdk", "tools", "niubash");
   const bin = join(nbDir, `niubash-v${NIUBASH}-win-${arch}`);
   if (!(await Bun.file(join(bin, "niu.exe")).exists())) {
     await mkdir(nbDir, { recursive: true });

@@ -19,7 +19,7 @@ const ATTR_DIR = 0x10;
 const ATTR_REPARSE = 0x400;
 const utf16 = new TextDecoder("utf-16le");
 
-export const DB_PATH = join(import.meta.dir, "..", "..", "target", "index", "windows.sqlite");
+export const DB_PATH = join(import.meta.dir, "..", "..", "..", "target", "index", "windows.sqlite");
 
 export function openIndex(path = DB_PATH, create = false) {
   if (create) mkdirSync(join(path, ".."), { recursive: true });

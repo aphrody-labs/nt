@@ -37,7 +37,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "ARM64|arm64|aarch64")
 else()
   set(NT_AGILITY_ARCH x64)
 endif()
-set(NT_AGILITY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../tools/dxc/microsoft.direct3d.d3d12/build/native/bin/${NT_AGILITY_ARCH}")
+set(NT_AGILITY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../dxc/microsoft.direct3d.d3d12/build/native/bin/${NT_AGILITY_ARCH}")
 add_custom_command(TARGET nt-gpu-probe POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:nt-gpu-probe>/D3D12"
   COMMAND ${CMAKE_COMMAND} -E copy_if_different "${NT_AGILITY_DIR}/D3D12Core.dll" "$<TARGET_FILE_DIR:nt-gpu-probe>/D3D12/"

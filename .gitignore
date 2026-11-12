@@ -4,8 +4,8 @@
 /docs/ms/data/sites/
 /node_modules/
 /target/
-/tools/dxc/
-/tools/niubash/
+/sdk/tools/dxc/
+/sdk/tools/niubash/
 /vendor/
 bin/
 node_modules/

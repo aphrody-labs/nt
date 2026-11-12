@@ -3,6 +3,7 @@
 // Format : PE/COFF (Learn « PE Format » : répertoire de ressources = entrée de données 2), GRPICONDIR / ICONDIR.
 // Chemins de processus : OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION) + QueryFullProcessImageNameW (kernel32).
 import { dlopen } from "bun:ffi";
+import { parsePe, resourceEntries } from "./pe.ts";
 
 const k32 = dlopen("kernel32.dll", {
   OpenProcess: { args: ["u32", "i32", "u32"], returns: "u64" },
@@ -64,85 +65,54 @@ export function ntfsVolume(letter = (process.env.SystemDrive ?? "C:").slice(0, 1
 
 /** Extrait l'icône (la plus proche de `want` px, profondeur maximale) d'un PE et la renvoie au format .ico. */
 export async function iconOf(path: string, want = 48): Promise<Uint8Array<ArrayBuffer> | null> {
-  let b: DataView;
+  let buf: ArrayBuffer;
   try {
-    b = new DataView(await Bun.file(path).arrayBuffer());
+    buf = await Bun.file(path).arrayBuffer();
   } catch {
     return null;
   }
-  if (b.byteLength < 64 || b.getUint16(0, true) !== 0x5a4d) return null;
-  const pe = b.getUint32(60, true);
-  if (pe + 24 > b.byteLength || b.getUint32(pe, true) !== 0x4550) return null;
-  const nsec = b.getUint16(pe + 6, true);
-  const optSize = b.getUint16(pe + 20, true);
-  const opt = pe + 24;
-  const magic = b.getUint16(opt, true);
-  const dd = opt + (magic === 0x20b ? 112 : 96);
-  const resRva = b.getUint32(dd + 2 * 8, true);
-  if (!resRva) return null;
-  const secs = opt + optSize;
-  const toOff = (rva: number) => {
-    for (let i = 0; i < nsec; i++) {
-      const s = secs + i * 40;
-      const va = b.getUint32(s + 12, true);
-      const size = Math.max(b.getUint32(s + 8, true), b.getUint32(s + 16, true));
-      if (rva >= va && rva < va + size) return rva - va + b.getUint32(s + 20, true);
-    }
-    return -1;
-  };
-  const res = toOff(resRva);
-  if (res < 0) return null;
-  // Entrées d'un IMAGE_RESOURCE_DIRECTORY : [id ou nom, décalage (bit 31 = sous-répertoire)].
-  const entries = (dir: number) => {
-    const n = b.getUint16(dir + 12, true) + b.getUint16(dir + 14, true);
-    return Array.from({ length: n }, (_, i) => ({ id: b.getUint32(dir + 16 + i * 8, true), off: b.getUint32(dir + 20 + i * 8, true) }));
-  };
+  const pe = parsePe(buf);
+  const rd = pe?.dir(2);
+  const res = pe && rd?.rva ? pe.off(rd.rva) : -1;
+  if (!pe || res < 0) return null;
+  const b = pe.view;
   const sub = (off: number) => res + (off & 0x7fffffff);
+  // Descend jusqu'à la première feuille (nom -> langue -> IMAGE_RESOURCE_DATA_ENTRY).
   const leaf = (dirOff: number): { at: number; size: number } | null => {
-    let e = entries(dirOff)[0];
-    let d = dirOff;
-    while (e && e.off & 0x80000000) {
-      d = sub(e.off);
-      e = entries(d)[0];
-    }
+    let e = resourceEntries(pe, dirOff)[0];
+    while (e && e.off & 0x80000000) e = resourceEntries(pe, sub(e.off))[0];
     if (!e) return null;
-    const de = res + e.off;
-    const at = toOff(b.getUint32(de, true));
-    return at < 0 ? null : { at, size: b.getUint32(de + 4, true) };
+    const at = pe.off(b.getUint32(res + e.off, true));
+    return at < 0 ? null : { at, size: b.getUint32(res + e.off + 4, true) };
   };
-  const top = entries(res);
+  const top = resourceEntries(pe, res);
   const grp = top.find((e) => e.id === 14 && e.off & 0x80000000);
   const icons = top.find((e) => e.id === 3 && e.off & 0x80000000);
   if (!grp || !icons) return null;
   const g = leaf(sub(grp.off));
   if (!g || g.at + 6 > b.byteLength) return null;
-  const count = b.getUint16(g.at + 4, true);
   let best = -1;
   let bestScore = -1e9;
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < b.getUint16(g.at + 4, true); i++) {
     const e = g.at + 6 + i * 14;
-    const w = b.getUint8(e) || 256;
-    const bits = b.getUint16(e + 6, true);
-    const score = -Math.abs(w - want) * 4 + bits;
+    const score = -Math.abs((b.getUint8(e) || 256) - want) * 4 + b.getUint16(e + 6, true);
     if (score > bestScore) {
       bestScore = score;
       best = e;
     }
   }
   if (best < 0) return null;
-  const id = b.getUint16(best + 12, true);
-  const iconDir = entries(sub(icons.off)).find((e) => e.id === id);
-  if (!iconDir) return null;
-  const img = leaf(iconDir.off & 0x80000000 ? sub(iconDir.off) : res);
+  const iconDir = resourceEntries(pe, sub(icons.off)).find((e) => e.id === b.getUint16(best + 12, true));
+  const img = iconDir && iconDir.off & 0x80000000 ? leaf(sub(iconDir.off)) : null;
   if (!img || img.at + img.size > b.byteLength) return null;
   const ico = new Uint8Array(22 + img.size);
   const v = new DataView(ico.buffer);
   v.setUint16(2, 1, true);
   v.setUint16(4, 1, true);
-  ico.set(new Uint8Array(b.buffer, best, 8), 6); // largeur, hauteur, couleurs, réservé, plans, bits
+  ico.set(new Uint8Array(buf, best, 8), 6); // largeur, hauteur, couleurs, réservé, plans, bits
   v.setUint32(14, img.size, true);
   v.setUint32(18, 22, true);
-  ico.set(new Uint8Array(b.buffer, img.at, img.size), 22);
+  ico.set(new Uint8Array(buf, img.at, img.size), 22);
   return ico;
 }
 

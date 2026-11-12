@@ -14,9 +14,9 @@ rid := env("NT_RID", rid_os + "-" + rid_arch)
 
 default: test build
 
-# Binaires épinglés pour l'hôte : DXC 1.9.2609 (GitHub) + Agility SDK 1.620.2 (NuGet) dans tools/dxc
+# Binaires épinglés pour l'hôte : DXC 1.9.2609 (GitHub) + Agility SDK 1.620.2 (NuGet) dans sdk/tools/dxc
 tools:
-    bun tools/fetch-tools.ts
+    bun sdk/tools/fetch-tools.ts
 
 build: wasm ffi web native shell probe
 
@@ -46,7 +46,7 @@ ffi:
 [windows]
 native:
     cargo build -p nt-d3d12 --release --target {{ target }} --config .cargo/release-native.toml
-    bun tools/stage-native.ts target/{{ target }}/release {{ rid_arch }}
+    bun sdk/tools/stage-native.ts target/{{ target }}/release {{ rid_arch }}
 
 [unix]
 native:
@@ -54,12 +54,12 @@ native:
 
 # Shell .NET 11 NativeAOT (lie la staticlib nt_ffi du RID)
 shell: ffi
-    dotnet publish src/dotnet/Nt.Shell -c Release -r {{ rid }}
+    dotnet publish shell/dotnet -c Release -r {{ rid }}
 
 # Sonde des capacités D3D12 (C++23, WIL, DirectX-Headers via FetchContent)
 [windows]
 probe:
-    cd src/cpp/nt-gpu-probe && cmake --preset windows && cmake --build --preset windows
+    cd sdk/tools/gpuprobe && cmake --preset windows && cmake --build --preset windows
 
 [unix]
 probe:
@@ -67,22 +67,22 @@ probe:
 
 # Bundle web de production (target/web)
 web: wasm
-    bun build src/web/index.html --outdir target/web --minify
+    bun build shell/web/index.html --outdir target/web --minify
     cp target/wasm32-unknown-unknown/wasm/nt_web.wasm target/web/nt.wasm
 
 # Noyau Windows en 3D (/), vue 2D (/2d), bureau SVG (/desktop.svg), index %SystemRoot% (/api/index), démo (/demo, wasm requis)
 serve:
-    bun src/host/server.ts
+    bun sdk/tools/host/server.ts
 
 # Index complet de %SystemRoot% (FindFirstFileExW + SQLite FTS5 + en-têtes PE) -> target/index/windows.sqlite
 [windows]
 index root="":
-    bun src/host/winindex.ts {{ root }} --pe
+    bun sdk/tools/host/winindex.ts {{ root }} --pe
 
 # Bureau Windows entier vectorisé en SVG (UI Automation) -> target/desktop.svg
 [windows]
 desktop-svg:
-    bun src/host/desktop-svg.ts
+    bun sdk/tools/host/desktop-svg.ts
 
 # Banc natif 4K (hors écran)
 [windows]
@@ -97,4 +97,4 @@ cross:
 # Coque native WinUI 3 (Fluent, Mica, WebView2 -> scène GPU) ; nécessite `just serve` pour les données
 [windows]
 app:
-    dotnet publish src/dotnet/Nt.App -c Release -r {{ rid }}
+    dotnet publish shell/app -c Release -r {{ rid }}

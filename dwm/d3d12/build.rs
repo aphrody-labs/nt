@@ -10,10 +10,10 @@ fn main() {
         return;
     }
     let manifest = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
-    let root = manifest.join("../../..");
+    let root = manifest.join("../..");
     let out = PathBuf::from(env::var("OUT_DIR").unwrap());
     // DXC de l'hôte de compilation (compilation croisée possible depuis Linux).
-    let host_dxc = if cfg!(windows) { root.join("tools/dxc/windows/bin/x64/dxc.exe") } else { root.join("tools/dxc/linux/bin/dxc") };
+    let host_dxc = if cfg!(windows) { root.join("sdk/tools/dxc/windows/bin/x64/dxc.exe") } else { root.join("sdk/tools/dxc/linux/bin/dxc") };
     let dxc = env::var_os("NT_DXC").map_or(host_dxc, PathBuf::from);
     let src = manifest.join("shaders/nt.hlsl");
     for (entry, profile) in [("vs", "vs_6_6"), ("ps", "ps_6_6")] {
