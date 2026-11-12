@@ -70,9 +70,19 @@ web: wasm
     bun build src/web/index.html --outdir target/web --minify
     cp target/wasm32-unknown-unknown/wasm/nt_web.wasm target/web/nt.wasm
 
-# nt in browser (dev) : http://localhost:8787/?res=3840x2160&n=10000[&bench=1200]
-serve: wasm
-    bun src/web/server.ts
+# Noyau Windows en 3D (/), vue 2D (/2d), bureau SVG (/desktop.svg), index %SystemRoot% (/api/index), démo (/demo, wasm requis)
+serve:
+    bun src/host/server.ts
+
+# Index complet de %SystemRoot% (FindFirstFileExW + SQLite FTS5 + en-têtes PE) -> target/index/windows.sqlite
+[windows]
+index root="":
+    bun src/host/winindex.ts {{ root }} --pe
+
+# Bureau Windows entier vectorisé en SVG (UI Automation) -> target/desktop.svg
+[windows]
+desktop-svg:
+    bun src/host/desktop-svg.ts
 
 # Banc natif 4K (hors écran)
 [windows]

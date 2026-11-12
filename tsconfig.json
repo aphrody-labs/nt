@@ -12,5 +12,5 @@
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["src/web", "tools"]
+  "include": ["src/web", "src/host", "tools"]
 }
