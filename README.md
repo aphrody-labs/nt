@@ -18,7 +18,8 @@ sdk/tools/          fetch-tools.ts : DXC 1.9.2609, Agility SDK 1.620.2, niubash 
 sdk/vcpkg/ports/    ports vcpkg aphrody-labs (overlay) : directx-headers 1.620.2, wil
 sdk/rust/           WinUI 3 depuis Rust (windows-reactor, fork windows-rs épinglé)
 .config/            configuration.winget : poste de développement (WinGet Configuration v3, DSC v3)
-docs/               plan/ (architecture), research/ (faits relevés sur le poste)
+docs/               plan/ (architecture), research/ (faits relevés sur le poste), bun/, interop/,
+                    winappsdk/ (index + graphe récursif du Windows App SDK : just winappsdk-graph)
 ```
 
 Le cœur Rust de nt est le monorepo à plat basé sur windows-rs : fork `aphrody-labs/windows-rs`, branches `nt/monorepo` et `nt/wasm`.

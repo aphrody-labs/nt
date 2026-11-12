@@ -74,6 +74,11 @@ bench-interop:
 bun-graph src:
     bun sdk/tools/bun-graph.ts {{ src }} --out docs/bun
 
+# Index et graphe récursif du Windows App SDK (winmd NuGet livrés + IDL, fonctionnalités, specs, tests des dépôts)
+# -> target/index/winappsdk.sqlite, docs/winappsdk/feature-graph.{json,md}
+winappsdk-graph wasdk mux:
+    bun sdk/tools/winappsdk-graph.ts {{ wasdk }} {{ mux }}
+
 # Coque en MSIX projet unique -> target/dotnet/msix/ ; signé si NT_CERT (pfx) et NT_CERT_PASSWORD sont définis
 [windows]
 msix:
